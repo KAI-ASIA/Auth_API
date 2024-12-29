@@ -12,8 +12,7 @@ import org.springframework.web.client.RestTemplate;
 import java.net.URI;
 @Component
 @Slf4j
-public class ApiHelper<T> {
-
+public class CallApiHelper<T> {
 
 
     @Autowired
@@ -28,4 +27,6 @@ public class ApiHelper<T> {
 
         return apiResponse;
     }
+
+
 }
