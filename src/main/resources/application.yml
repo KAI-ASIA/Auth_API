@@ -1,0 +1,38 @@
+server:
+  servlet:
+    contextPath: /DEMO_API
+  port: 8080
+kai:
+  name: Auth_API
+  key: authq51klfoni1ezxl5f2ckpfx248
+  threadName: AUTH_API_NAME
+  pollSize: 100
+  error:
+    code999: "Internal Server Error {0}"
+    code998: "Timeout {0}"
+    code701: "API not exist"
+    code700: "API key not exists"
+    code803: "RequestId not exist"
+    code996: "Error insert request to DB#{0}"
+  api:
+    t24:  http://14.225.254.212:8081
+spring:
+  application:
+    name: KAIASIA_DEMO
+  database:
+    postgres: true
+  postgredatasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://14.225.254.212:5432/KAI_API?currentSchema=auth_api
+    username: auth_api
+    password: auth@kaiasia
+    maximum-pool-size: 50
+    idleTimeout: 120000
+    minimumIdle: 10
+  jpa:
+    show-sql: false
+    open-in-view: false
+
+dbinfo:
+  apiRequest: request_in
+  apiResponse: request_out
