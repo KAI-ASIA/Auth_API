@@ -1,6 +1,6 @@
 server:
   servlet:
-    contextPath: /DEMO_API
+    contextPath: /AUTH_API
   port: 8080
 kai:
   name: Auth_API
@@ -18,7 +18,7 @@ kai:
 
 spring:
   application:
-    name: KAIASIA_DEMO
+    name: AUTH_API
   database:
     postgres: true
   postgredatasource:

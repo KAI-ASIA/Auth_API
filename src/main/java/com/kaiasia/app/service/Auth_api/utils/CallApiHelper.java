@@ -19,7 +19,7 @@ public class CallApiHelper<T> {
     private RestTemplate restTemplate;
 
 
-    public  <T> T call(String url, HttpMethod httpMethod, String body, MultiValueMap<String,String> headers,Class<T> responseType){
+    public <T> T call(String url, HttpMethod httpMethod, String body, MultiValueMap<String,String> headers,Class<T> responseType){
         RequestEntity<String> entity = new RequestEntity<>(body,headers,httpMethod, URI.create(url));
         ResponseEntity<T> response = restTemplate.exchange(entity,responseType);
 
