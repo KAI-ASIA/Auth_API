@@ -35,7 +35,7 @@ public class LoginService {
 
     @KaiMethod(name = "login")
     public ApiResponse process(ApiRequest res) throws JsonProcessingException {
-        String LOCATION = "hello ";
+        String LOCATION = "";
         ApiResponse apiResponse = new ApiResponse();
         ApiBody apiBody = new ApiBody();
 
