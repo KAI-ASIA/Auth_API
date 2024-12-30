@@ -8,6 +8,7 @@ kai:
   threadName: AUTH_API_NAME
   pollSize: 100
   error:
+    code404: "Request lacks valid information"
     code999: "Internal Server Error {0}"
     code998: "Timeout {0}"
     code701: "API not exist"
