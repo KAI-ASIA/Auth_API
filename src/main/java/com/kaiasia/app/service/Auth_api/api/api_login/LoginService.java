@@ -8,18 +8,15 @@ import com.kaiasia.app.register.KaiService;
 import com.kaiasia.app.register.Register;
 import com.kaiasia.app.service.Auth_api.config.ApiConfig;
 import com.kaiasia.app.service.Auth_api.config.ApiProperties;
-import com.kaiasia.app.service.Auth_api.model.Auth0Request;
 import com.kaiasia.app.service.Auth_api.utils.CallApiHelper;
 import com.kaiasia.app.service.Auth_api.utils.ConvertApiHelper;
 import com.kaiasia.app.service.Auth_api.utils.JsonAndObjectUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Objects;
 
 @KaiService
 @Slf4j
@@ -49,15 +46,14 @@ public class LoginService {
         if(enquiry == null){
             err = apiErrorUtils.getError("703");
         }
-        String username = (String)enquiry.get("username");
-        String password = (String)enquiry.get("password");
-        if(username == null || username.trim().isEmpty() ){
-            err = apiErrorUtils.getError("706",new String[]{"#username"});
+        String[] requiredFields = new String[]{"username","password"};
+
+        for(String requiredField : requiredFields){
+            if(!enquiry.containsKey(requiredField) || StringUtils.isEmpty((String) enquiry.get(requiredField))){
+                err = apiErrorUtils.getError("706",new String[]{"#" + requiredField});
+            }
         }
 
-        if(password == null || password.trim().isEmpty()) {
-            err = apiErrorUtils.getError("706",new String[]{"#password"});
-        }
 
 
 
@@ -71,12 +67,13 @@ public class LoginService {
     public ApiResponse process(ApiRequest res) throws JsonProcessingException {
         String LOCATION = "";
         ApiResponse apiResponse = new ApiResponse();
+        apiResponse.setHeader(res.getHeader());
         ApiBody apiBody = new ApiBody();
 
 
         ApiProperties apiProperties = apiConfig.getApi(ApiConfig.t24Utils);
 
-        ApiRequest apiT24Req = convertApiHelper.convertApi(res,apiProperties, ApiConfig.t24Utils,LOCATION);
+        ApiRequest apiT24Req = convertApiHelper.convertApi(res,apiProperties,LOCATION);
         if(apiT24Req == null){
 
             ApiError apiError = apiErrorUtils.getError("702",new String[]{ApiConfig.t24Utils});
@@ -84,16 +81,21 @@ public class LoginService {
         }
 
         String t24apiSTring = jsonAndObjectUtils.objectToJson(apiT24Req);
-        System.out.println(t24apiSTring);
 
-//
-//        ApiResponse apiT24 = new ApiResponse();
-//        apiT24  = callApiHelper.call(apiProperties.getUrl(), HttpMethod.POST,t24apiSTring, ApiResponse.class,null);
-//        System.out.println(apiT24);
-//        LinkedHashMap enquiryResponse  = (LinkedHashMap) apiT24.getBody().get("enquiry");
-//        apiBody.put("enquiry",enquiryResponse);
+        // login bằng api t24
+        ApiResponse apiT24  = callApiHelper.call(apiProperties.getUrl(), HttpMethod.POST,t24apiSTring, ApiResponse.class,null);
+        log.info("Response: " + apiT24);
+
+        // lấy body response từ t24Api trả về response auth_login
+        LinkedHashMap enquiryResponse  = (LinkedHashMap) apiT24.getBody().get("enquiry");
+        apiBody.put("enquiry",enquiryResponse);
+
+
 
         apiResponse.setBody(apiBody);
+
+
+
         return apiResponse;
     }
 
