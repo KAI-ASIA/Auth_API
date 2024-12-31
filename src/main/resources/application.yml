@@ -8,7 +8,6 @@ kai:
   threadName: AUTH_API_NAME
   pollSize: 100
   error:
-    code404: "Request lacks valid information"
     code999: "Internal Server Error {0}"
     code998: "Timeout {0}"
     code701: "API not exist"
@@ -20,6 +19,8 @@ kai:
     code704: "username {0} not exist"
     code705: "password {0} not exactly"
     code706: "MISSING FIELD{0}"
+    code605: "Input OTP is invalid"
+    code404: "Request lacks valid information"
 spring:
   application:
     name: AUTH_API
