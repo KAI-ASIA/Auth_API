@@ -10,7 +10,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Auth_session {
+public class AuthSessionRequest {
     private String username;
     private Date startTime;
     private Date endTime;

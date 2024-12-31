@@ -25,30 +25,35 @@ public class ApiConfig {
     public static String t24Utils = "t24Api";
 
     public ApiProperties getApi(String api_name) {
-        String apiKey = env.getProperty("api."+api_name + ".apiKey");
-        String apiName = env.getProperty("api."+api_name + ".apiName");
-        String url = env.getProperty("api."+api_name + ".url");
-        String timeoutString = env.getProperty("api."+api_name + ".timeout");
+        log.debug("Fetching API configuration for: {}", api_name);
 
-        // Kiểm tra giá trị null trước khi tiếp tục
-        if (apiKey == null || apiName == null || url == null || timeoutString == null) {
+        String apiKey = env.getProperty("api." + api_name + ".apiKey");
+        String apiName = env.getProperty("api." + api_name + ".apiName");
+        String url = env.getProperty("api." + api_name + ".url");
+        String timeoutStr = env.getProperty("api." + api_name + ".timeout");
+        String authenType = env.getProperty("api." + api_name + ".authenType");
+
+        log.debug("Retrieved properties - apiKey: {}, apiName: {}, url: {}, timeout: {}, authenType: {}",
+                apiKey, apiName, url, timeoutStr, authenType);
+
+        if (apiKey == null || apiName == null || url == null || timeoutStr == null || authenType == null) {
             log.error("Missing configuration for API: {}", api_name);
-            return null;
+            throw new IllegalArgumentException("API configuration is incomplete for: " + api_name);
         }
 
-        long timeout;
         try {
-            timeout = Long.parseLong(timeoutString);
+            long timeout = Long.parseLong(timeoutStr);
+            return ApiProperties.builder()
+                    .apiKey(apiKey)
+                    .apiName(apiName)
+                    .url(url)
+                    .timeout(timeout)
+                    .authenType(authenType)
+                    .build();
         } catch (NumberFormatException e) {
             log.error("Invalid timeout value for API: {}", api_name, e);
-            return null;
+            throw new IllegalArgumentException("Invalid timeout value for: " + api_name);
         }
-
-        return ApiProperties.builder()
-                .apiKey(apiKey)
-                .apiName(apiName)
-                .url(url)
-                .timeout(timeout)
-                .build();
     }
+
 }

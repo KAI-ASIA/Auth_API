@@ -13,11 +13,9 @@ import java.util.Date;
 @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Auth0Request {
-    @NotBlank(message = "Username is require")
-    private String username;
-    @NotBlank(message = "password is require")
-    private String password;
 
+    private String username;
+    private String password;
     private String location;
     private Date loginTime;
 

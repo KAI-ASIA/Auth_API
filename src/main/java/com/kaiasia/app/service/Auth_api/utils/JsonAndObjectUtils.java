@@ -16,7 +16,7 @@ public class JsonAndObjectUtils {
      * @return Chuỗi JSON tương ứng với đối tượng.
      * @throws JsonProcessingException Nếu có lỗi trong quá trình chuyển đổi.
      */
-    public static String objectToJson(Object object) throws JsonProcessingException {
+    public  String objectToJson(Object object) throws JsonProcessingException {
         try {
             return objectMapper.writeValueAsString(object);
         } catch (JsonProcessingException e) {
@@ -34,7 +34,7 @@ public class JsonAndObjectUtils {
      * @return Đối tượng của kiểu lớp mục tiêu.
      * @throws JsonProcessingException Nếu có lỗi trong quá trình chuyển đổi.
      */
-    public static <T> T jsonToObject(String json, Class<T> clazz) throws JsonProcessingException {
+    public  <T> T jsonToObject(String json, Class<T> clazz) throws JsonProcessingException {
         try {
             return objectMapper.readValue(json, clazz);
         } catch (JsonProcessingException e) {
@@ -51,7 +51,7 @@ public class JsonAndObjectUtils {
      * @param <T> Kiểu dữ liệu của lớp mục tiêu.
      * @return Đối tượng của kiểu dữ liệu mục tiêu.
      */
-    public static <T> T mapObjectToObject(Object object, Class<T> clazz) {
+    public  <T> T mapObjectToObject(Object object, Class<T> clazz) {
         try {
             return objectMapper.convertValue(object, clazz);
         } catch (IllegalArgumentException e) {
@@ -66,7 +66,7 @@ public class JsonAndObjectUtils {
      * @param json Chuỗi JSON cần kiểm tra.
      * @return True nếu chuỗi JSON hợp lệ, ngược lại false.
      */
-    public static boolean isValidJson(String json) {
+    public  boolean isValidJson(String json) {
         try {
             objectMapper.readTree(json);
             return true;

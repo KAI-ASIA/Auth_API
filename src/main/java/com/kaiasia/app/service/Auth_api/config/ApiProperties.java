@@ -10,9 +10,12 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 public class ApiProperties {
+
+
     private String apiName;
     private String url;
     private long timeout;
     private String apiKey;
+    private String authenType;
 
 }

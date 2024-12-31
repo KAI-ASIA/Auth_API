@@ -47,7 +47,7 @@ public class ProcessService {
         String apiName = this.appConfig.getApiName();
         String apiKey = this.appConfig.getApiKey();
         if (StringUtils.isEmpty(apiReq.getHeader().getApi())) {
-            error = this.apiErrUtils.getError("701");
+                error = this.apiErrUtils.getError("701");
             return error;
         } else {
             if (!apiName.equals(apiReq.getHeader().getApi())) {

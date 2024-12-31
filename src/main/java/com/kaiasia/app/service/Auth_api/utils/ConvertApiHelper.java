@@ -11,12 +11,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.LinkedHashMap;
+
 @Component
 public class ConvertApiHelper {
     private static final Logger log = LoggerFactory.getLogger(ConvertApiHelper.class);
 
-    @Autowired
-    private ApiConfig apiConfig;
+
     /**
      * Chuyển đổi yêu cầu API bằng cách cập nhật header và sao chép body.
      *
@@ -25,7 +26,7 @@ public class ConvertApiHelper {
      * @param LOCATION Vị trí mà quá trình chuyển đổi diễn ra (dùng cho log).
      * @return Một đối tượng ApiRequest mới với header và body đã được cập nhật.
      */
-    public ApiRequest convertApi(ApiRequest req, String apiName, String LOCATION) {
+    public ApiRequest convertApi(ApiRequest req , ApiProperties apiProperties,String apiName, String LOCATION) {
         if (req == null) {
             return null;
         }
@@ -39,7 +40,6 @@ public class ConvertApiHelper {
 
         // Lấy cấu hình API và cập nhật header
         try{
-            ApiProperties apiProperties = apiConfig.getApi(apiName);
             if (apiProperties != null) {
                 log.info("found api {}",apiName);
                 newHeader.setApi(apiProperties.getApiName());
@@ -55,10 +55,16 @@ public class ConvertApiHelper {
             // Sao chép body từ yêu cầu gốc
             newApiReq.setBody(req.getBody());
 
-            log.info("a = " + JsonAndObjectUtils.objectToJson(newApiReq));
+            LinkedHashMap enquiry = (LinkedHashMap) newApiReq.getBody().get("enquiry");
+            enquiry.replace("authenType",apiProperties.getAuthenType());
+
+            newApiReq.getBody().replace("enquiry",enquiry);
+
             return newApiReq;
+
+
         }catch (Exception e) {
-            log.error( apiName +" "+ LOCATION+":"+ e.getMessage());
+            log.error( apiName +" "+ LOCATION+":");
             log.debug("Stack trace:", e);
 
             return null;
