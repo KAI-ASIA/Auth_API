@@ -8,9 +8,15 @@ import com.kaiasia.app.core.utils.GetErrorUtils;
 import com.kaiasia.app.register.KaiMethod;
 import com.kaiasia.app.register.KaiService;
 import com.kaiasia.app.register.Register;
+import com.kaiasia.app.service.Auth_api.utils.ApiHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -51,7 +57,20 @@ public class ConfirmOTPService {
 
     @KaiMethod(name = "confirmOTP")
     public ApiResponse process(ApiRequest req) {
+        HashMap enquiry = (HashMap) req.getBody().get("enquiry");
+        log.info("Body print:");
+        enquiry.forEach((k, v) -> log.info("{}:{}", k, v));
+        ApiHelper<ApiBody> callAPI = new ApiHelper<ApiBody>();
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+        String body = "";
+//        ApiResponse sesionID = callAPI.call("", HttpMethod.POST , httpHeaders, );
+
+
+
         ApiResponse apiResponse = new ApiResponse();
+
+
         ApiBody apiBody = new ApiBody();
         try {
             Map<String, Object> bodyEnq = new HashMap<>();
