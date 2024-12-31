@@ -10,22 +10,24 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
+
 @Component
 @Slf4j
 public class ApiHelper<T> {
-
 
 
     @Autowired
     private RestTemplate restTemplate;
 
 
-    public  <T> T call(String url, HttpMethod httpMethod, String body, MultiValueMap<String,String> headers,Class<T> responseType){
-        RequestEntity<String> entity = new RequestEntity<>(body,headers,httpMethod, URI.create(url));
-        ResponseEntity<T> response = restTemplate.exchange(entity,responseType);
 
+    public <T> T call(String url, HttpMethod httpMethod, String body, MultiValueMap<String, String> headers, Class<T> responseType) {
+        RequestEntity<String> entity = new RequestEntity<>(body, headers, httpMethod, URI.create(url));
+        ResponseEntity<T> response = restTemplate.exchange(entity, responseType);
         T apiResponse = response.getBody();
-
+        System.out.println("call api successfully! " + apiResponse);
         return apiResponse;
     }
+
+
 }
