@@ -1,7 +1,7 @@
 server:
   servlet:
-    contextPath: /DEMO_API
-  port: 8080
+    contextPath: /AUTH_API
+  port: 8087
 kai:
   name: Auth_API
   key: authq51klfoni1ezxl5f2ckpfx248
@@ -15,11 +15,14 @@ kai:
     code700: "API key not exists"
     code803: "RequestId not exist"
     code996: "Error insert request to DB#{0}"
-  api:
-    t24:  http://14.225.254.212:8081
+    code702: "API {0} not exist"
+    code703: "Enquiry not exist"
+    code704: "username {0} not exist"
+    code705: "password {0} not exactly"
+    code706: "MISSING FIELD{0}"
 spring:
   application:
-    name: KAIASIA_DEMO
+    name: AUTH_API
   database:
     postgres: true
   postgredatasource:
@@ -37,3 +40,11 @@ spring:
 dbinfo:
   apiRequest: request_in
   apiResponse: request_out
+
+api:
+  t24Api:
+    apiName: T24UTILS_API
+    url: http://14.225.254.212:8080/T24_UTIL_API/process
+    timeout: 60000
+    apiKey: T24utils51klfoni1ezxl5f2ckpfx248
+    authenType: KAI.API.AUTHEN.GET.LOGIN
