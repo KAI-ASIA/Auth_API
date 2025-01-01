@@ -5,8 +5,7 @@ import com.kaiasia.app.core.dao.PosgrestDAOHelper;
 import com.kaiasia.app.core.model.ApiBody;
 import com.kaiasia.app.core.model.ApiError;
 import com.kaiasia.app.core.model.ApiResponse;
-import com.kaiasia.app.core.utils.GetErrorUtils;
-import com.kaiasia.app.service.Auth_api.dao.IAuthOTPService;
+import com.kaiasia.app.service.Auth_api.dao.IAuthOTPDao;
 import com.kaiasia.app.service.Auth_api.model.Auth3Response;
 import com.kaiasia.app.service.Auth_api.model.OTP;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class AuthOTPService implements IAuthOTPService {
+public class AuthOTPDao implements IAuthOTPDao {
 
     @Autowired
     PosgrestDAOHelper posgrestDAOHelper;
@@ -49,33 +48,8 @@ public class AuthOTPService implements IAuthOTPService {
         posgrestDAOHelper.update(sql,params);
     }
 
-    public boolean checkTimeOut(Timestamp endTime) {
-        Timestamp now = new Timestamp(System.currentTimeMillis());
-        if (endTime.after(now)) {
-            return false;
-        }
-        return true;
-    }
 
-    @Override
-    public ApiResponse takeRespose(Auth3Response response, ApiError error) {
-        ApiResponse apiResponse = new ApiResponse();
-        apiResponse.setError(error);
-        ApiBody apiBody = new ApiBody();
-        apiBody.put("responseCode", response.getResponseCode());
-        apiBody.put("transId", response.getResponseCode());
-        apiResponse.setBody(apiBody);
-        return apiResponse;
-    }
 
-    @Override
-    public ApiResponse takeRespose(Auth3Response response) {
-        ApiResponse apiResponse = new ApiResponse();
-        ApiBody apiBody = new ApiBody();
-        apiBody.put("responseCode", response.getResponseCode());
-        apiBody.put("transId", response.getResponseCode());
-        apiResponse.setBody(apiBody);
-        return apiResponse;
-    }
+
 
 }
