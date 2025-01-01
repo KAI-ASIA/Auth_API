@@ -12,6 +12,7 @@ kai:
     code998: "Timeout {0}"
     code701: "API not exist"
     code700: "API key not exists"
+    code804: "Request lacks valid information"
     code803: "RequestId not exist"
     code996: "Error insert request to DB#{0}"
     code702: "API {0} not exist"
@@ -20,7 +21,6 @@ kai:
     code705: "password {0} not exactly"
     code706: "MISSING FIELD{0}"
     code605: "Input OTP is invalid"
-    code404: "Request lacks valid information"
 spring:
   application:
     name: AUTH_API
