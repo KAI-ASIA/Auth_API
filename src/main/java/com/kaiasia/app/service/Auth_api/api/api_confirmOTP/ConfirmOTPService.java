@@ -1,6 +1,5 @@
 package com.kaiasia.app.service.Auth_api.api.api_confirmOTP;
 
-import com.kaiasia.app.core.model.ApiBody;
 import com.kaiasia.app.core.model.ApiError;
 import com.kaiasia.app.core.model.ApiRequest;
 import com.kaiasia.app.core.model.ApiResponse;
@@ -11,13 +10,9 @@ import com.kaiasia.app.register.Register;
 import com.kaiasia.app.service.Auth_api.dao.IAuthOTPDao;
 import com.kaiasia.app.service.Auth_api.model.Auth3Response;
 import com.kaiasia.app.service.Auth_api.model.OTP;
-import com.kaiasia.app.service.Auth_api.utils.ApiHelper;
-import com.kaiasia.app.service.Auth_api.utils.ServiceUltil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 
 import java.sql.Timestamp;
 import java.util.HashMap;
