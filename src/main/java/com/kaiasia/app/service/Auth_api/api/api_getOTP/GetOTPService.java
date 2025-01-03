@@ -23,6 +23,44 @@ public class GetOTPService {
 
     @KaiMethod(name = "getOTP", type = Register.VALIDATE)
     public ApiError validate(ApiRequest req){
+
+        ApiBody apiBody = req.getBody();
+        Object value = apiBody.get("enquiry");
+        Map<String, Object> enquiry = (Map<String, Object>) apiBody.get("enquiry");
+        if (enquiry == null){
+            return apiErrorUtils.getError("804", new String[]{"Missing enquiry part!"});
+        }
+        String sessionId = (String) enquiry.get("sessionId");
+        String username = (String) enquiry.get("username");
+        String gmail = (String) enquiry.get("gmail");
+        String transTime = (String) enquiry.get("transTime");
+        String transId = (String) enquiry.get("transId");
+        String tempId = (String) enquiry.get("tempId");
+
+        if (sessionId == null || sessionId.trim().isEmpty()){
+            return apiErrorUtils.getError("706", new String[]{"sessionId"});
+        }
+
+        if (username == null || username.trim().isEmpty()){
+            return apiErrorUtils.getError("706", new String[]{"username"});
+        }
+
+        if (gmail == null || gmail.trim().isEmpty()){
+            return apiErrorUtils.getError("706", new String[]{"gmail"});
+        }
+
+        if (transTime == null || transTime.trim().isEmpty()){
+            return apiErrorUtils.getError("706", new String[]{"transTime"});
+        }
+
+        if (transId == null || transId.trim().isEmpty()){
+            return apiErrorUtils.getError("706", new String[]{"transId"});
+        }
+
+        if (tempId == null || tempId.trim().isEmpty()){
+            return apiErrorUtils.getError("706", new String[]{"tempId"});
+        }
+
         return new ApiError(ApiError.OK_CODE, ApiError.OK_DESC);
     }
 
