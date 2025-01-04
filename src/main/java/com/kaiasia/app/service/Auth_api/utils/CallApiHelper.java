@@ -1,21 +1,15 @@
 package com.kaiasia.app.service.Auth_api.utils;
 
-import java.util.Arrays;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
+import com.kaiasia.app.core.job.BaseService;
 import com.kaiasia.app.core.model.ApiError;
 import com.kaiasia.app.core.model.ApiHeader;
 import com.kaiasia.app.core.model.ApiRequest;
 import com.kaiasia.app.core.model.ApiResponse;
-import com.kaiasia.app.core.utils.ApiConstant;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -35,11 +29,9 @@ public class CallApiHelper {
     
     
 	 	
-	 public Map<String, Object> getEnquiry(ApiResponse response){
-	        return (Map<String, Object>) request.getBody().get(ApiConstant.COMMAND.ENQUIRY);
-	 }
+	
 
-	 public <T> ApiResponse commonRest(String location, ApiRequest apiReq, Class<T> classResult) {
+	 public <T> T commonRest(String location, ApiRequest apiReq, Class<T> classResult) {
 	        ApiError apiError = new ApiError();
 	        long a = System.currentTimeMillis();
 	        try {
@@ -53,7 +45,7 @@ public class CallApiHelper {
 	                ModelMapper mapper = new ModelMapper();
 	                return mapper.map(apiError, classResult);
 	            }
-	            Map<String, Object> enquiryMap = getEnquiry(response);
+	            Map<String, Object> enquiryMap = BaseService.getEnquiry(response);
 	            
 	            ModelMapper mapper = new ModelMapper();
 	             

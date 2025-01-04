@@ -1,7 +1,6 @@
 package com.kaiasia.app.service;
 
 import java.util.Date;
-import java.util.LinkedHashMap;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +12,7 @@ import com.kaiasia.app.core.model.ApiBody;
 import com.kaiasia.app.core.model.ApiError;
 import com.kaiasia.app.core.model.ApiRequest;
 import com.kaiasia.app.core.model.ApiResponse;
+import com.kaiasia.app.core.model.T24Request;
 import com.kaiasia.app.core.utils.GetErrorUtils;
 import com.kaiasia.app.register.KaiMethod;
 import com.kaiasia.app.register.KaiService;
@@ -23,7 +23,6 @@ import com.kaiasia.app.service.Auth_api.dao.SessionIdDAO;
 import com.kaiasia.app.service.Auth_api.model.AuthSessionRequest;
 import com.kaiasia.app.service.Auth_api.utils.CallApiHelper;
 import com.kaiasia.app.service.Auth_api.utils.ConvertApiHelper;
-import com.kaiasia.app.service.Auth_api.utils.JsonAndObjectUtils;
 import com.kaiasia.app.service.Auth_api.utils.LoginResult;
 import com.kaiasia.app.service.Auth_api.utils.SessionUtil;
 
@@ -85,6 +84,9 @@ public class LoginService  extends BaseService{
 //        return err;
     }
 
+    
+     
+    
     @KaiMethod(name = "login")
     public ApiResponse process(ApiRequest req) throws Exception {
     	Enquiry enquiry = objectMapper.convertValue(getEnquiry(req), Enquiry.class);
@@ -110,7 +112,17 @@ public class LoginService  extends BaseService{
 
         // login bằng api t24
         
-        LoginResult responseT24  = callApiHelper.commonRest(LOCATION, req, LoginResult.class);
+//        <authenType>login</authenType>
+//        <username>158963500</username>
+//        <password>H65!xfPc1</password>
+
+        T24Request t24Req = new T24Request();
+        t24Req.setAuthenType("login");
+        t24Req.setUsername(enquiry.getUserName());
+        //todo setPasword
+        
+        ApiRequest reqLogin = buildENQUIRY(t24Req, req.getApiHeader());
+        LoginResult responseT24  = callApiHelper.commonRest(LOCATION, reqLogin, LoginResult.class);
         if(!ApiError.OK_CODE.equals(responseT24.getError().getCode()){
         	 apiResponse.setError(responseT24.getError());
              System.out.println(apiResponse);
