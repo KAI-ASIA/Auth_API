@@ -21,7 +21,7 @@
 	</bean>
 	
 	
-	<bean id="callApiHelper" class="com.kaiasia.app.service.Auth_api.utils.CallApiHelper">
+	<bean id="t24UtilClient" class="com.kaiasia.app.service.Auth_api.utils.T24UtilClient">
 		<property name="url" value="${api.t24Api.url}" />
 		<property name="apiName" value="${api.t24Api.apiName}" />
 		<property name="apiKey" value="${api.t24Api.apiKey}"  />

@@ -21,10 +21,10 @@ import com.kaiasia.app.service.Auth_api.config.ApiConfig;
 import com.kaiasia.app.service.Auth_api.config.ApiProperties;
 import com.kaiasia.app.service.Auth_api.dao.SessionIdDAO;
 import com.kaiasia.app.service.Auth_api.model.AuthSessionRequest;
-import com.kaiasia.app.service.Auth_api.utils.CallApiHelper;
 import com.kaiasia.app.service.Auth_api.utils.ConvertApiHelper;
 import com.kaiasia.app.service.Auth_api.utils.LoginResult;
 import com.kaiasia.app.service.Auth_api.utils.SessionUtil;
+import com.kaiasia.app.service.Auth_api.utils.T24UtilClient;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -36,7 +36,7 @@ public class LoginService  extends BaseService{
     private  GetErrorUtils apiErrorUtils;
 
     @Autowired
-    private CallApiHelper  callApiHelper;
+    private T24UtilClient  t24UtilClient;
 
     @Autowired
     private ConvertApiHelper convertApiHelper;
@@ -122,7 +122,7 @@ public class LoginService  extends BaseService{
         //todo setPasword
         
         ApiRequest reqLogin = buildENQUIRY(t24Req, req.getApiHeader());
-        LoginResult responseT24  = callApiHelper.commonRest(LOCATION, reqLogin, LoginResult.class);
+        LoginResult responseT24  = t24UtilClient.callLogin(LOCATION, reqLogin);
         if(!ApiError.OK_CODE.equals(responseT24.getError().getCode()){
         	 apiResponse.setError(responseT24.getError());
              System.out.println(apiResponse);
