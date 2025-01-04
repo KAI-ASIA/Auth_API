@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashMap;
 
+@Component
 public class SessionIdDAO implements IAuthSessionDao{
     @Autowired
     PosgrestDAOHelper posgrestDAOHelper;
