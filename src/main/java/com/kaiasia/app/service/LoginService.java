@@ -117,8 +117,9 @@ public class LoginService  extends BaseService{
 //        <password>H65!xfPc1</password>
 
         T24Request t24Req = new T24Request();
-        t24Req.setAuthenType("login");
+       
         t24Req.setUsername(enquiry.getUserName());
+        t24Req.setPw(enquiry.getPw());
         //todo setPasword
         
         ApiRequest reqLogin = buildENQUIRY(t24Req, req.getApiHeader());
