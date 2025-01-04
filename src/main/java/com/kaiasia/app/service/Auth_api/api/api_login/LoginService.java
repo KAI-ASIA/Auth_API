@@ -8,14 +8,16 @@ import com.kaiasia.app.register.KaiService;
 import com.kaiasia.app.register.Register;
 import com.kaiasia.app.service.Auth_api.config.ApiConfig;
 import com.kaiasia.app.service.Auth_api.config.ApiProperties;
-import com.kaiasia.app.service.Auth_api.utils.CallApiHelper;
-import com.kaiasia.app.service.Auth_api.utils.ConvertApiHelper;
-import com.kaiasia.app.service.Auth_api.utils.JsonAndObjectUtils;
+import com.kaiasia.app.service.Auth_api.dao.SessionIdDAO;
+import com.kaiasia.app.service.Auth_api.model.AuthSessionRequest;
+import com.kaiasia.app.service.Auth_api.utils.*;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.LinkedHashMap;
 
 @KaiService
@@ -33,6 +35,11 @@ public class LoginService {
     @Autowired
     ApiConfig apiConfig;
 
+    @Autowired
+    SessionUtil sessionUtil;
+
+    @Autowired
+    SessionIdDAO sessionIdDAO;
 
     private  JsonAndObjectUtils jsonAndObjectUtils = new JsonAndObjectUtils();
 
@@ -54,18 +61,14 @@ public class LoginService {
             }
         }
 
-
-
-
-
-
-
         return err;
     }
 
     @KaiMethod(name = "login")
     public ApiResponse process(ApiRequest res) throws JsonProcessingException {
         String LOCATION = "";
+        Long a = System.currentTimeMillis();
+
         ApiResponse apiResponse = new ApiResponse();
         apiResponse.setHeader(res.getHeader());
         ApiBody apiBody = new ApiBody();
@@ -85,14 +88,56 @@ public class LoginService {
         // login bằng api t24
         ApiResponse apiT24  = callApiHelper.call(apiProperties.getUrl(), HttpMethod.POST,t24apiSTring, ApiResponse.class,null);
         log.info("Response: " + apiT24);
-
+        if(apiT24Req == null){
+            ApiError apiError = apiErrorUtils.getError("999",new String[]{ApiConfig.t24Utils});
+            apiResponse.setError(apiError);
+            System.out.println(apiResponse);
+            return apiResponse;
+        }
         // lấy body response từ t24Api trả về response auth_login
         LinkedHashMap enquiryResponse  = (LinkedHashMap) apiT24.getBody().get("enquiry");
         apiBody.put("enquiry",enquiryResponse);
 
-
-
         apiResponse.setBody(apiBody);
+
+
+        // tạo sessionId
+       try {
+           String customerId = (String)enquiryResponse.get("customerID");
+           LOCATION = customerId + "#"+a;
+           Date startTime = new Date();
+           Date endTime = new Date(startTime.getTime() + SessionUtil.timeoutSession * 1000);
+           String sessionID = sessionUtil.createCustomerSessionId(customerId);
+           AuthSessionRequest sessionRequest = AuthSessionRequest.builder()
+                   .sessionId(sessionID)
+                   .startTime(startTime)
+                   .endTime(endTime)
+                   .channel(apiResponse.getHeader().getChannel())
+                   .phone((String) enquiryResponse.get("phone"))
+                   .customerId(customerId)
+                   .companyCode((String) enquiryResponse.get("companyCode"))
+                   .location(LOCATION)
+                   .username((String) enquiryResponse.get("username"))
+                   .build();
+
+           int result = sessionIdDAO.insertSessionId(sessionRequest);
+
+           if(result == 0){
+               ApiError apiError = apiErrorUtils.getError("800");
+               apiResponse.setError(apiError);
+               return apiResponse;
+           }
+           log.info("{}{}",LOCATION,"#apiLogin");
+
+
+
+       }catch (Exception e){
+           log.error("{}:{}",LOCATION,e.getMessage());
+
+       }
+
+
+
 
 
 

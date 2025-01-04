@@ -20,6 +20,7 @@ kai:
     code704: "username {0} not exist"
     code705: "password {0} not exactly"
     code706: "MISSING FIELD{0}"
+    code800: "Error create sessionId"
     code605: "Input OTP is invalid"
 spring:
   application:
@@ -49,3 +50,6 @@ api:
     timeout: 60000
     apiKey: VDI0X1VUSUxfQVBJ
     authenType: KAI.API.AUTHEN.GET.LOGIN
+
+sessionTime:
+  valid-duration: 3600 # 3600se
