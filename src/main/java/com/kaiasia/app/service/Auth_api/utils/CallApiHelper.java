@@ -37,6 +37,7 @@ public class CallApiHelper<T> {
             return response.getBody();
         } catch (Exception e) {
             log.error("Error calling API: {}", e.getMessage());
+
             // Trả về null hoặc giá trị mặc định nếu có lỗi
             return null;
         }

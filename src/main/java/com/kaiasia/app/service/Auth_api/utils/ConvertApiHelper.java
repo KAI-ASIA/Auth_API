@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 @Component
@@ -22,53 +23,41 @@ public class ConvertApiHelper {
      * Chuyển đổi yêu cầu API bằng cách cập nhật header và sao chép body.
      *
      * @param req Yêu cầu API gốc cần chuyển đổi.
-     * @param apiName Tên của API để lấy cấu hình.
      * @param LOCATION Vị trí mà quá trình chuyển đổi diễn ra (dùng cho log).
      * @return Một đối tượng ApiRequest mới với header và body đã được cập nhật.
      */
-    public ApiRequest convertApi(ApiRequest req , ApiProperties apiProperties,String apiName, String LOCATION) {
+    public ApiRequest convertApi(ApiRequest req , ApiProperties apiProperties, String LOCATION) {
         if (req == null) {
             return null;
         }
 
 
-        // Tạo một đối tượng API request mới
         ApiRequest newApiReq = new ApiRequest();
+        ApiHeader header = new ApiHeader();
+        header.setReqType("REQUEST");
+        header.setApi(apiProperties.getApiName());
+        header.setApiKey(apiProperties.getApiKey());
+        header.setChannel("API");
+        header.setLocation("PC/IOS");
+        header.setRequestAPI("FE API");
+        header.setRequestNode("node 01");
+        header.setPriority(1);
 
-        // Copy and update the header
-        ApiHeader newHeader = req.getHeader();
+        ApiBody body = new ApiBody();
+        LinkedHashMap<String, String> enquiry = (LinkedHashMap<String, String>)req.getBody().get("enquiry");
+        enquiry.replace("authenType", apiProperties.getAuthenType());
+        body.put("enquiry",enquiry);
+        body.put("command","GET_ENQUIRY");
 
-        // Lấy cấu hình API và cập nhật header
-        try{
-            if (apiProperties != null) {
-                log.info("found api {}",apiName);
-                newHeader.setApi(apiProperties.getApiName());
-                newHeader.setApiKey(apiProperties.getApiKey());
-            } else {
-                log.warn("No configuration found for apiName: {}", apiName);
-                return null;
-            }
-
-            // Đặt header đã cập nhật vào yêu cầu API mới
-            newApiReq.setHeader(newHeader);
-
-            // Sao chép body từ yêu cầu gốc
-            newApiReq.setBody(req.getBody());
-
-            LinkedHashMap enquiry = (LinkedHashMap) newApiReq.getBody().get("enquiry");
-            enquiry.replace("authenType",apiProperties.getAuthenType());
-
-            newApiReq.getBody().replace("enquiry",enquiry);
-
-            return newApiReq;
+        newApiReq.setHeader(header);
+        newApiReq.setBody(body);
 
 
-        }catch (Exception e) {
-            log.error( apiName +" "+ LOCATION+":");
-            log.debug("Stack trace:", e);
 
-            return null;
-        }
+        return newApiReq;
+
+
+
 
 
 

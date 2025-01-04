@@ -8,18 +8,17 @@ import com.kaiasia.app.register.KaiService;
 import com.kaiasia.app.register.Register;
 import com.kaiasia.app.service.Auth_api.config.ApiConfig;
 import com.kaiasia.app.service.Auth_api.config.ApiProperties;
-import com.kaiasia.app.service.Auth_api.model.Auth0Request;
-import com.kaiasia.app.service.Auth_api.utils.CallApiHelper;
-import com.kaiasia.app.service.Auth_api.utils.ConvertApiHelper;
-import com.kaiasia.app.service.Auth_api.utils.JsonAndObjectUtils;
+import com.kaiasia.app.service.Auth_api.dao.SessionIdDAO;
+import com.kaiasia.app.service.Auth_api.model.AuthSessionRequest;
+import com.kaiasia.app.service.Auth_api.utils.*;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 
-import java.util.HashMap;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Objects;
 
 @KaiService
 @Slf4j
@@ -36,6 +35,11 @@ public class LoginService {
     @Autowired
     ApiConfig apiConfig;
 
+    @Autowired
+    SessionUtil sessionUtil;
+
+    @Autowired
+    SessionIdDAO sessionIdDAO;
 
     private  JsonAndObjectUtils jsonAndObjectUtils = new JsonAndObjectUtils();
 
@@ -49,20 +53,13 @@ public class LoginService {
         if(enquiry == null){
             err = apiErrorUtils.getError("703");
         }
-        String username = (String)enquiry.get("username");
-        String password = (String)enquiry.get("password");
-        if(username == null || username.trim().isEmpty() ){
-            err = apiErrorUtils.getError("706",new String[]{"#username"});
+        String[] requiredFields = new String[]{"username","password"};
+
+        for(String requiredField : requiredFields){
+            if(!enquiry.containsKey(requiredField) || StringUtils.isEmpty((String) enquiry.get(requiredField))){
+                err = apiErrorUtils.getError("706",new String[]{"#" + requiredField});
+            }
         }
-
-        if(password == null || password.trim().isEmpty()) {
-            err = apiErrorUtils.getError("706",new String[]{"#password"});
-        }
-
-
-
-
-
 
         return err;
     }
@@ -70,13 +67,16 @@ public class LoginService {
     @KaiMethod(name = "login")
     public ApiResponse process(ApiRequest res) throws JsonProcessingException {
         String LOCATION = "";
+        Long a = System.currentTimeMillis();
+
         ApiResponse apiResponse = new ApiResponse();
+        apiResponse.setHeader(res.getHeader());
         ApiBody apiBody = new ApiBody();
 
 
         ApiProperties apiProperties = apiConfig.getApi(ApiConfig.t24Utils);
 
-        ApiRequest apiT24Req = convertApiHelper.convertApi(res,apiProperties, ApiConfig.t24Utils,LOCATION);
+        ApiRequest apiT24Req = convertApiHelper.convertApi(res,apiProperties,LOCATION);
         if(apiT24Req == null){
 
             ApiError apiError = apiErrorUtils.getError("702",new String[]{ApiConfig.t24Utils});
@@ -84,16 +84,63 @@ public class LoginService {
         }
 
         String t24apiSTring = jsonAndObjectUtils.objectToJson(apiT24Req);
-        System.out.println(t24apiSTring);
 
-//
-//        ApiResponse apiT24 = new ApiResponse();
-//        apiT24  = callApiHelper.call(apiProperties.getUrl(), HttpMethod.POST,t24apiSTring, ApiResponse.class,null);
-//        System.out.println(apiT24);
-//        LinkedHashMap enquiryResponse  = (LinkedHashMap) apiT24.getBody().get("enquiry");
-//        apiBody.put("enquiry",enquiryResponse);
+        // login bằng api t24
+        ApiResponse apiT24  = callApiHelper.call(apiProperties.getUrl(), HttpMethod.POST,t24apiSTring, ApiResponse.class,null);
+        log.info("Response: " + apiT24);
+        if(apiT24Req == null){
+            ApiError apiError = apiErrorUtils.getError("999",new String[]{ApiConfig.t24Utils});
+            apiResponse.setError(apiError);
+            System.out.println(apiResponse);
+            return apiResponse;
+        }
+        // lấy body response từ t24Api trả về response auth_login
+        LinkedHashMap enquiryResponse  = (LinkedHashMap) apiT24.getBody().get("enquiry");
+        apiBody.put("enquiry",enquiryResponse);
 
         apiResponse.setBody(apiBody);
+
+
+        // tạo sessionId
+       try {
+           String customerId = (String)enquiryResponse.get("customerID");
+           LOCATION = customerId + "#"+a;
+           Date startTime = new Date();
+           Date endTime = new Date(startTime.getTime() + SessionUtil.timeoutSession * 1000);
+           String sessionID = sessionUtil.createCustomerSessionId(customerId);
+           AuthSessionRequest sessionRequest = AuthSessionRequest.builder()
+                   .sessionId(sessionID)
+                   .startTime(startTime)
+                   .endTime(endTime)
+                   .channel(apiResponse.getHeader().getChannel())
+                   .phone((String) enquiryResponse.get("phone"))
+                   .customerId(customerId)
+                   .companyCode((String) enquiryResponse.get("companyCode"))
+                   .location(LOCATION)
+                   .username((String) enquiryResponse.get("username"))
+                   .build();
+
+           int result = sessionIdDAO.insertSessionId(sessionRequest);
+
+           if(result == 0){
+               ApiError apiError = apiErrorUtils.getError("800");
+               apiResponse.setError(apiError);
+               return apiResponse;
+           }
+           log.info("{}{}",LOCATION,"#apiLogin");
+
+
+
+       }catch (Exception e){
+           log.error("{}:{}",LOCATION,e.getMessage());
+
+       }
+
+
+
+
+
+
         return apiResponse;
     }
 
