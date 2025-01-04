@@ -19,4 +19,12 @@
 		<property name="apiRequestDao" ref="apiRequestDAO" />
 		<property name="apiResponseDAO" ref="apiResponseDAO" />
 	</bean>
+	
+	
+	<bean id="callApiHelper" class="com.kaiasia.app.service.Auth_api.utils.CallApiHelper">
+		<property name="url" value="${api.t24Api.url}" />
+		<property name="apiName" value="${api.t24Api.apiName}" />
+		<property name="apiKey" value="${api.t24Api.apiKey}"  />
+		<property name="apiTime" value="${api.t24Api.apiTimeout}"  />
+	</bean>
 </beans>

@@ -14,4 +14,9 @@ public class ApiConstant {
         public static final String INTERNAL_SERVER_ERROR = "999";
         public static final String TIMEOUT = "998";
     }
+    
+    public static abstract class COMMAND{
+        public static final String ENQUIRY = "enquiry";
+        public static final String TRANSACTION = "transaction";
+    }
 }

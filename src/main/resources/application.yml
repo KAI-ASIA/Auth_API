@@ -38,6 +38,10 @@ spring:
   jpa:
     show-sql: false
     open-in-view: false
+eureka:
+  client:
+    service-url:
+      defaultZone: http://14.225.254.212:8761/eureka
 
 dbinfo:
   apiRequest: request_in
@@ -46,8 +50,9 @@ dbinfo:
 api:
   t24Api:
     apiName: T24_UTIL_API
-    url: http://14.225.254.212:8080/T24_UTIL_API/process
-    timeout: 60000
+    #url: http://14.225.254.212:8080/T24_UTIL_API/process #gateway
+    url: http://14.225.254.212:8082/T24_UTIL_API/process #api
+    timeout: 60000 #milisecond
     apiKey: VDI0X1VUSUxfQVBJ
     authenType: KAI.API.AUTHEN.GET.LOGIN
 
