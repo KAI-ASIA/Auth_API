@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Component
 public class SessionUtil {
-    @Value("${sessionTime.duration}")
+    @Value("${sessionTime.valid-duration}")
     public static long timeoutSession;
 
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd HHmmss");
