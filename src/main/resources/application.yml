@@ -46,7 +46,7 @@ dbinfo:
 api:
   t24Api:
     apiName: T24_UTIL_API
-    url: http://14.225.254.212:8080/T24_UTIL_API/process
+    url: http://14.225.254.212:8082/T24_UTIL_API/process
     timeout: 60000
     apiKey: VDI0X1VUSUxfQVBJ
     authenType: KAI.API.AUTHEN.GET.LOGIN

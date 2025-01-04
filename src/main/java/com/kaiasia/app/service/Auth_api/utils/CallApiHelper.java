@@ -16,6 +16,8 @@ import java.util.Arrays;
 @Component
 @Slf4j
 public class CallApiHelper<T> {
+    private String url;
+
     @Autowired
     private RestTemplate restTemplate;
 

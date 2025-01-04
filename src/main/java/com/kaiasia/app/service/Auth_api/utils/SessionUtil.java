@@ -6,11 +6,12 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.UUID;
 
 @Component
 public class SessionUtil {
-    @Value("${sessionTime.duration}")
+    @Value("${sessionTime.valid-duration}")
     public static long timeoutSession;
 
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd HHmmss");
@@ -24,14 +25,11 @@ public class SessionUtil {
     }
 
 
-    public  String createEndTime(String startTime) {
+    public  Date createEndTime(Date startTime) {
 
-        LocalDateTime startDateTime = LocalDateTime.parse(startTime, formatter);
-
-
-        LocalDateTime endDateTime = startDateTime.plusSeconds(timeoutSession);
+        Date endTime = new Date(startTime.getTime() + timeoutSession * 1000);
 
 
-        return endDateTime.format(formatter);
+        return endTime;
     }
 }

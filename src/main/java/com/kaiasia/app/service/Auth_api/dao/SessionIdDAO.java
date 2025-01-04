@@ -3,9 +3,11 @@ package com.kaiasia.app.service.Auth_api.dao;
 import com.kaiasia.app.core.dao.PosgrestDAOHelper;
 import com.kaiasia.app.service.Auth_api.model.AuthSessionRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 
+@Component
 public class SessionIdDAO implements IAuthSessionDao{
     @Autowired
     PosgrestDAOHelper posgrestDAOHelper;
