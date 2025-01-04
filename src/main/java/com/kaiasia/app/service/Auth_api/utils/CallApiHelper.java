@@ -1,49 +1,89 @@
 package com.kaiasia.app.service.Auth_api.utils;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.kaiasia.app.core.model.ApiRequest;
-import com.kaiasia.app.core.model.ApiResponse;
-import lombok.extern.slf4j.Slf4j;
+import java.util.Map;
+
+import com.kaiasia.app.core.job.Enquiry;
+import com.kaiasia.app.core.model.*;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
 import org.springframework.stereotype.Component;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestTemplate;
 
-import java.net.URI;
-import java.util.Arrays;
+import com.kaiasia.app.core.job.BaseService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Data
 @Component
 @Slf4j
-public class CallApiHelper<T> {
-    private String url;
+public class CallApiHelper {
+	
+	
+	private String url;
+	private String apiName;
+	private String apiKey;
+	private int apiTimeout;
+	
+	
+	@Autowired
+    private KaiRestTemplate kaiRestTemplate;
+    
+    
+	 	
+	
 
-    @Autowired
-    private RestTemplate restTemplate;
+	 public <T> T commonRest(String location, ApiRequest apiReq, Class<T> classResult) {
+	        ApiError apiError = new ApiError();
+	        long a = System.currentTimeMillis();
+	        try {
+	            ApiHeader headerApi = this.rebuildApiHeader(apiReq.getHeader());
+	            ApiRequest apiReqRebuild = new ApiRequest();
+	            apiReqRebuild.setHeader(headerApi);
 
+	            apiReqRebuild.setBody(apiReq.getBody());
+	            ApiResponse response = kaiRestTemplate.callApi(apiReqRebuild, url, apiTimeout);
+				System.out.println(response);
+	            if (response != null && response.getError() != null) {
+	                apiError = response.getError();
+	                ModelMapper mapper = new ModelMapper();
+	                return mapper.map(apiError, classResult);
+	            }
+	            Map<String, Object> enquiryMap = BaseService.getEnquiry(response);
+	            System.out.println(enquiryMap);
+	            ModelMapper mapper = new ModelMapper();
+	             
+	            return mapper.map(enquiryMap, classResult);
+	        } catch (Exception eis) {
+	            apiError.setCode("TIMEOUT");
+	            apiError.setDesc(eis.toString());
+	            ModelMapper mapper = new ModelMapper();
+	            return mapper.map(apiError, classResult);
+	        }
+	    }
+	
 
-    private static final JsonAndObjectUtils jsonAndObjectUtils = new JsonAndObjectUtils();
-    public <T> T call(String url, HttpMethod httpMethod, String body, Class<T> responseType, HttpHeaders customHeaders) {
-        try {
-            log.info("Calling API - URL: {}, Method: {}, Body: {}", url, httpMethod, body);
+    
 
-            if (customHeaders == null) {
-                customHeaders = new HttpHeaders();
-            }
-            customHeaders.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-            ApiRequest apiRequest = jsonAndObjectUtils.jsonToObject(body, ApiRequest.class);
-            HttpEntity<ApiRequest> entity = new HttpEntity<>(apiRequest, customHeaders);
-
-            ResponseEntity<T> response = restTemplate.exchange(url, httpMethod, entity, responseType);
-            log.info("Response: {}", response);
-            return response.getBody();
-        } catch (Exception e) {
-            log.error("Error calling API: {}", e.getMessage());
-
-            // Trả về null hoặc giá trị mặc định nếu có lỗi
-            return null;
-        }
+    private ApiHeader rebuildApiHeader(ApiHeader apiHeader){
+        ApiHeader headerApi = new ApiHeader();
+        headerApi.setChannel(apiHeader.getChannel());
+        headerApi.setContext(apiHeader.getContext());
+        headerApi.setLocation(apiHeader.getLocation());
+        headerApi.setRequestNode(apiHeader.getRequestNode());
+        headerApi.setReqType("REQUEST");
+		headerApi.setPriority(apiHeader.getPriority());
+        headerApi.setDuration(apiHeader.getDuration());
+        headerApi.setRequestAPI(apiHeader.getRequestAPI());
+        headerApi.setSynasyn("true");
+        headerApi.setApi(apiName);
+        headerApi.setApiKey(apiKey);
+        return headerApi;
     }
+	
+	
+
 }
 
 

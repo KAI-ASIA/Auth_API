@@ -30,7 +30,7 @@ public class ServiceRegister {
 
     @PostConstruct
     private void init() {
-        Set<Class<?>> classesService = new org.reflections.Reflections("com.kaiasia.app").getTypesAnnotatedWith(KaiService.class);
+        Set<Class<?>> classesService = new org.reflections.Reflections("com.kaiasia.app.service").getTypesAnnotatedWith(KaiService.class);
         logger.debug("Found {} classes with annotation SeabService", classesService.size());
 
         for (Class<?> service : classesService) {
