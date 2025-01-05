@@ -1,6 +1,5 @@
-package com.kaiasia.app.service;
+package com.kaiasia.app.service.Auth_api.api.login;
 
-import java.util.Date;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
@@ -9,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kaiasia.app.core.job.BaseService;
 import com.kaiasia.app.core.job.Enquiry;
-import com.kaiasia.app.core.model.ApiBody;
 import com.kaiasia.app.core.model.ApiError;
 import com.kaiasia.app.core.model.ApiRequest;
 import com.kaiasia.app.core.model.ApiResponse;
@@ -19,9 +17,7 @@ import com.kaiasia.app.register.KaiMethod;
 import com.kaiasia.app.register.KaiService;
 import com.kaiasia.app.register.Register;
 import com.kaiasia.app.service.Auth_api.config.ApiConfig;
-import com.kaiasia.app.service.Auth_api.config.ApiProperties;
 import com.kaiasia.app.service.Auth_api.dao.SessionIdDAO;
-import com.kaiasia.app.service.Auth_api.model.AuthSessionRequest;
 import com.kaiasia.app.service.Auth_api.utils.ConvertApiHelper;
 import com.kaiasia.app.service.Auth_api.utils.LoginResult;
 import com.kaiasia.app.service.Auth_api.utils.SessionUtil;
