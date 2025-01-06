@@ -1,4 +1,4 @@
-package com.kaiasia.app.core;
+package com.kaiasia.app;
 
 import com.kaiasia.app.core.async.IProcess;
 import com.kaiasia.app.register.Register;

@@ -3,11 +3,14 @@ package com.kaiasia.app.service.Auth_api.utils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 
 @Slf4j
 public class JsonAndObjectUtils {
 
-    private static final ObjectMapper objectMapper = new ObjectMapper();
+    private  ObjectMapper objectMapper = new ObjectMapper();
 
     /**
      * Chuyển đổi đối tượng thành chuỗi JSON.
@@ -16,14 +19,14 @@ public class JsonAndObjectUtils {
      * @return Chuỗi JSON tương ứng với đối tượng.
      * @throws JsonProcessingException Nếu có lỗi trong quá trình chuyển đổi.
      */
-    public  String objectToJson(Object object) throws JsonProcessingException {
-        try {
-            return objectMapper.writeValueAsString(object);
-        } catch (JsonProcessingException e) {
-            log.error("Lỗi khi chuyển đối tượng thành JSON: {}", object, e);
-            throw e; // Ném lại ngoại lệ để các lớp sử dụng biết và xử lý
+        public  String objectToJson(Object object) throws JsonProcessingException {
+            try {
+                return objectMapper.writeValueAsString(object);
+            } catch (JsonProcessingException e) {
+                log.error("Lỗi khi chuyển đối tượng thành JSON: {}", object, e);
+                throw e; // Ném lại ngoại lệ để các lớp sử dụng biết và xử lý
+            }
         }
-    }
 
     /**
      * Chuyển đổi chuỗi JSON thành đối tượng.
