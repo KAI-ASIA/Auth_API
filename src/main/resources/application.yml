@@ -37,11 +37,6 @@ spring:
   jpa:
     show-sql: false
     open-in-view: false
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: kaiasiatest@gmail.com
-    password: test@kaiasia
 
 dbinfo:
   apiRequest: request_in
