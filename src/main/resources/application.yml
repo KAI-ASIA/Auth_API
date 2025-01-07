@@ -29,9 +29,12 @@ spring:
     postgres: true
   postgredatasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://14.225.254.212:5432/KAI_API?currentSchema=auth_api
-    username: auth_api
-    password: auth@kaiasia
+#    url: jdbc:postgresql://14.225.254.212:5432/KAI_API?currentSchema=auth_api
+#    username: auth_api
+#    password: auth@kaiasia
+    url: jdbc:postgresql://localhost:5432/KAI?currentSchema=authen_api
+    username: postgres
+    password: Vietloc2909
     maximum-pool-size: 50
     idleTimeout: 120000
     minimumIdle: 10
@@ -47,13 +50,13 @@ dbinfo:
   apiRequest: request_in
   apiResponse: request_out
 
-api:
-  t24Api:
+dep-api:
+  t24utilsApi:
     apiName: T24_UTIL_API
-    url: http://14.225.254.212:8082/T24_UTIL_API/process #api
+#    url: http://14.225.254.212:8082/T24_UTIL_API/process #api
+    url: http://localhost:8082/T24_UTIL_API/process #api
     timeout: 60000 #milisecond
     apiKey: VDI0X1VUSUxfQVBJ
-    authenType: KAI.API.AUTHEN.GET.LOGIN
 
 sessionTime:
   valid-duration: 3600 # 3600se
