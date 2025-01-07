@@ -42,7 +42,7 @@ public class ProcessThread {
         }
 
         ApiResponse res = null;
-
+        System.out.println("ApiRequestBean :" + apiReq);
         long b = System.currentTimeMillis();
         int checkTimeInQueue = this.processService.checkReqTimeInQueue(apiRequestBean);
         this.logger.info("checkTimeInQueue: " + (System.currentTimeMillis() - b));
@@ -56,6 +56,8 @@ public class ProcessThread {
             res.setError(err);
         } else {
             res = this.process.process(apiReq);
+
+            logger.info("RESPONSE :" + res );
             if (apiRequestBean.getTimeout() > 0L && System.currentTimeMillis() - apiRequestBean.getReceiveTime().getTime() >= apiRequestBean.getTimeout() * 1000L) {
                 res.setHeader(apiReq.getHeader());
                 ApiError err = this.apiErrUtils.getTimeoutErr();
@@ -70,7 +72,7 @@ public class ProcessThread {
         long duration = System.currentTimeMillis() - apiRequestBean.getReceiveTime().getTime();
         res.getHeader().setDuration(duration);
         res.getHeader().setReqType("RESPONSE");
-
+        logger.info("RESPONSE :" + res );
         try {
             long e = System.currentTimeMillis();
             this.processService.updateResAfterProcessed(apiRequestBean, res);

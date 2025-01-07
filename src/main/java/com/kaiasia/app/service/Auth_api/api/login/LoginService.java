@@ -2,23 +2,18 @@ package com.kaiasia.app.service.Auth_api.api.login;
 
 import java.util.Map;
 
+import com.kaiasia.app.core.model.*;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kaiasia.app.core.job.BaseService;
 import com.kaiasia.app.core.job.Enquiry;
-import com.kaiasia.app.core.model.ApiError;
-import com.kaiasia.app.core.model.ApiRequest;
-import com.kaiasia.app.core.model.ApiResponse;
-import com.kaiasia.app.core.model.T24Request;
 import com.kaiasia.app.core.utils.GetErrorUtils;
 import com.kaiasia.app.register.KaiMethod;
 import com.kaiasia.app.register.KaiService;
 import com.kaiasia.app.register.Register;
-import com.kaiasia.app.service.Auth_api.config.ApiConfig;
 import com.kaiasia.app.service.Auth_api.dao.SessionIdDAO;
-import com.kaiasia.app.service.Auth_api.utils.ConvertApiHelper;
 import com.kaiasia.app.service.Auth_api.utils.LoginResult;
 import com.kaiasia.app.service.Auth_api.utils.SessionUtil;
 import com.kaiasia.app.service.Auth_api.utils.T24UtilClient;
@@ -78,8 +73,12 @@ public class LoginService  extends BaseService{
         Long a = System.currentTimeMillis();
 
         ApiResponse apiResponse = new ApiResponse();
-        apiResponse.setHeader(req.getHeader());
+        ApiBody apiBody = new ApiBody();
 
+//        Map<String, Object> bodyEnq = new HashMap<>();
+//
+//        apiResponse.setBody(apiBody);
+//        return apiResponse;
 
         T24Request t24Req = new T24Request();
         t24Req.setAuthenType("KAI.API.AUTHEN.GET.LOGIN");
@@ -87,17 +86,36 @@ public class LoginService  extends BaseService{
         t24Req.setPassword(enquiry.getPassword());
         Map<String, Object> t24map = objectMapper.convertValue(t24Req, Map.class);
         ApiRequest reqLogin = buildENQUIRY(t24map, req.getHeader());
+        ApiBody apiBody1 = new ApiBody();
 
+        String jsonString = "{"
+                + "\"transId\": \"AuthenAPI-HA2289-3333\","
+                + "\"responseCode\": \"00\","
+                + "\"sessionId\": \"158963500-20161118110507-1479441907619\","
+                + "\"packageUser\": \"SUPPER\","
+                + "\"phone\": \"0986011399\","
+                + "\"customerID\": \"1589635\","
+                + "\"customerName\": \"VU VAN TUAN\","
+                + "\"companyCode\": \"VN0010002\","
+                + "\"username\": \"158963500\""
+                + "}";
+        apiBody1.put("enquiry",jsonString);
 
-        LoginResult responseT24  = t24UtilClient.callLogin(LOCATION, reqLogin);
+//        LoginResult responseT24  = t24UtilClient.callLogin(LOCATION, reqLogin);
+        LoginResult responseT24 = LoginResult.builder()
+                .apiHeader(req.getHeader())
+                .body(apiBody1)
+                .build();
         System.out.println("a : "+ responseT24.getBody());
-        if(!ApiError.OK_CODE.equals(responseT24.getError().getCode())){
-        	 apiResponse.setError(responseT24.getError());
-             System.out.println(apiResponse);
-             return apiResponse;
-        }
+//        Map<String, Object> bodyres = objectMapper.convertValue(responseT24.getBody(), Map.class);
+//        apiBody.putAll(bodyres);
         apiResponse.setBody(responseT24.getBody());
 
+        System.out.println("response : " + apiResponse);
+        log.debug("T24 Login Response: {}", responseT24);
+
+
+        return apiResponse;
         // tạo sessionId
 //       try {
 //           String customerId = (String)enquiryResponse.get("customerID");
@@ -138,7 +156,7 @@ public class LoginService  extends BaseService{
 
 
 
-        return apiResponse;
+
     }
 
 

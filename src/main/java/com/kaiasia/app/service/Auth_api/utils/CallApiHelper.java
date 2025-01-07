@@ -44,17 +44,21 @@ public class CallApiHelper {
 
 	            apiReqRebuild.setBody(apiReq.getBody());
 	            ApiResponse response = kaiRestTemplate.callApi(apiReqRebuild, url, apiTimeout);
-				System.out.println(response);
+				System.out.println("a = " +  response);
 	            if (response != null && response.getError() != null) {
 	                apiError = response.getError();
+
 	                ModelMapper mapper = new ModelMapper();
-	                return mapper.map(apiError, classResult);
+	                return mapper.map(response, classResult);
 	            }
 	            Map<String, Object> enquiryMap = BaseService.getEnquiry(response);
-	            System.out.println(enquiryMap);
+	            System.out.println("b = " +enquiryMap);
+				ApiBody apiBody = new ApiBody();
+				apiBody.put("enquiry",enquiryMap);
+				System.out.println(apiBody);
 	            ModelMapper mapper = new ModelMapper();
-	             
-	            return mapper.map(enquiryMap, classResult);
+				System.out.println("c = " + mapper.map(apiBody, classResult));
+	            return mapper.map(apiBody, classResult);
 	        } catch (Exception eis) {
 	            apiError.setCode("TIMEOUT");
 	            apiError.setDesc(eis.toString());
