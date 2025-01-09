@@ -18,6 +18,8 @@ public class Enquiry {
 
     private String accountId;
 
+    private String sessionId;
+
  
     
 

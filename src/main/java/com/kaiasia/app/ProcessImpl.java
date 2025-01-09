@@ -30,6 +30,7 @@ public class ProcessImpl implements IProcess {
     @Override
     public ApiResponse process(ApiRequest req) {
     	logger.debug("received msg: "+req);
+        logger.info("received msg: "+req);
         try {
 
 	        ApiResponse dataResponse = serviceRegister.processAuthenType(Register.getAuthenType(req), req);
