@@ -13,12 +13,7 @@ public class Enquiry {
     private String username;
     private String authenType;
     private String password;
-
     private String loginTime;
-
     private String accountId;
-
- 
-    
 
 }
