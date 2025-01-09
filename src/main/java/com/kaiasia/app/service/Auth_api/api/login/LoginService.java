@@ -1,5 +1,6 @@
 package com.kaiasia.app.service.Auth_api.api.login;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -55,7 +56,6 @@ public class LoginService  extends BaseService{
 
     @KaiMethod(name = "login",type = Register.VALIDATE)
     public ApiError validate(ApiRequest req) throws Exception {
-        String LOCATION = "";
 
 
         Enquiry enquiry = objectMapper.convertValue(getEnquiry(req), Enquiry.class);
@@ -89,18 +89,21 @@ public class LoginService  extends BaseService{
 
         T24LoginResponse loginResponse =  t24UtilClient.login(LOCATION, t24Req, ApiUtils.buildApiHeader(req.getHeader()));
 
-        if(!ApiError.OK_CODE.equals(loginResponse.getError().getCode())){
-            ApiError apiError = new ApiError(loginResponse.getError().getCode(), loginResponse.getError().getDesc());
-            apiResponse.setError(apiError);
-            log.info(LOCATION + "#END#Duration:" + (System.currentTimeMillis() - a));
-            return apiResponse;
-        }
+//        if(!ApiError.OK_CODE.equals(loginResponse.getError().getCode())){
+//            ApiError apiError = new ApiError(loginResponse.getError().getCode(), loginResponse.getError().getDesc());
+//            apiResponse.setError(apiError);
+//            log.info(LOCATION + "#END#Duration:" + (System.currentTimeMillis() - a));
+//            return apiResponse;
+//        }
         // tạo sessionId
        try {
            String customerId = loginResponse.getCustomerID();
            Date startTime = new Date();
            Date endTime = new Date(startTime.getTime() + SessionUtil.timeoutSession * 1000);
+
+
            String sessionID = sessionUtil.createCustomerSessionId(customerId);
+
            AuthSessionRequest sessionRequest = AuthSessionRequest.builder()
                    .sessionId(sessionID)
                    .startTime(startTime)

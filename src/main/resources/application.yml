@@ -21,6 +21,9 @@ kai:
     code705: "password {0} not exactly"
     code706: "MISSING FIELD{0}"
     code800: "Error create sessionId"
+    code801: "Session {0} not exist"
+    code802: "Error retrieving sessionId: {0}"
+    code810: "Session {0} has expired"
     code605: "Input OTP is invalid"
 spring:
   application:
@@ -29,12 +32,12 @@ spring:
     postgres: true
   postgredatasource:
     driver-class-name: org.postgresql.Driver
-#    url: jdbc:postgresql://14.225.254.212:5432/KAI_API?currentSchema=auth_api
-#    username: auth_api
-#    password: auth@kaiasia
-    url: jdbc:postgresql://localhost:5432/KAI?currentSchema=authen_api
-    username: postgres
-    password: Vietloc2909
+    url: jdbc:postgresql://14.225.254.212:5432/KAI_API?currentSchema=auth_api
+    username: auth_api
+    password: auth@kaiasia
+#    url: jdbc:postgresql://localhost:5432/KAI?currentSchema=authen_api
+#    username: postgres
+#    password: Vietloc2909
     maximum-pool-size: 50
     idleTimeout: 120000
     minimumIdle: 10
@@ -53,8 +56,8 @@ dbinfo:
 dep-api:
   t24utilsApi:
     apiName: T24_UTIL_API
-#    url: http://14.225.254.212:8082/T24_UTIL_API/process #api
-    url: http://localhost:8082/T24_UTIL_API/process #api
+    url: http://14.225.254.212:8082/T24_UTIL_API/process #api
+#    url: http://localhost:8082/T24_UTIL_API/process #api
     timeout: 60000 #milisecond
     apiKey: VDI0X1VUSUxfQVBJ
 
