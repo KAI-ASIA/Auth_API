@@ -29,12 +29,9 @@ spring:
     postgres: true
   postgredatasource:
     driver-class-name: org.postgresql.Driver
-#    url: jdbc:postgresql://14.225.254.212:5432/KAI_API?currentSchema=auth_api
-#    username: auth_api
-#    password: auth@kaiasia
-    url: jdbc:postgresql://localhost:5432/KAI?currentSchema=authen_api
-    username: postgres
-    password: Vietloc2909
+    url: jdbc:postgresql://14.225.254.212:5432/KAI_API?currentSchema=auth_api
+    username: auth_api
+    password: auth@kaiasia
     maximum-pool-size: 50
     idleTimeout: 120000
     minimumIdle: 10
