@@ -74,22 +74,26 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.modelmapper</groupId>
-            <artifactId>modelmapper</artifactId>
-            <version>3.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.13</version>
-        </dependency>
-
+<!--        <dependency>-->
+<!--            <groupId>org.modelmapper</groupId>-->
+<!--            <artifactId>modelmapper</artifactId>-->
+<!--            <version>3.1.0</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.httpcomponents</groupId>-->
+<!--            <artifactId>httpclient</artifactId>-->
+<!--            <version>4.5.13</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>ms.kaiasia.client</groupId>
             <artifactId>kai-client</artifactId>
-            <version>20250104</version>
+            <version>20250107</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>ms.kaiasia.app</groupId>-->
+<!--            <artifactId>kaiapp</artifactId>-->
+<!--            <version>20250107</version>-->
+<!--        </dependency>-->
     </dependencies>
     <build>
         <plugins>
