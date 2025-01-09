@@ -24,8 +24,8 @@ public class AuthOTPDao implements IAuthOTPDao {
 
     @Override
     public OTP getOTP(HashMap<String, String> body) throws Exception {
-        String sql = "SELECT * FROM auth_api.otp where auth_api.otp.username = :username " +
-                "and auth_api.otp.session_id = :session_id;" +
+        String sql = "SELECT * FROM auth_api.otp " +
+                "where auth_api.otp.username = :username and auth_api.otp.session_id = :session_id " +
                 "and auth_api.otp.trans_id = :trans_id;";
         Map<String, String> params = new HashMap<>();
         params.put("username", body.get("username"));

@@ -15,7 +15,6 @@ kai:
     code804: "Request lacks valid information"
     code803: "RequestId not exist"
     code996: "Error insert request to DB#{0}"
-    code702: "API {0} not exist"
     code703: "Enquiry not exist"
     code704: "username {0} not exist"
     code705: "password {0} not exactly"
@@ -24,7 +23,8 @@ kai:
     code801: "Session {0} not exist"
     code802: "Error retrieving sessionId: {0}"
     code810: "Session {0} has expired"
-    code605: "Input OTP is invalid"
+    code601: "Input OTP is invalid"
+    code503: "Failed to read from the database"
 spring:
   application:
     name: AUTH_API
@@ -35,9 +35,6 @@ spring:
     url: jdbc:postgresql://14.225.254.212:5432/KAI_API?currentSchema=auth_api
     username: auth_api
     password: auth@kaiasia
-#    url: jdbc:postgresql://localhost:5432/KAI?currentSchema=authen_api
-#    username: postgres
-#    password: Vietloc2909
     maximum-pool-size: 50
     idleTimeout: 120000
     minimumIdle: 10
@@ -56,8 +53,8 @@ dbinfo:
 dep-api:
   t24utilsApi:
     apiName: T24_UTIL_API
-    url: http://14.225.254.212:8082/T24_UTIL_API/process #api
-#    url: http://localhost:8082/T24_UTIL_API/process #api
+#    url: http://14.225.254.212:8082/T24_UTIL_API/process #api
+    url: http://localhost:8082/T24_UTIL_API/process #api
     timeout: 60000 #milisecond
     apiKey: VDI0X1VUSUxfQVBJ
 
