@@ -1242,3 +1242,10 @@ Caused by: java.lang.IllegalStateException: EntityManagerFactory is closed
 09-01-2025 21:44:21.261 DEBUG --- com.kaiasia.app.register.ServiceRegister - Found 4 classes with annotation SeabService
 09-01-2025 21:44:22.086 INFO  --- com.kaiasia.app.AppApplication           - Started AppApplication in 5.049 seconds (JVM running for 5.432)
 09-01-2025 21:45:00.037 INFO  --- com.kaiasia.app.service.Auth_api.schedule.SessionCleanupService - 7 expired session(s) deleted.
+09-01-2025 21:45:35.795 INFO  --- com.kaiasia.app.AppApplication           - Starting AppApplication using Java 1.8.0_421 on Trinh with PID 12132 (E:\web\KAI-TTS\KAI-TTS\Fw\DemoApi\target\classes started by vinh5 in E:\web\KAI-TTS\KAI-TTS\Fw\DemoApi)
+09-01-2025 21:45:35.797 DEBUG --- com.kaiasia.app.AppApplication           - Running with Spring Boot v2.7.2, Spring v5.3.22
+09-01-2025 21:45:35.798 INFO  --- com.kaiasia.app.AppApplication           - No active profile set, falling back to 1 default profile: "default"
+09-01-2025 21:45:39.624 DEBUG --- com.kaiasia.app.register.ServiceRegister - Found 4 classes with annotation SeabService
+09-01-2025 21:45:40.432 INFO  --- com.kaiasia.app.AppApplication           - Started AppApplication in 5.139 seconds (JVM running for 5.68)
+09-01-2025 21:46:00.031 INFO  --- com.kaiasia.app.service.Auth_api.schedule.SessionCleanupService - No expired sessions found.
+09-01-2025 21:47:00.034 INFO  --- com.kaiasia.app.service.Auth_api.schedule.SessionCleanupService - No expired sessions found.
