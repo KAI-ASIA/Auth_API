@@ -25,10 +25,9 @@ import com.kaiasia.app.core.utils.GetErrorUtils;
 import com.kaiasia.app.register.KaiMethod;
 import com.kaiasia.app.register.KaiService;
 import com.kaiasia.app.register.Register;
-import com.kaiasia.app.service.Auth_api.config.ApiConfig;
+
 import com.kaiasia.app.service.Auth_api.dao.SessionIdDAO;
-import com.kaiasia.app.service.Auth_api.utils.ConvertApiHelper;
-import com.kaiasia.app.service.Auth_api.utils.LoginResult;
+
 import com.kaiasia.app.service.Auth_api.utils.SessionUtil;
 
 import lombok.extern.slf4j.Slf4j;
@@ -43,11 +42,6 @@ public class LoginService  extends BaseService{
     @Autowired
     private T24UtilClient t24UtilClient;
 
-    @Autowired
-    private ConvertApiHelper convertApiHelper;
-
-    @Autowired
-    private ApiConfig apiConfig;
 
     @Autowired
     private SessionUtil sessionUtil;
