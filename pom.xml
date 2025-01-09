@@ -84,6 +84,12 @@
             <artifactId>httpclient</artifactId>
             <version>4.5.13</version>
         </dependency>
+
+        <dependency>
+            <groupId>ms.kaiasia.client</groupId>
+            <artifactId>kai-client</artifactId>
+            <version>20250104</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
