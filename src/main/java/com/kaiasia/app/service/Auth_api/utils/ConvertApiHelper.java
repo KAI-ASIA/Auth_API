@@ -1,17 +1,14 @@
 package com.kaiasia.app.service.Auth_api.utils;
 
-import com.kaiasia.app.core.model.ApiBody;
-import com.kaiasia.app.core.model.ApiHeader;
-import com.kaiasia.app.core.model.ApiRequest;
-import com.kaiasia.app.service.Auth_api.config.ApiConfig;
 import com.kaiasia.app.service.Auth_api.config.ApiProperties;
 
+import ms.apiclient.model.ApiBody;
+import ms.apiclient.model.ApiHeader;
+import ms.apiclient.model.ApiRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 @Component

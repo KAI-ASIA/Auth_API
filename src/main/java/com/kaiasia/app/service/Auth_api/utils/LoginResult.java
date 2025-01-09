@@ -2,13 +2,11 @@ package com.kaiasia.app.service.Auth_api.utils;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import com.kaiasia.app.core.model.ApiBody;
-import com.kaiasia.app.core.model.ApiError;
-import com.kaiasia.app.core.model.ApiHeader;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.TreeMap;
+import ms.apiclient.model.ApiBody;
+import ms.apiclient.model.ApiError;
+import ms.apiclient.model.ApiHeader;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Getter

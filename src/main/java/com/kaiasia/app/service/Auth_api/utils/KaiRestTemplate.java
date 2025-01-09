@@ -2,6 +2,8 @@ package com.kaiasia.app.service.Auth_api.utils;
 
 import java.util.Collections;
 
+import ms.apiclient.model.ApiRequest;
+import ms.apiclient.model.ApiResponse;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -9,11 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-
-import com.kaiasia.app.core.model.ApiRequest;
-import com.kaiasia.app.core.model.ApiResponse;
-
-
 
 
 @Component
