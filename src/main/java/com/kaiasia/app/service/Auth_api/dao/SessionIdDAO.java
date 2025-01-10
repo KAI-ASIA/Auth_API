@@ -1,5 +1,6 @@
 package com.kaiasia.app.service.Auth_api.dao;
 
+import com.kaiasia.app.core.dao.CommonDAO;
 import com.kaiasia.app.core.dao.PosgrestDAOHelper;
 import com.kaiasia.app.service.Auth_api.model.AuthSessionRequest;
 import com.kaiasia.app.service.Auth_api.model.AuthSessionResponse;
@@ -11,11 +12,11 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 import java.util.HashMap;
 
-@Component
-public class SessionIdDAO implements IAuthSessionDao{
+//@Component
+public class SessionIdDAO extends CommonDAO implements IAuthSessionDao{
     private static final Logger log = Logger.getLogger(SessionIdDAO.class);
     @Autowired
-    PosgrestDAOHelper posgrestDAOHelper;
+    private PosgrestDAOHelper posgrestDAOHelper;
 
     @Override
     public int insertSessionId(AuthSessionRequest authSessionRequest) throws Exception{
@@ -55,11 +56,11 @@ public class SessionIdDAO implements IAuthSessionDao{
     @Override
     public AuthSessionResponse getAuthSessionId(String sessionId) throws Exception {
         String sql = "SELECT username, start_time, end_time, session_id, channel, \"location\", phone, email, company_code, customer_id " +
-                "FROM auth_api.auth_session WHERE session_id = :SESSION_ID";
+                "FROM " + this.getTableName() + " WHERE session_id = :SESSION_ID";
         HashMap<String, Object> param = new HashMap<>();
         param.put("SESSION_ID", sessionId);
 
-        try {
+//        try {
 
             AuthSessionResponse authSessionResponse = posgrestDAOHelper.querySingle(
                     sql,
@@ -67,10 +68,10 @@ public class SessionIdDAO implements IAuthSessionDao{
                     new BeanPropertyRowMapper<>(AuthSessionResponse.class)
             );
             return authSessionResponse; // Trả về thông tin session
-        } catch (Exception e) {
-            log.error("Error retrieving sessionId: " + sessionId, e);
-            return null;
-        }
+//        } catch (Exception e) {
+//            log.error("Error retrieving sessionId: " + sessionId, e);
+//            return null;
+//        }
     }
 
     @Override

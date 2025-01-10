@@ -40,7 +40,7 @@ public class PostgreDatabaseConfiguration {
     @Bean({"postgreDataSource"})
     @ConfigurationProperties("spring.postgredatasource")
     public HikariDataSource postgreDataSource() {
-        DataSourceProperties a = this.postgreDataSourceProperties();
+//        DataSourceProperties a = this.postgreDataSourceProperties();
         return (HikariDataSource)this.postgreDataSourceProperties().initializeDataSourceBuilder().type(HikariDataSource.class).build();
     }
 

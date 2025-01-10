@@ -39,7 +39,7 @@ public class ApiFetchReqTask implements Runnable {
                 try{
                     listReq = daoManager.fetchAPIReqs(maxTaskInQueue - processThreadMain.getTaskInQueue());
                 }catch (Exception e){
-                    logger.error("EXCEPTION FETCH DB: {}", e);
+//                    logger.error("EXCEPTION FETCH DB: {}", e);
                 }
                 if (listReq == null || listReq.isEmpty()) continue;
                 System.out.println("FETCH_DATA_API" + ": " + listReq);
