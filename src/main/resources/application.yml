@@ -15,13 +15,16 @@ kai:
     code804: "Request lacks valid information"
     code803: "RequestId not exist"
     code996: "Error insert request to DB#{0}"
-    code702: "API {0} not exist"
     code703: "Enquiry not exist"
     code704: "username {0} not exist"
     code705: "password {0} not exactly"
     code706: "MISSING FIELD{0}"
     code800: "Error create sessionId"
-    code605: "Input OTP is invalid"
+    code801: "Session {0} not exist"
+    code802: "Error retrieving sessionId: {0}"
+    code810: "Session {0} has expired"
+    code601: "Input OTP is invalid"
+    code503: "Failed to read from the database"
 spring:
   application:
     name: AUTH_API
@@ -57,3 +60,5 @@ dep-api:
 
 sessionTime:
   valid-duration: 3600 # 3600se
+#kafka:
+#  bootsTrapServer: 14.225.254.212:9092

@@ -12,10 +12,7 @@ import java.util.UUID;
 @Component
 public class SessionUtil {
     @Value("${sessionTime.valid-duration}")
-    public static long timeoutSession;
-
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd HHmmss");
-
+    public static long timeoutSession = 36000;
 
 
     public String createCustomerSessionId(String customerId) {
@@ -25,11 +22,9 @@ public class SessionUtil {
     }
 
 
-    public  Date createEndTime(Date startTime) {
-
-        Date endTime = new Date(startTime.getTime() + timeoutSession * 1000);
-
-
-        return endTime;
+    public int validateSessionId(String sessionId){
+        return 1;
     }
+
+
 }

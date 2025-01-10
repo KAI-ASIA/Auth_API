@@ -38,8 +38,8 @@ public class ConfirmOTPService {
         if (enquiry == null) {
             return apiErrorUtils.getError("804", new String[]{"Missing enquiry part!"});
         }
-        System.out.println("Bat dau in");
-        System.out.println(enquiry);
+        log.info("Bat dau in:");
+        enquiry.forEach((k, v) -> log.info("{}:{}", k, v));
         String[] requiredFields = new String[]{
                 "sessionId", "username", "otp",
                 "transTime", "transId"
@@ -56,9 +56,13 @@ public class ConfirmOTPService {
 
     @KaiMethod(name = "confirmOTP")
     public ApiResponse process(ApiRequest req) {
+
+        log.info("");
         HashMap enquiry = (HashMap) req.getBody().get("enquiry");
         log.info("Body print:");
         enquiry.forEach((k, v) -> log.info("{}:{}", k, v));
+        String location = "ConfirmOTP" + enquiry.get("sessionId") + "_" + System.currentTimeMillis();
+
 //        ApiHelper<ApiBody> callAPI = new ApiHelper<ApiBody>();
 //        HttpHeaders httpHeaders = new HttpHeaders();
 //        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
@@ -80,7 +84,7 @@ public class ConfirmOTPService {
             //Check xem ma OTP co dung khong
             if (!enquiry.get("otp").toString().equals(otp.getValidate_code())) {
                 //Neu khong dung thi tra ve loi sai otp
-                ApiError apiError = apiErrorUtils.getError("605", new String[]{"Wrong OTP!"});
+                ApiError apiError = apiErrorUtils.getError("601", new String[]{""});
                 return takeRespose(auth3Response, apiError);
             }
 
@@ -100,7 +104,7 @@ public class ConfirmOTPService {
             return takeRespose(auth3Response);
         }
         //Neu OTP khong ton tai tra ve loi
-        ApiError apiError = apiErrorUtils.getError("804", new String[]{"OTP is not exists!"});
+        ApiError apiError = apiErrorUtils.getError("503", new String[]{""});
         return takeRespose(auth3Response, apiError);
     }
 

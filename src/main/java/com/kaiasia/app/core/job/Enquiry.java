@@ -16,4 +16,6 @@ public class Enquiry {
     private String loginTime;
     private String accountId;
 
+    private String sessionId;
+
 }
