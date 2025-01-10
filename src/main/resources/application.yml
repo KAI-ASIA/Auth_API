@@ -36,9 +36,10 @@ spring:
     url: jdbc:postgresql://14.225.254.212:5432/KAI_API?currentSchema=auth_api
     username: auth_api
     password: auth@kaiasia
-    maximum-pool-size: 50
-    idleTimeout: 120000
-    minimumIdle: 10
+    maximum-pool-size: 10
+    idleTimeout: 60000
+    minimumIdle: 5
+    connectionTimeout: 15000
   jpa:
     show-sql: false
     open-in-view: false

@@ -8572,3 +8572,611 @@ java.lang.NullPointerException: null
 10-01-2025 21:16:00.112 INFO  --- com.kaiasia.app.core.MainRestController  - 1736518555835000_0000_635039a3b77649268e49ffc54140b2b8##END
 10-01-2025 21:16:00.113 INFO  --- com.kaiasia.app.core.MainRestController  - 1736518555835000_0000_635039a3b77649268e49ffc54140b2b8#MsgFromClient_Response:ApiResponse(header=ApiHeader(reqType=RESPONSE, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=4038, priority=1, context=null, synasyn=false), body={enquiry={transId=281692_1736518559831_0ba071844eef4c38a4cbb51f9f12afff, sessionId=281692_1736518559831_0ba071844eef4c38a4cbb51f9f12afff, responseCode=00, packageUser=IND, phone=0123456789, customerID=281692, customerName=Vu Van Phai, username=28169200}, status=OK}, error=null)#Total time: 4302
 10-01-2025 21:20:00.061 INFO  --- com.kaiasia.app.service.Auth_api.schedule.SessionCleanupService - 1 expired session(s) deleted.
+10-01-2025 21:42:12.226 INFO  --- com.kaiasia.app.AppApplication           - Starting AppApplication using Java 1.8.0_171 on Admin with PID 6916 (D:\KAI\Auth_api\target\classes started by Admin in D:\KAI\Auth_api)
+10-01-2025 21:42:12.228 DEBUG --- com.kaiasia.app.AppApplication           - Running with Spring Boot v2.7.2, Spring v5.3.22
+10-01-2025 21:42:12.229 INFO  --- com.kaiasia.app.AppApplication           - No active profile set, falling back to 1 default profile: "default"
+10-01-2025 21:42:13.974 DEBUG --- com.zaxxer.hikari.HikariConfig           - Driver class org.postgresql.Driver found in Thread context class loader sun.misc.Launcher$AppClassLoader@73d16e93
+10-01-2025 21:42:13.983 DEBUG --- com.zaxxer.hikari.HikariConfig           - Driver class org.postgresql.Driver found in Thread context class loader sun.misc.Launcher$AppClassLoader@73d16e93
+10-01-2025 21:42:14.378 DEBUG --- com.zaxxer.hikari.HikariConfig           - HikariPool-1 - configuration:
+10-01-2025 21:42:14.380 DEBUG --- com.zaxxer.hikari.HikariConfig           - allowPoolSuspension................................false
+10-01-2025 21:42:14.380 DEBUG --- com.zaxxer.hikari.HikariConfig           - autoCommit................................true
+10-01-2025 21:42:14.380 DEBUG --- com.zaxxer.hikari.HikariConfig           - catalog................................none
+10-01-2025 21:42:14.380 DEBUG --- com.zaxxer.hikari.HikariConfig           - connectionInitSql................................none
+10-01-2025 21:42:14.380 DEBUG --- com.zaxxer.hikari.HikariConfig           - connectionTestQuery................................none
+10-01-2025 21:42:14.380 DEBUG --- com.zaxxer.hikari.HikariConfig           - connectionTimeout................................15000
+10-01-2025 21:42:14.381 DEBUG --- com.zaxxer.hikari.HikariConfig           - dataSource................................none
+10-01-2025 21:42:14.381 DEBUG --- com.zaxxer.hikari.HikariConfig           - dataSourceClassName................................none
+10-01-2025 21:42:14.381 DEBUG --- com.zaxxer.hikari.HikariConfig           - dataSourceJNDI................................none
+10-01-2025 21:42:14.381 DEBUG --- com.zaxxer.hikari.HikariConfig           - dataSourceProperties................................{password=<masked>}
+10-01-2025 21:42:14.382 DEBUG --- com.zaxxer.hikari.HikariConfig           - driverClassName................................"org.postgresql.Driver"
+10-01-2025 21:42:14.382 DEBUG --- com.zaxxer.hikari.HikariConfig           - exceptionOverrideClassName................................none
+10-01-2025 21:42:14.383 DEBUG --- com.zaxxer.hikari.HikariConfig           - healthCheckProperties................................{}
+10-01-2025 21:42:14.383 DEBUG --- com.zaxxer.hikari.HikariConfig           - healthCheckRegistry................................none
+10-01-2025 21:42:14.384 DEBUG --- com.zaxxer.hikari.HikariConfig           - idleTimeout................................60000
+10-01-2025 21:42:14.384 DEBUG --- com.zaxxer.hikari.HikariConfig           - initializationFailTimeout................................1
+10-01-2025 21:42:14.384 DEBUG --- com.zaxxer.hikari.HikariConfig           - isolateInternalQueries................................false
+10-01-2025 21:42:14.384 DEBUG --- com.zaxxer.hikari.HikariConfig           - jdbcUrl................................jdbc:postgresql://14.225.254.212:5432/KAI_API?currentSchema=auth_api
+10-01-2025 21:42:14.385 DEBUG --- com.zaxxer.hikari.HikariConfig           - keepaliveTime................................0
+10-01-2025 21:42:14.385 DEBUG --- com.zaxxer.hikari.HikariConfig           - leakDetectionThreshold................................0
+10-01-2025 21:42:14.385 DEBUG --- com.zaxxer.hikari.HikariConfig           - maxLifetime................................1800000
+10-01-2025 21:42:14.385 DEBUG --- com.zaxxer.hikari.HikariConfig           - maximumPoolSize................................50
+10-01-2025 21:42:14.385 DEBUG --- com.zaxxer.hikari.HikariConfig           - metricRegistry................................none
+10-01-2025 21:42:14.385 DEBUG --- com.zaxxer.hikari.HikariConfig           - metricsTrackerFactory................................none
+10-01-2025 21:42:14.385 DEBUG --- com.zaxxer.hikari.HikariConfig           - minimumIdle................................10
+10-01-2025 21:42:14.385 DEBUG --- com.zaxxer.hikari.HikariConfig           - password................................<masked>
+10-01-2025 21:42:14.386 DEBUG --- com.zaxxer.hikari.HikariConfig           - poolName................................"HikariPool-1"
+10-01-2025 21:42:14.386 DEBUG --- com.zaxxer.hikari.HikariConfig           - readOnly................................false
+10-01-2025 21:42:14.386 DEBUG --- com.zaxxer.hikari.HikariConfig           - registerMbeans................................false
+10-01-2025 21:42:14.386 DEBUG --- com.zaxxer.hikari.HikariConfig           - scheduledExecutor................................none
+10-01-2025 21:42:14.386 DEBUG --- com.zaxxer.hikari.HikariConfig           - schema................................none
+10-01-2025 21:42:14.386 DEBUG --- com.zaxxer.hikari.HikariConfig           - threadFactory................................internal
+10-01-2025 21:42:14.386 DEBUG --- com.zaxxer.hikari.HikariConfig           - transactionIsolation................................default
+10-01-2025 21:42:14.387 DEBUG --- com.zaxxer.hikari.HikariConfig           - username................................"auth_api"
+10-01-2025 21:42:14.387 DEBUG --- com.zaxxer.hikari.HikariConfig           - validationTimeout................................5000
+10-01-2025 21:42:14.387 INFO  --- com.zaxxer.hikari.HikariDataSource       - HikariPool-1 - Starting...
+10-01-2025 21:42:15.206 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@79e7188e
+10-01-2025 21:42:15.208 INFO  --- com.zaxxer.hikari.HikariDataSource       - HikariPool-1 - Start completed.
+10-01-2025 21:42:15.308 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=1, active=0, idle=1, waiting=0)
+10-01-2025 21:42:15.309 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=1, active=0, idle=1, waiting=0)
+10-01-2025 21:42:15.642 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@596dc653
+10-01-2025 21:42:15.882 DEBUG --- com.kaiasia.app.register.ServiceRegister - Found 4 classes with annotation SeabService
+10-01-2025 21:42:15.988 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@57aa230e
+10-01-2025 21:42:16.285 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@27cbdf98
+10-01-2025 21:42:16.597 INFO  --- com.kaiasia.app.AppApplication           - Started AppApplication in 4.791 seconds (JVM running for 5.104)
+10-01-2025 21:42:16.680 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@59c982f7
+10-01-2025 21:42:17.052 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2ec89a3d
+10-01-2025 21:42:17.371 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5706a763
+10-01-2025 21:42:17.712 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1805297a
+10-01-2025 21:42:18.092 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7a5ab8a6
+10-01-2025 21:42:18.460 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@52f5199a
+10-01-2025 21:42:18.460 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After adding stats (total=10, active=0, idle=10, waiting=0)
+10-01-2025 21:42:45.319 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=10, active=0, idle=10, waiting=0)
+10-01-2025 21:42:45.319 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=10, active=0, idle=10, waiting=0)
+10-01-2025 21:42:45.319 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:43:15.322 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=10, active=0, idle=10, waiting=0)
+10-01-2025 21:43:15.323 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=10, active=0, idle=10, waiting=0)
+10-01-2025 21:43:15.323 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:43:45.335 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=10, active=1, idle=9, waiting=0)
+10-01-2025 21:43:45.336 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=10, active=1, idle=9, waiting=0)
+10-01-2025 21:44:15.347 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=10, active=0, idle=10, waiting=0)
+10-01-2025 21:44:15.348 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=10, active=0, idle=10, waiting=0)
+10-01-2025 21:44:15.348 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:44:45.362 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=10, active=1, idle=9, waiting=0)
+10-01-2025 21:44:45.362 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=10, active=1, idle=9, waiting=0)
+10-01-2025 21:44:45.658 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@48b86b2c
+10-01-2025 21:44:45.658 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After adding stats (total=11, active=0, idle=11, waiting=0)
+10-01-2025 21:44:51.664 INFO  --- com.kaiasia.app.core.MainRestController  - MsgFromClient_Receive:ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=login, username=28169200, password=Phaivu@123}, status=OK}, _reqId=null, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+10-01-2025 21:44:51.679 DEBUG --- com.kaiasia.app.register.ServiceRegister - Execute method validate for AuthenType: VALIDATE_login
+10-01-2025 21:44:51.724 INFO  --- com.kaiasia.app.ValidateImpl             - 000 OK
+10-01-2025 21:44:51.724 INFO  --- com.kaiasia.app.core.MainRestController  - 1736520291724000_0000_4c5d16685e934c9990a21144cbe822a8#[API-BEGIN]
+10-01-2025 21:44:51.780 INFO  --- com.kaiasia.app.core.dao.APIDaoManager   - InsertAPIReqs()1736520291724000_0000_4c5d16685e934c9990a21144cbe822a8#BEGIN
+10-01-2025 21:44:52.051 INFO  --- com.kaiasia.app.core.dao.APIDaoManager   - InsertAPIReqs()1736520291724000_0000_4c5d16685e934c9990a21144cbe822a8#END
+10-01-2025 21:44:52.080 INFO  --- com.kaiasia.app.core.ProcessService      - 1736520291724000_0000_4c5d16685e934c9990a21144cbe822a8##pushApiReqToQueue#Duration:355
+10-01-2025 21:44:52.315 INFO  --- com.kaiasia.app.core.ProcessThread       - checkTimeInQueue: 0
+10-01-2025 21:44:52.316 DEBUG --- com.kaiasia.app.ProcessImpl              - received msg: ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=login, username=28169200, password=Phaivu@123}, status=OK}, _reqId=1736520291724000_0000_4c5d16685e934c9990a21144cbe822a8, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+10-01-2025 21:44:52.316 INFO  --- com.kaiasia.app.ProcessImpl              - received msg: ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=login, username=28169200, password=Phaivu@123}, status=OK}, _reqId=1736520291724000_0000_4c5d16685e934c9990a21144cbe822a8, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+10-01-2025 21:44:52.316 DEBUG --- com.kaiasia.app.register.ServiceRegister - Execute method AuthenType: login
+10-01-2025 21:44:52.317 INFO  --- com.kaiasia.app.service.Auth_api.api.login.LoginService - API-28169200-null#BEGIN
+10-01-2025 21:44:52.326 INFO  --- ms.apiclient.client.common.ApiCallClient - API-28169200-null#begin call api T24_UTIL_API
+10-01-2025 21:44:53.161 INFO  --- ms.apiclient.client.common.ApiCallClient - API-28169200-null#end call api T24_UTIL_API
+10-01-2025 21:44:53.319 INFO  --- com.kaiasia.app.service.Auth_api.api.login.LoginService - API-28169200-null#END#Duration:1002
+10-01-2025 21:44:53.319 INFO  --- com.kaiasia.app.core.ProcessThread       - RESPONSE :ApiResponse(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={enquiry=LoginResponse(transId=281692_1736520293261_803f70f02a6e4d81b92fef67ad2d5553, sessionId=281692_1736520293261_803f70f02a6e4d81b92fef67ad2d5553, responseCode=00, packageUser=IND, phone=0123456789, customerID=281692, customerName=Vu Van Phai, companyCode=null, username=28169200), status=OK}, error=null)
+10-01-2025 21:44:53.319 INFO  --- com.kaiasia.app.core.ProcessThread       - RESPONSE :ApiResponse(header=ApiHeader(reqType=RESPONSE, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=1574, priority=1, context=null, synasyn=false), body={enquiry=LoginResponse(transId=281692_1736520293261_803f70f02a6e4d81b92fef67ad2d5553, sessionId=281692_1736520293261_803f70f02a6e4d81b92fef67ad2d5553, responseCode=00, packageUser=IND, phone=0123456789, customerID=281692, customerName=Vu Van Phai, companyCode=null, username=28169200), status=OK}, error=null)
+10-01-2025 21:44:53.378 INFO  --- com.kaiasia.app.core.ProcessThread       - 1736520291724000_0000_4c5d16685e934c9990a21144cbe822a8#saveResponse#Duration: 59
+10-01-2025 21:44:53.569 INFO  --- com.kaiasia.app.core.MainRestController  - 1736520291724000_0000_4c5d16685e934c9990a21144cbe822a8##END
+10-01-2025 21:44:53.570 INFO  --- com.kaiasia.app.core.MainRestController  - 1736520291724000_0000_4c5d16685e934c9990a21144cbe822a8#MsgFromClient_Response:ApiResponse(header=ApiHeader(reqType=RESPONSE, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=1574, priority=1, context=null, synasyn=false), body={enquiry={transId=281692_1736520293261_803f70f02a6e4d81b92fef67ad2d5553, sessionId=281692_1736520293261_803f70f02a6e4d81b92fef67ad2d5553, responseCode=00, packageUser=IND, phone=0123456789, customerID=281692, customerName=Vu Van Phai, username=28169200}, status=OK}, error=null)#Total time: 1906
+10-01-2025 21:45:15.363 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=11, active=0, idle=11, waiting=0)
+10-01-2025 21:45:15.363 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=11, active=1, idle=10, waiting=0)
+10-01-2025 21:45:15.364 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:45:45.367 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=11, active=1, idle=10, waiting=0)
+10-01-2025 21:45:45.367 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=11, active=1, idle=10, waiting=0)
+10-01-2025 21:45:45.367 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:47:20.758 INFO  --- com.kaiasia.app.AppApplication           - Starting AppApplication using Java 1.8.0_171 on Admin with PID 19152 (D:\KAI\Auth_api\target\classes started by Admin in D:\KAI\Auth_api)
+10-01-2025 21:47:20.770 DEBUG --- com.kaiasia.app.AppApplication           - Running with Spring Boot v2.7.2, Spring v5.3.22
+10-01-2025 21:47:20.771 INFO  --- com.kaiasia.app.AppApplication           - No active profile set, falling back to 1 default profile: "default"
+10-01-2025 21:47:22.580 DEBUG --- com.zaxxer.hikari.HikariConfig           - Driver class org.postgresql.Driver found in Thread context class loader sun.misc.Launcher$AppClassLoader@18b4aac2
+10-01-2025 21:47:22.592 DEBUG --- com.zaxxer.hikari.HikariConfig           - Driver class org.postgresql.Driver found in Thread context class loader sun.misc.Launcher$AppClassLoader@18b4aac2
+10-01-2025 21:47:23.053 DEBUG --- com.zaxxer.hikari.HikariConfig           - HikariPool-1 - configuration:
+10-01-2025 21:47:23.055 DEBUG --- com.zaxxer.hikari.HikariConfig           - allowPoolSuspension................................false
+10-01-2025 21:47:23.056 DEBUG --- com.zaxxer.hikari.HikariConfig           - autoCommit................................true
+10-01-2025 21:47:23.056 DEBUG --- com.zaxxer.hikari.HikariConfig           - catalog................................none
+10-01-2025 21:47:23.057 DEBUG --- com.zaxxer.hikari.HikariConfig           - connectionInitSql................................none
+10-01-2025 21:47:23.057 DEBUG --- com.zaxxer.hikari.HikariConfig           - connectionTestQuery................................none
+10-01-2025 21:47:23.057 DEBUG --- com.zaxxer.hikari.HikariConfig           - connectionTimeout................................15000
+10-01-2025 21:47:23.057 DEBUG --- com.zaxxer.hikari.HikariConfig           - dataSource................................none
+10-01-2025 21:47:23.057 DEBUG --- com.zaxxer.hikari.HikariConfig           - dataSourceClassName................................none
+10-01-2025 21:47:23.057 DEBUG --- com.zaxxer.hikari.HikariConfig           - dataSourceJNDI................................none
+10-01-2025 21:47:23.058 DEBUG --- com.zaxxer.hikari.HikariConfig           - dataSourceProperties................................{password=<masked>}
+10-01-2025 21:47:23.058 DEBUG --- com.zaxxer.hikari.HikariConfig           - driverClassName................................"org.postgresql.Driver"
+10-01-2025 21:47:23.058 DEBUG --- com.zaxxer.hikari.HikariConfig           - exceptionOverrideClassName................................none
+10-01-2025 21:47:23.058 DEBUG --- com.zaxxer.hikari.HikariConfig           - healthCheckProperties................................{}
+10-01-2025 21:47:23.058 DEBUG --- com.zaxxer.hikari.HikariConfig           - healthCheckRegistry................................none
+10-01-2025 21:47:23.058 DEBUG --- com.zaxxer.hikari.HikariConfig           - idleTimeout................................60000
+10-01-2025 21:47:23.059 DEBUG --- com.zaxxer.hikari.HikariConfig           - initializationFailTimeout................................1
+10-01-2025 21:47:23.059 DEBUG --- com.zaxxer.hikari.HikariConfig           - isolateInternalQueries................................false
+10-01-2025 21:47:23.059 DEBUG --- com.zaxxer.hikari.HikariConfig           - jdbcUrl................................jdbc:postgresql://14.225.254.212:5432/KAI_API?currentSchema=auth_api
+10-01-2025 21:47:23.059 DEBUG --- com.zaxxer.hikari.HikariConfig           - keepaliveTime................................0
+10-01-2025 21:47:23.059 DEBUG --- com.zaxxer.hikari.HikariConfig           - leakDetectionThreshold................................0
+10-01-2025 21:47:23.059 DEBUG --- com.zaxxer.hikari.HikariConfig           - maxLifetime................................1800000
+10-01-2025 21:47:23.059 DEBUG --- com.zaxxer.hikari.HikariConfig           - maximumPoolSize................................5
+10-01-2025 21:47:23.059 DEBUG --- com.zaxxer.hikari.HikariConfig           - metricRegistry................................none
+10-01-2025 21:47:23.060 DEBUG --- com.zaxxer.hikari.HikariConfig           - metricsTrackerFactory................................none
+10-01-2025 21:47:23.060 DEBUG --- com.zaxxer.hikari.HikariConfig           - minimumIdle................................3
+10-01-2025 21:47:23.060 DEBUG --- com.zaxxer.hikari.HikariConfig           - password................................<masked>
+10-01-2025 21:47:23.060 DEBUG --- com.zaxxer.hikari.HikariConfig           - poolName................................"HikariPool-1"
+10-01-2025 21:47:23.060 DEBUG --- com.zaxxer.hikari.HikariConfig           - readOnly................................false
+10-01-2025 21:47:23.060 DEBUG --- com.zaxxer.hikari.HikariConfig           - registerMbeans................................false
+10-01-2025 21:47:23.060 DEBUG --- com.zaxxer.hikari.HikariConfig           - scheduledExecutor................................none
+10-01-2025 21:47:23.061 DEBUG --- com.zaxxer.hikari.HikariConfig           - schema................................none
+10-01-2025 21:47:23.061 DEBUG --- com.zaxxer.hikari.HikariConfig           - threadFactory................................internal
+10-01-2025 21:47:23.061 DEBUG --- com.zaxxer.hikari.HikariConfig           - transactionIsolation................................default
+10-01-2025 21:47:23.061 DEBUG --- com.zaxxer.hikari.HikariConfig           - username................................"auth_api"
+10-01-2025 21:47:23.061 DEBUG --- com.zaxxer.hikari.HikariConfig           - validationTimeout................................5000
+10-01-2025 21:47:23.061 INFO  --- com.zaxxer.hikari.HikariDataSource       - HikariPool-1 - Starting...
+10-01-2025 21:47:23.863 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@13f4048e
+10-01-2025 21:47:23.864 INFO  --- com.zaxxer.hikari.HikariDataSource       - HikariPool-1 - Start completed.
+10-01-2025 21:47:23.974 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=1, active=0, idle=1, waiting=0)
+10-01-2025 21:47:23.974 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=1, active=0, idle=1, waiting=0)
+10-01-2025 21:47:24.303 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4c9b0d8b
+10-01-2025 21:47:24.546 DEBUG --- com.kaiasia.app.register.ServiceRegister - Found 4 classes with annotation SeabService
+10-01-2025 21:47:24.634 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@425cea68
+10-01-2025 21:47:24.634 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After adding stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:47:25.338 INFO  --- com.kaiasia.app.AppApplication           - Started AppApplication in 5.056 seconds (JVM running for 5.436)
+10-01-2025 21:47:53.980 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:47:53.980 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:47:53.980 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:48:21.703 INFO  --- com.kaiasia.app.core.MainRestController  - MsgFromClient_Receive:ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=takeSession, sessionId=28169200}, status=OK}, _reqId=null, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+10-01-2025 21:48:21.721 DEBUG --- com.kaiasia.app.register.ServiceRegister - Execute method validate for AuthenType: VALIDATE_takeSession
+10-01-2025 21:48:23.993 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:48:23.993 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:48:23.993 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:48:27.728 INFO  --- com.kaiasia.app.ValidateImpl             - 000 OK
+10-01-2025 21:48:27.730 INFO  --- com.kaiasia.app.core.MainRestController  - 1736520507729000_0000_828e2f9e315b45809d75095b597bfb49#[API-BEGIN]
+10-01-2025 21:48:27.790 INFO  --- com.kaiasia.app.core.dao.APIDaoManager   - InsertAPIReqs()1736520507729000_0000_828e2f9e315b45809d75095b597bfb49#BEGIN
+10-01-2025 21:48:28.025 INFO  --- com.kaiasia.app.core.dao.APIDaoManager   - InsertAPIReqs()1736520507729000_0000_828e2f9e315b45809d75095b597bfb49#END
+10-01-2025 21:48:28.052 INFO  --- com.kaiasia.app.core.ProcessService      - 1736520507729000_0000_828e2f9e315b45809d75095b597bfb49##pushApiReqToQueue#Duration:321
+10-01-2025 21:48:28.527 INFO  --- com.kaiasia.app.core.ProcessThread       - checkTimeInQueue: 0
+10-01-2025 21:48:28.530 DEBUG --- com.kaiasia.app.ProcessImpl              - received msg: ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=takeSession, sessionId=28169200}, status=OK}, _reqId=1736520507729000_0000_828e2f9e315b45809d75095b597bfb49, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+10-01-2025 21:48:28.531 INFO  --- com.kaiasia.app.ProcessImpl              - received msg: ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=takeSession, sessionId=28169200}, status=OK}, _reqId=1736520507729000_0000_828e2f9e315b45809d75095b597bfb49, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+10-01-2025 21:48:28.531 DEBUG --- com.kaiasia.app.register.ServiceRegister - Execute method AuthenType: takeSession
+10-01-2025 21:48:43.672 INFO  --- com.kaiasia.app.core.MainRestController  - MsgFromClient_Receive:ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=takeSession, sessionId=28169200}, status=OK}, _reqId=null, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+10-01-2025 21:48:43.672 DEBUG --- com.kaiasia.app.register.ServiceRegister - Execute method validate for AuthenType: VALIDATE_takeSession
+10-01-2025 21:48:43.672 INFO  --- com.kaiasia.app.ValidateImpl             - 000 OK
+10-01-2025 21:48:43.672 INFO  --- com.kaiasia.app.core.MainRestController  - 1736520523672000_0000_8f34a6636d2e4465bf592808aa58ef80#[API-BEGIN]
+10-01-2025 21:48:43.673 INFO  --- com.kaiasia.app.core.dao.APIDaoManager   - InsertAPIReqs()1736520523672000_0000_8f34a6636d2e4465bf592808aa58ef80#BEGIN
+10-01-2025 21:48:43.901 INFO  --- com.kaiasia.app.core.dao.APIDaoManager   - InsertAPIReqs()1736520523672000_0000_8f34a6636d2e4465bf592808aa58ef80#END
+10-01-2025 21:48:43.926 INFO  --- com.kaiasia.app.core.ProcessService      - 1736520523672000_0000_8f34a6636d2e4465bf592808aa58ef80##pushApiReqToQueue#Duration:254
+10-01-2025 21:48:44.783 INFO  --- com.kaiasia.app.core.ProcessThread       - checkTimeInQueue: 0
+10-01-2025 21:48:44.785 DEBUG --- com.kaiasia.app.ProcessImpl              - received msg: ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=takeSession, sessionId=28169200}, status=OK}, _reqId=1736520523672000_0000_8f34a6636d2e4465bf592808aa58ef80, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+10-01-2025 21:48:44.785 INFO  --- com.kaiasia.app.ProcessImpl              - received msg: ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=takeSession, sessionId=28169200}, status=OK}, _reqId=1736520523672000_0000_8f34a6636d2e4465bf592808aa58ef80, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+10-01-2025 21:48:44.786 DEBUG --- com.kaiasia.app.register.ServiceRegister - Execute method AuthenType: takeSession
+10-01-2025 21:48:45.675 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6eec8373
+10-01-2025 21:48:49.068 INFO  --- com.kaiasia.app.core.MainRestController  - MsgFromClient_Receive:ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=takeSession, sessionId=28169200}, status=OK}, _reqId=null, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+10-01-2025 21:48:49.068 DEBUG --- com.kaiasia.app.register.ServiceRegister - Execute method validate for AuthenType: VALIDATE_takeSession
+10-01-2025 21:48:49.068 INFO  --- com.kaiasia.app.ValidateImpl             - 000 OK
+10-01-2025 21:48:49.068 INFO  --- com.kaiasia.app.core.MainRestController  - 1736520529068000_0000_abc4d51162f540638342b123bf3ed02c#[API-BEGIN]
+10-01-2025 21:48:49.069 INFO  --- com.kaiasia.app.core.dao.APIDaoManager   - InsertAPIReqs()1736520529068000_0000_abc4d51162f540638342b123bf3ed02c#BEGIN
+10-01-2025 21:48:49.293 INFO  --- com.kaiasia.app.core.dao.APIDaoManager   - InsertAPIReqs()1736520529068000_0000_abc4d51162f540638342b123bf3ed02c#END
+10-01-2025 21:48:49.319 INFO  --- com.kaiasia.app.core.ProcessService      - 1736520529068000_0000_abc4d51162f540638342b123bf3ed02c##pushApiReqToQueue#Duration:251
+10-01-2025 21:48:49.616 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@652e364a
+10-01-2025 21:48:49.907 INFO  --- com.kaiasia.app.core.ProcessThread       - checkTimeInQueue: 0
+10-01-2025 21:48:49.907 DEBUG --- com.kaiasia.app.ProcessImpl              - received msg: ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=takeSession, sessionId=28169200}, status=OK}, _reqId=1736520529068000_0000_abc4d51162f540638342b123bf3ed02c, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+10-01-2025 21:48:49.908 INFO  --- com.kaiasia.app.ProcessImpl              - received msg: ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=takeSession, sessionId=28169200}, status=OK}, _reqId=1736520529068000_0000_abc4d51162f540638342b123bf3ed02c, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+10-01-2025 21:48:49.908 DEBUG --- com.kaiasia.app.register.ServiceRegister - Execute method AuthenType: takeSession
+10-01-2025 21:48:54.004 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=5, active=5, idle=0, waiting=1)
+10-01-2025 21:48:54.004 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=5, active=5, idle=0, waiting=1)
+10-01-2025 21:48:54.004 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:48:55.685 INFO  --- com.kaiasia.app.core.MainRestController  - MsgFromClient_Receive:ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=takeSession, sessionId=28169200}, status=OK}, _reqId=null, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+10-01-2025 21:48:55.686 DEBUG --- com.kaiasia.app.register.ServiceRegister - Execute method validate for AuthenType: VALIDATE_takeSession
+10-01-2025 21:48:55.686 INFO  --- com.kaiasia.app.ValidateImpl             - 000 OK
+10-01-2025 21:48:55.686 INFO  --- com.kaiasia.app.core.MainRestController  - 1736520535686000_0000_14179ff8f10f4a7b9935269ab0fbdfcc#[API-BEGIN]
+10-01-2025 21:48:55.687 INFO  --- com.kaiasia.app.core.dao.APIDaoManager   - InsertAPIReqs()1736520535686000_0000_14179ff8f10f4a7b9935269ab0fbdfcc#BEGIN
+10-01-2025 21:48:55.912 INFO  --- com.kaiasia.app.core.dao.APIDaoManager   - InsertAPIReqs()1736520535686000_0000_14179ff8f10f4a7b9935269ab0fbdfcc#END
+10-01-2025 21:48:55.938 INFO  --- com.kaiasia.app.core.ProcessService      - 1736520535686000_0000_14179ff8f10f4a7b9935269ab0fbdfcc##pushApiReqToQueue#Duration:252
+10-01-2025 21:48:56.527 INFO  --- com.kaiasia.app.core.ProcessThread       - checkTimeInQueue: 0
+10-01-2025 21:48:56.529 DEBUG --- com.kaiasia.app.ProcessImpl              - received msg: ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=takeSession, sessionId=28169200}, status=OK}, _reqId=1736520535686000_0000_14179ff8f10f4a7b9935269ab0fbdfcc, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+10-01-2025 21:48:56.529 INFO  --- com.kaiasia.app.ProcessImpl              - received msg: ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=takeSession, sessionId=28169200}, status=OK}, _reqId=1736520535686000_0000_14179ff8f10f4a7b9935269ab0fbdfcc, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+10-01-2025 21:48:56.529 DEBUG --- com.kaiasia.app.register.ServiceRegister - Execute method AuthenType: takeSession
+10-01-2025 21:49:03.184 INFO  --- com.kaiasia.app.core.MainRestController  - MsgFromClient_Receive:ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=takeSession, sessionId=28169200}, status=OK}, _reqId=null, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+10-01-2025 21:49:03.184 DEBUG --- com.kaiasia.app.register.ServiceRegister - Execute method validate for AuthenType: VALIDATE_takeSession
+10-01-2025 21:49:03.184 INFO  --- com.kaiasia.app.ValidateImpl             - 000 OK
+10-01-2025 21:49:03.184 INFO  --- com.kaiasia.app.core.MainRestController  - 1736520543184000_0000_043710f665174e4994ca08693549fb48#[API-BEGIN]
+10-01-2025 21:49:03.185 INFO  --- com.kaiasia.app.core.dao.APIDaoManager   - InsertAPIReqs()1736520543184000_0000_043710f665174e4994ca08693549fb48#BEGIN
+10-01-2025 21:49:03.405 INFO  --- com.kaiasia.app.core.dao.APIDaoManager   - InsertAPIReqs()1736520543184000_0000_043710f665174e4994ca08693549fb48#END
+10-01-2025 21:49:03.431 INFO  --- com.kaiasia.app.core.ProcessService      - 1736520543184000_0000_043710f665174e4994ca08693549fb48##pushApiReqToQueue#Duration:247
+10-01-2025 21:49:03.675 INFO  --- com.kaiasia.app.core.ProcessThread       - checkTimeInQueue: 0
+10-01-2025 21:49:03.676 DEBUG --- com.kaiasia.app.ProcessImpl              - received msg: ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=takeSession, sessionId=28169200}, status=OK}, _reqId=1736520543184000_0000_043710f665174e4994ca08693549fb48, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+10-01-2025 21:49:03.676 INFO  --- com.kaiasia.app.ProcessImpl              - received msg: ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=takeSession, sessionId=28169200}, status=OK}, _reqId=1736520543184000_0000_043710f665174e4994ca08693549fb48, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+10-01-2025 21:49:03.677 DEBUG --- com.kaiasia.app.register.ServiceRegister - Execute method AuthenType: takeSession
+10-01-2025 21:49:09.359 INFO  --- com.kaiasia.app.core.MainRestController  - MsgFromClient_Receive:ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=takeSession, sessionId=28169200}, status=OK}, _reqId=null, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+10-01-2025 21:49:09.360 DEBUG --- com.kaiasia.app.register.ServiceRegister - Execute method validate for AuthenType: VALIDATE_takeSession
+10-01-2025 21:49:09.360 INFO  --- com.kaiasia.app.ValidateImpl             - 000 OK
+10-01-2025 21:49:09.361 INFO  --- com.kaiasia.app.core.MainRestController  - 1736520549361000_0000_961a029d08ae4469be67de58cbf6fd1d#[API-BEGIN]
+10-01-2025 21:49:18.804 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Timeout failure stats (total=5, active=5, idle=0, waiting=6)
+10-01-2025 21:49:18.834 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Timeout failure stats (total=5, active=5, idle=0, waiting=5)
+10-01-2025 21:49:18.866 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Timeout failure stats (total=5, active=5, idle=0, waiting=4)
+10-01-2025 21:49:18.893 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Timeout failure stats (total=5, active=5, idle=0, waiting=3)
+10-01-2025 21:49:18.898 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Timeout failure stats (total=5, active=5, idle=0, waiting=2)
+10-01-2025 21:49:18.912 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Timeout failure stats (total=5, active=5, idle=0, waiting=1)
+10-01-2025 21:49:24.005 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=5, active=5, idle=0, waiting=7)
+10-01-2025 21:49:24.005 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=5, active=5, idle=0, waiting=7)
+10-01-2025 21:49:24.005 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:49:24.363 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Timeout failure stats (total=5, active=5, idle=0, waiting=6)
+10-01-2025 21:49:24.374 ERROR --- com.kaiasia.app.core.ProcessService      - Exception{}
+org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to acquire JDBC Connection
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:467)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.startTransaction(AbstractPlatformTransactionManager.java:400)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:373)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.createTransactionIfNecessary(TransactionAspectSupport.java:595)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:382)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)
+	at com.kaiasia.app.core.dao.APIDaoManager$$EnhancerBySpringCGLIB$$c3cdc61b.insertNewApiRequest(<generated>)
+	at com.kaiasia.app.core.ProcessService.pushApiReqToDB(ProcessService.java:137)
+	at com.kaiasia.app.core.MainRestController.process(MainRestController.java:80)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.hibernate.exception.JDBCConnectionException: Unable to acquire JDBC Connection
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:48)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:37)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.acquireConnectionIfNeeded(LogicalConnectionManagedImpl.java:111)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:138)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getConnectionForTransactionManagement(LogicalConnectionManagedImpl.java:276)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.begin(LogicalConnectionManagedImpl.java:284)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.begin(JdbcResourceLocalTransactionCoordinatorImpl.java:246)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.begin(TransactionImpl.java:83)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.beginTransaction(HibernateJpaDialect.java:164)
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:421)
+	... 61 common frames omitted
+Caused by: java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 15001ms.
+	at com.zaxxer.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:696)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:197)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:162)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:128)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.internal.NonContextualJdbcConnectionAccess.obtainConnection(NonContextualJdbcConnectionAccess.java:38)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.acquireConnectionIfNeeded(LogicalConnectionManagedImpl.java:108)
+	... 68 common frames omitted
+10-01-2025 21:49:24.380 INFO  --- com.kaiasia.app.core.ProcessService      - 1736520549361000_0000_961a029d08ae4469be67de58cbf6fd1d##pushApiReqToQueue#Duration:15019
+10-01-2025 21:49:30.628 INFO  --- com.kaiasia.app.service.Auth_api.api.takesession.TakeSessionService - 28169200#END#Duration:62096
+10-01-2025 21:49:30.628 INFO  --- com.kaiasia.app.core.ProcessThread       - RESPONSE :ApiResponse(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=801, desc=Session 28169200 not exist))
+10-01-2025 21:49:30.628 INFO  --- com.kaiasia.app.core.ProcessThread       - RESPONSE :ApiResponse(header=ApiHeader(reqType=RESPONSE, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=62840, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=998, desc=Timeout {0}))
+10-01-2025 21:49:30.713 ERROR --- com.kaiasia.app.core.ProcessService      - 1736520507729000_0000_828e2f9e315b45809d75095b597bfb49#Return timeout, because client get response at time over timeout value
+10-01-2025 21:49:30.714 INFO  --- com.kaiasia.app.core.MainRestController  - 1736520507729000_0000_828e2f9e315b45809d75095b597bfb49##END
+10-01-2025 21:49:30.714 INFO  --- com.kaiasia.app.core.MainRestController  - 1736520507729000_0000_828e2f9e315b45809d75095b597bfb49#MsgFromClient_Response:ApiResponse(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=998, desc=Timeout {0}))#Total time: 69011
+10-01-2025 21:49:30.883 INFO  --- com.kaiasia.app.core.ProcessThread       - 1736520507729000_0000_828e2f9e315b45809d75095b597bfb49#saveResponse#Duration: 255
+10-01-2025 21:49:43.885 ERROR --- com.kaiasia.app.core.ProcessService      - 1736520523672000_0000_8f34a6636d2e4465bf592808aa58ef80#Return timeout, because client get response at time over timeout value
+10-01-2025 21:49:43.885 INFO  --- com.kaiasia.app.core.MainRestController  - 1736520523672000_0000_8f34a6636d2e4465bf592808aa58ef80##END
+10-01-2025 21:49:43.885 INFO  --- com.kaiasia.app.core.MainRestController  - 1736520523672000_0000_8f34a6636d2e4465bf592808aa58ef80#MsgFromClient_Response:ApiResponse(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=998, desc=Timeout {0}))#Total time: 60213
+10-01-2025 21:49:46.839 INFO  --- com.kaiasia.app.service.Auth_api.api.takesession.TakeSessionService - 28169200#END#Duration:62051
+10-01-2025 21:49:46.839 INFO  --- com.kaiasia.app.core.ProcessThread       - RESPONSE :ApiResponse(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=801, desc=Session 28169200 not exist))
+10-01-2025 21:49:46.839 INFO  --- com.kaiasia.app.core.ProcessThread       - RESPONSE :ApiResponse(header=ApiHeader(reqType=RESPONSE, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=63167, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=998, desc=Timeout {0}))
+10-01-2025 21:49:46.888 INFO  --- com.kaiasia.app.core.ProcessThread       - 1736520523672000_0000_8f34a6636d2e4465bf592808aa58ef80#saveResponse#Duration: 49
+10-01-2025 21:49:49.111 ERROR --- com.kaiasia.app.core.ProcessService      - 1736520529068000_0000_abc4d51162f540638342b123bf3ed02c#Return timeout, because client get response at time over timeout value
+10-01-2025 21:49:49.112 INFO  --- com.kaiasia.app.core.MainRestController  - 1736520529068000_0000_abc4d51162f540638342b123bf3ed02c##END
+10-01-2025 21:49:49.112 INFO  --- com.kaiasia.app.core.MainRestController  - 1736520529068000_0000_abc4d51162f540638342b123bf3ed02c#MsgFromClient_Response:ApiResponse(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=998, desc=Timeout {0}))#Total time: 60044
+10-01-2025 21:49:51.971 INFO  --- com.kaiasia.app.service.Auth_api.api.takesession.TakeSessionService - 28169200#END#Duration:62063
+10-01-2025 21:49:51.971 INFO  --- com.kaiasia.app.core.ProcessThread       - RESPONSE :ApiResponse(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=801, desc=Session 28169200 not exist))
+10-01-2025 21:49:51.971 INFO  --- com.kaiasia.app.core.ProcessThread       - RESPONSE :ApiResponse(header=ApiHeader(reqType=RESPONSE, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=62903, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=998, desc=Timeout {0}))
+10-01-2025 21:49:52.026 INFO  --- com.kaiasia.app.core.ProcessThread       - 1736520529068000_0000_abc4d51162f540638342b123bf3ed02c#saveResponse#Duration: 55
+10-01-2025 21:49:54.016 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=5, active=2, idle=3, waiting=0)
+10-01-2025 21:49:54.016 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=5, active=2, idle=3, waiting=0)
+10-01-2025 21:49:54.016 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:49:55.755 ERROR --- com.kaiasia.app.core.ProcessService      - 1736520535686000_0000_14179ff8f10f4a7b9935269ab0fbdfcc#Return timeout, because client get response at time over timeout value
+10-01-2025 21:49:55.755 INFO  --- com.kaiasia.app.core.MainRestController  - 1736520535686000_0000_14179ff8f10f4a7b9935269ab0fbdfcc##END
+10-01-2025 21:49:55.755 INFO  --- com.kaiasia.app.core.MainRestController  - 1736520535686000_0000_14179ff8f10f4a7b9935269ab0fbdfcc#MsgFromClient_Response:ApiResponse(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=998, desc=Timeout {0}))#Total time: 60070
+10-01-2025 21:49:58.587 INFO  --- com.kaiasia.app.service.Auth_api.api.takesession.TakeSessionService - 28169200#END#Duration:62058
+10-01-2025 21:49:58.588 INFO  --- com.kaiasia.app.core.ProcessThread       - RESPONSE :ApiResponse(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=801, desc=Session 28169200 not exist))
+10-01-2025 21:49:58.589 INFO  --- com.kaiasia.app.core.ProcessThread       - RESPONSE :ApiResponse(header=ApiHeader(reqType=RESPONSE, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=62903, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=998, desc=Timeout {0}))
+10-01-2025 21:49:58.642 INFO  --- com.kaiasia.app.core.ProcessThread       - 1736520535686000_0000_14179ff8f10f4a7b9935269ab0fbdfcc#saveResponse#Duration: 53
+10-01-2025 21:50:00.030 INFO  --- com.kaiasia.app.service.Auth_api.schedule.SessionCleanupService - 1 expired session(s) deleted.
+10-01-2025 21:50:03.375 ERROR --- com.kaiasia.app.core.ProcessService      - 1736520543184000_0000_043710f665174e4994ca08693549fb48#Return timeout, because client get response at time over timeout value
+10-01-2025 21:50:03.376 INFO  --- com.kaiasia.app.core.MainRestController  - 1736520543184000_0000_043710f665174e4994ca08693549fb48##END
+10-01-2025 21:50:03.376 INFO  --- com.kaiasia.app.core.MainRestController  - 1736520543184000_0000_043710f665174e4994ca08693549fb48#MsgFromClient_Response:ApiResponse(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=998, desc=Timeout {0}))#Total time: 60192
+10-01-2025 21:50:05.763 INFO  --- com.kaiasia.app.service.Auth_api.api.takesession.TakeSessionService - 28169200#END#Duration:62086
+10-01-2025 21:50:05.763 INFO  --- com.kaiasia.app.core.ProcessThread       - RESPONSE :ApiResponse(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=801, desc=Session 28169200 not exist))
+10-01-2025 21:50:05.764 INFO  --- com.kaiasia.app.core.ProcessThread       - RESPONSE :ApiResponse(header=ApiHeader(reqType=RESPONSE, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=62580, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=998, desc=Timeout {0}))
+10-01-2025 21:50:05.816 INFO  --- com.kaiasia.app.core.ProcessThread       - 1736520543184000_0000_043710f665174e4994ca08693549fb48#saveResponse#Duration: 52
+10-01-2025 21:50:24.023 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=5, active=1, idle=4, waiting=0)
+10-01-2025 21:50:24.024 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=5, active=1, idle=4, waiting=0)
+10-01-2025 21:50:24.024 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:50:54.029 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=5, active=0, idle=5, waiting=0)
+10-01-2025 21:50:54.031 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=4, active=0, idle=4, waiting=0)
+10-01-2025 21:50:54.031 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:50:54.032 DEBUG --- com.zaxxer.hikari.pool.PoolBase          - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@425cea68: (connection has passed idleTimeout)
+10-01-2025 21:50:54.035 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:51:24.035 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=4, active=0, idle=4, waiting=0)
+10-01-2025 21:51:24.036 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:51:24.036 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:51:24.037 DEBUG --- com.zaxxer.hikari.pool.PoolBase          - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@652e364a: (connection has passed idleTimeout)
+10-01-2025 21:51:24.039 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:51:54.038 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:51:54.038 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:51:54.038 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:52:24.041 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:52:24.041 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:52:24.041 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:52:54.051 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:52:54.051 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:52:54.051 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:53:24.056 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:53:24.056 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:53:24.056 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:53:54.068 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:53:54.068 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:53:54.069 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:54:24.076 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:54:24.076 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:54:24.076 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:54:54.078 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:54:54.080 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:54:54.081 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:55:24.085 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=1, idle=2, waiting=0)
+10-01-2025 21:55:24.085 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=1, idle=2, waiting=0)
+10-01-2025 21:55:24.454 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@53fe3983
+10-01-2025 21:55:24.454 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After adding stats (total=4, active=1, idle=3, waiting=0)
+10-01-2025 21:55:54.098 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=4, active=1, idle=3, waiting=0)
+10-01-2025 21:55:54.098 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=4, active=1, idle=3, waiting=0)
+10-01-2025 21:55:54.098 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:56:24.100 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=4, active=0, idle=4, waiting=0)
+10-01-2025 21:56:24.101 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:56:24.101 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:56:24.102 DEBUG --- com.zaxxer.hikari.pool.PoolBase          - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@6eec8373: (connection has passed idleTimeout)
+10-01-2025 21:56:24.108 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:56:54.103 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:56:54.104 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:56:54.104 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:57:24.117 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:57:24.117 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:57:24.118 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:57:54.120 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:57:54.120 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:57:54.121 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:58:24.124 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:58:24.124 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:58:24.124 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:58:54.126 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:58:54.126 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:58:54.126 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:59:24.139 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:59:24.139 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:59:24.139 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 21:59:54.142 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:59:54.143 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 21:59:54.143 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:00:00.076 INFO  --- com.kaiasia.app.service.Auth_api.schedule.SessionCleanupService - No expired sessions found.
+10-01-2025 22:00:24.153 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:00:24.153 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:00:24.153 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:00:54.160 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:00:54.160 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:00:54.160 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:01:24.174 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:01:24.174 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:01:24.174 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:01:54.178 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:01:54.178 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:01:54.178 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:02:24.191 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=1, idle=2, waiting=0)
+10-01-2025 22:02:24.191 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=1, idle=2, waiting=0)
+10-01-2025 22:02:24.579 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@674e47e2
+10-01-2025 22:02:24.579 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After adding stats (total=4, active=1, idle=3, waiting=0)
+10-01-2025 22:02:54.199 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=4, active=1, idle=3, waiting=0)
+10-01-2025 22:02:54.200 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=4, active=1, idle=3, waiting=0)
+10-01-2025 22:02:54.200 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:03:24.215 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=4, active=0, idle=4, waiting=0)
+10-01-2025 22:03:24.216 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:03:24.216 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:03:24.216 DEBUG --- com.zaxxer.hikari.pool.PoolBase          - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@53fe3983: (connection has passed idleTimeout)
+10-01-2025 22:03:24.221 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:03:54.229 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:03:54.230 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:03:54.231 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:04:24.243 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:04:24.243 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:04:24.243 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:04:54.254 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:04:54.254 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:04:54.254 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:05:24.259 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:05:24.259 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:05:24.259 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:05:54.273 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:05:54.273 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:05:54.273 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:06:24.289 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=1, idle=2, waiting=0)
+10-01-2025 22:06:24.289 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=1, idle=2, waiting=0)
+10-01-2025 22:06:24.597 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@574dcd65
+10-01-2025 22:06:24.597 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After adding stats (total=4, active=0, idle=4, waiting=0)
+10-01-2025 22:06:54.293 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=4, active=1, idle=3, waiting=0)
+10-01-2025 22:06:54.293 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=4, active=1, idle=3, waiting=0)
+10-01-2025 22:06:54.293 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:07:24.304 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=4, active=1, idle=3, waiting=0)
+10-01-2025 22:07:24.304 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=4, active=1, idle=3, waiting=0)
+10-01-2025 22:07:24.304 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:07:54.310 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=4, active=0, idle=4, waiting=0)
+10-01-2025 22:07:54.311 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:07:54.311 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:07:54.312 DEBUG --- com.zaxxer.hikari.pool.PoolBase          - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@574dcd65: (connection has passed idleTimeout)
+10-01-2025 22:07:54.316 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:08:24.319 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:08:24.319 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:08:24.319 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:08:54.329 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:08:54.329 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:08:54.329 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:09:24.340 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=1, idle=2, waiting=0)
+10-01-2025 22:09:24.341 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=1, idle=2, waiting=0)
+10-01-2025 22:09:24.693 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@11ee9617
+10-01-2025 22:09:24.693 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After adding stats (total=4, active=0, idle=4, waiting=0)
+10-01-2025 22:09:54.346 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=4, active=1, idle=3, waiting=0)
+10-01-2025 22:09:54.347 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=4, active=1, idle=3, waiting=0)
+10-01-2025 22:09:54.347 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:10:00.065 INFO  --- com.kaiasia.app.service.Auth_api.schedule.SessionCleanupService - No expired sessions found.
+10-01-2025 22:10:24.353 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=4, active=1, idle=3, waiting=0)
+10-01-2025 22:10:24.353 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=4, active=1, idle=3, waiting=0)
+10-01-2025 22:10:24.353 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:10:54.354 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=4, active=0, idle=4, waiting=0)
+10-01-2025 22:10:54.355 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:10:54.355 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:10:54.356 DEBUG --- com.zaxxer.hikari.pool.PoolBase          - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@11ee9617: (connection has passed idleTimeout)
+10-01-2025 22:10:54.360 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:11:24.370 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:11:24.370 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:11:24.370 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:11:54.374 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:11:54.374 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:11:54.374 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:12:24.384 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:12:24.384 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:12:24.384 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:12:54.393 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:12:54.393 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:12:54.394 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:13:24.397 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:13:24.397 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:13:24.397 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:13:54.405 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:13:54.405 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:13:54.405 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:14:24.412 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=1, idle=2, waiting=0)
+10-01-2025 22:14:24.412 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=1, idle=2, waiting=0)
+10-01-2025 22:14:24.710 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1b3fb3a4
+10-01-2025 22:14:24.710 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After adding stats (total=4, active=0, idle=4, waiting=0)
+10-01-2025 22:14:54.420 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=4, active=1, idle=3, waiting=0)
+10-01-2025 22:14:54.420 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=4, active=1, idle=3, waiting=0)
+10-01-2025 22:14:54.420 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:15:24.423 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=4, active=0, idle=4, waiting=0)
+10-01-2025 22:15:24.424 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:15:24.424 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:15:24.425 DEBUG --- com.zaxxer.hikari.pool.PoolBase          - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@674e47e2: (connection has passed idleTimeout)
+10-01-2025 22:15:24.429 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:15:54.430 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:15:54.430 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:15:54.430 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:16:24.432 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:16:24.432 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:16:24.432 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:16:52.152 DEBUG --- com.zaxxer.hikari.pool.PoolBase          - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@4c9b0d8b: (connection has passed maxLifetime)
+10-01-2025 22:16:52.484 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@40c225c5
+10-01-2025 22:16:52.812 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4e05d3ad
+10-01-2025 22:16:54.445 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=4, active=0, idle=4, waiting=0)
+10-01-2025 22:16:54.445 DEBUG --- com.zaxxer.hikari.pool.PoolBase          - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@1b3fb3a4: (connection has passed idleTimeout)
+10-01-2025 22:16:54.445 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:16:54.446 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:16:54.447 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:17:21.950 DEBUG --- com.zaxxer.hikari.pool.PoolBase          - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@13f4048e: (connection has passed maxLifetime)
+10-01-2025 22:17:22.245 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@587657ee
+10-01-2025 22:17:24.456 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:17:24.456 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:17:24.456 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:17:54.471 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:17:54.471 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:17:54.471 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:18:24.483 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:18:24.484 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:18:24.484 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:18:54.490 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:18:54.490 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:18:54.490 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:19:24.503 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:19:24.503 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:19:24.503 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:19:54.510 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:19:54.511 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:19:54.511 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:20:00.040 INFO  --- com.kaiasia.app.service.Auth_api.schedule.SessionCleanupService - 1 expired session(s) deleted.
+10-01-2025 22:20:24.513 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=1, idle=2, waiting=0)
+10-01-2025 22:20:24.514 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=1, idle=2, waiting=0)
+10-01-2025 22:20:24.816 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@53f8b2e5
+10-01-2025 22:20:24.816 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After adding stats (total=4, active=0, idle=4, waiting=0)
+10-01-2025 22:20:54.518 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=4, active=0, idle=4, waiting=0)
+10-01-2025 22:20:54.518 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:20:54.518 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:20:54.518 DEBUG --- com.zaxxer.hikari.pool.PoolBase          - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@587657ee: (connection has passed idleTimeout)
+10-01-2025 22:20:54.519 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:21:24.525 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:21:24.525 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:21:24.525 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:21:54.535 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:21:54.535 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:21:54.535 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:22:24.541 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:22:24.542 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:22:24.542 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:22:54.554 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:22:54.557 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:22:54.557 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:23:24.573 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=1, idle=2, waiting=0)
+10-01-2025 22:23:24.573 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=1, idle=2, waiting=0)
+10-01-2025 22:23:24.902 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1dcfa363
+10-01-2025 22:23:24.902 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After adding stats (total=4, active=0, idle=4, waiting=0)
+10-01-2025 22:23:54.584 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=4, active=1, idle=3, waiting=0)
+10-01-2025 22:23:54.584 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=4, active=1, idle=3, waiting=0)
+10-01-2025 22:23:54.584 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:24:24.600 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=4, active=0, idle=4, waiting=0)
+10-01-2025 22:24:24.601 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:24:24.601 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:24:24.601 DEBUG --- com.zaxxer.hikari.pool.PoolBase          - HikariPool-1 - Closing connection org.postgresql.jdbc.PgConnection@53f8b2e5: (connection has passed idleTimeout)
+10-01-2025 22:24:24.606 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:24:54.616 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:24:54.616 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:24:54.616 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:25:24.618 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:25:24.619 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:25:24.619 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10-01-2025 22:25:54.626 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Before cleanup stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:25:54.626 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - After cleanup  stats (total=3, active=0, idle=3, waiting=0)
+10-01-2025 22:25:54.626 DEBUG --- com.zaxxer.hikari.pool.HikariPool        - HikariPool-1 - Fill pool skipped, pool is at sufficient level.

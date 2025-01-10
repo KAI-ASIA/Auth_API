@@ -12,6 +12,8 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 import java.util.HashMap;
 
+import javax.transaction.Transactional;
+
 //@Component
 public class SessionIdDAO extends CommonDAO implements IAuthSessionDao{
     private static final Logger log = Logger.getLogger(SessionIdDAO.class);
@@ -53,6 +55,8 @@ public class SessionIdDAO extends CommonDAO implements IAuthSessionDao{
         }
     }
 
+    
+//    @Transactional
     @Override
     public AuthSessionResponse getAuthSessionId(String sessionId) throws Exception {
         String sql = "SELECT username, start_time, end_time, session_id, channel, \"location\", phone, email, company_code, customer_id " +
@@ -60,7 +64,7 @@ public class SessionIdDAO extends CommonDAO implements IAuthSessionDao{
         HashMap<String, Object> param = new HashMap<>();
         param.put("SESSION_ID", sessionId);
 
-//        try {
+//        Thread.sleep(62*1000); 
 
             AuthSessionResponse authSessionResponse = posgrestDAOHelper.querySingle(
                     sql,
@@ -68,10 +72,7 @@ public class SessionIdDAO extends CommonDAO implements IAuthSessionDao{
                     new BeanPropertyRowMapper<>(AuthSessionResponse.class)
             );
             return authSessionResponse; // Trả về thông tin session
-//        } catch (Exception e) {
-//            log.error("Error retrieving sessionId: " + sessionId, e);
-//            return null;
-//        }
+ 
     }
 
     @Override
@@ -79,7 +80,7 @@ public class SessionIdDAO extends CommonDAO implements IAuthSessionDao{
         String sql = "UPDATE auth_api.auth_session SET end_time = :END_TIME WHERE session_id = :SESSION_ID";
         HashMap<String, Object> param = new HashMap<>();
         param.put("SESSION_ID", sessionId);
-        param.put("END_TIME", new Date()); // Đặt thời gian hết hạn thành thời điểm hiện tại
+        param.put("END_TIME", new Date()); // thời điểm hiện tại + 30 minutes
 
 
         int result = posgrestDAOHelper.update(sql, param);
