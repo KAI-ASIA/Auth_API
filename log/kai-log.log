@@ -1456,3 +1456,92 @@ Caused by: java.lang.IllegalStateException: EntityManagerFactory is closed
 	at org.springframework.orm.jpa.JpaTransactionManager.createEntityManagerForTransaction(JpaTransactionManager.java:485)
 	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:410)
 	... 11 common frames omitted
+09-01-2025 22:42:34.362 INFO  --- com.kaiasia.app.AppApplication           - Starting AppApplication using Java 1.8.0_421 on Trinh with PID 2368 (E:\web\KAI-TTS\KAI-TTS\Fw\DemoApi\target\classes started by vinh5 in E:\web\KAI-TTS\KAI-TTS\Fw\DemoApi)
+09-01-2025 22:42:34.362 DEBUG --- com.kaiasia.app.AppApplication           - Running with Spring Boot v2.7.2, Spring v5.3.22
+09-01-2025 22:42:34.362 INFO  --- com.kaiasia.app.AppApplication           - No active profile set, falling back to 1 default profile: "default"
+09-01-2025 22:42:39.057 DEBUG --- com.kaiasia.app.register.ServiceRegister - Found 4 classes with annotation SeabService
+09-01-2025 22:42:39.975 INFO  --- com.kaiasia.app.AppApplication           - Started AppApplication in 6.113 seconds (JVM running for 6.733)
+09-01-2025 22:42:54.598 INFO  --- com.kaiasia.app.core.MainRestController  - MsgFromClient_Receive:ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=login, username=28169200, password=Phaiv@123}, status=OK}, _reqId=null, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+09-01-2025 22:42:54.613 DEBUG --- com.kaiasia.app.register.ServiceRegister - Execute method validate for AuthenType: VALIDATE_login
+09-01-2025 22:42:54.629 INFO  --- com.kaiasia.app.ValidateImpl             - 000 OK
+09-01-2025 22:42:54.639 INFO  --- com.kaiasia.app.core.MainRestController  - 1736437374639000_0000_c4ce123c67014570b85a0081f3786717#[API-BEGIN]
+09-01-2025 22:42:54.662 INFO  --- com.kaiasia.app.core.dao.APIDaoManager   - InsertAPIReqs()1736437374639000_0000_c4ce123c67014570b85a0081f3786717#BEGIN
+09-01-2025 22:42:54.902 INFO  --- com.kaiasia.app.core.dao.APIDaoManager   - InsertAPIReqs()1736437374639000_0000_c4ce123c67014570b85a0081f3786717#END
+09-01-2025 22:42:54.922 INFO  --- com.kaiasia.app.core.ProcessService      - 1736437374639000_0000_c4ce123c67014570b85a0081f3786717##pushApiReqToQueue#Duration:283
+09-01-2025 22:42:55.431 INFO  --- com.kaiasia.app.core.ProcessThread       - checkTimeInQueue: 0
+09-01-2025 22:42:55.431 DEBUG --- com.kaiasia.app.ProcessImpl              - received msg: ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=login, username=28169200, password=Phaiv@123}, status=OK}, _reqId=1736437374639000_0000_c4ce123c67014570b85a0081f3786717, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+09-01-2025 22:42:55.431 INFO  --- com.kaiasia.app.ProcessImpl              - received msg: ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=login, username=28169200, password=Phaiv@123}, status=OK}, _reqId=1736437374639000_0000_c4ce123c67014570b85a0081f3786717, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+09-01-2025 22:42:55.431 DEBUG --- com.kaiasia.app.register.ServiceRegister - Execute method AuthenType: login
+09-01-2025 22:42:55.431 INFO  --- com.kaiasia.app.service.Auth_api.api.login.LoginService - API-28169200-null#BEGIN
+09-01-2025 22:42:55.431 INFO  --- ms.apiclient.client.common.ApiCallClient - API-28169200-null#begin call api T24_UTIL_API
+09-01-2025 22:42:56.349 INFO  --- ms.apiclient.client.common.ApiCallClient - API-28169200-null#end call api T24_UTIL_API
+09-01-2025 22:42:56.390 INFO  --- com.kaiasia.app.service.Auth_api.api.login.LoginService - API-28169200-null#END#Duration:959
+09-01-2025 22:42:56.390 INFO  --- com.kaiasia.app.core.ProcessThread       - RESPONSE :ApiResponse(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=04, desc=Sai Password#Phaiv@123))
+09-01-2025 22:42:56.390 INFO  --- com.kaiasia.app.core.ProcessThread       - RESPONSE :ApiResponse(header=ApiHeader(reqType=RESPONSE, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=1730, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=04, desc=Sai Password#Phaiv@123))
+09-01-2025 22:42:56.448 INFO  --- com.kaiasia.app.core.ProcessThread       - 1736437374639000_0000_c4ce123c67014570b85a0081f3786717#saveResponse#Duration: 58
+09-01-2025 22:42:56.581 INFO  --- com.kaiasia.app.core.MainRestController  - 1736437374639000_0000_c4ce123c67014570b85a0081f3786717##END
+09-01-2025 22:42:56.581 INFO  --- com.kaiasia.app.core.MainRestController  - 1736437374639000_0000_c4ce123c67014570b85a0081f3786717#MsgFromClient_Response:ApiResponse(header=ApiHeader(reqType=RESPONSE, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=1730, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=04, desc=Sai Password#Phaiv@123))#Total time: 1983
+09-01-2025 22:47:03.629 INFO  --- com.kaiasia.app.core.MainRestController  - MsgFromClient_Receive:ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=takeSession, sessionId=281692_1736430345597_}, status=OK}, _reqId=null, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+09-01-2025 22:47:03.630 DEBUG --- com.kaiasia.app.register.ServiceRegister - Execute method validate for AuthenType: VALIDATE_takeSession
+09-01-2025 22:47:03.631 INFO  --- com.kaiasia.app.ValidateImpl             - 000 OK
+09-01-2025 22:47:03.631 INFO  --- com.kaiasia.app.core.MainRestController  - 1736437623631000_0000_f3d91ce2ef894414bcdf5a7565d72728#[API-BEGIN]
+09-01-2025 22:47:03.658 INFO  --- com.kaiasia.app.core.dao.APIDaoManager   - InsertAPIReqs()1736437623631000_0000_f3d91ce2ef894414bcdf5a7565d72728#BEGIN
+09-01-2025 22:47:03.893 INFO  --- com.kaiasia.app.core.dao.APIDaoManager   - InsertAPIReqs()1736437623631000_0000_f3d91ce2ef894414bcdf5a7565d72728#END
+09-01-2025 22:47:03.920 INFO  --- com.kaiasia.app.core.ProcessService      - 1736437623631000_0000_f3d91ce2ef894414bcdf5a7565d72728##pushApiReqToQueue#Duration:289
+09-01-2025 22:47:04.649 INFO  --- com.kaiasia.app.core.MainRestController  - 1736437623631000_0000_f3d91ce2ef894414bcdf5a7565d72728##END
+09-01-2025 22:47:04.649 INFO  --- com.kaiasia.app.core.MainRestController  - 1736437623631000_0000_f3d91ce2ef894414bcdf5a7565d72728#MsgFromClient_Response:ApiResponse(header=ApiHeader(reqType=RESPONSE, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=-16553, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=333, desc=Invalid authenType))#Total time: 1020
+09-01-2025 22:49:23.949 INFO  --- com.kaiasia.app.core.MainRestController  - MsgFromClient_Receive:ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=takeSession, sessionId=281692_1736430345597_}, status=OK}, _reqId=null, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+09-01-2025 22:49:23.950 DEBUG --- com.kaiasia.app.register.ServiceRegister - Execute method validate for AuthenType: VALIDATE_takeSession
+09-01-2025 22:49:23.951 INFO  --- com.kaiasia.app.ValidateImpl             - 000 OK
+09-01-2025 22:49:23.951 INFO  --- com.kaiasia.app.core.MainRestController  - 1736437763951000_0000_0bfd6dbcb2a648f3972ceb8d0162c081#[API-BEGIN]
+09-01-2025 22:49:23.977 INFO  --- com.kaiasia.app.core.dao.APIDaoManager   - InsertAPIReqs()1736437763951000_0000_0bfd6dbcb2a648f3972ceb8d0162c081#BEGIN
+09-01-2025 22:49:24.211 INFO  --- com.kaiasia.app.core.dao.APIDaoManager   - InsertAPIReqs()1736437763951000_0000_0bfd6dbcb2a648f3972ceb8d0162c081#END
+09-01-2025 22:49:24.238 INFO  --- com.kaiasia.app.core.ProcessService      - 1736437763951000_0000_0bfd6dbcb2a648f3972ceb8d0162c081##pushApiReqToQueue#Duration:287
+09-01-2025 22:49:24.973 INFO  --- com.kaiasia.app.core.MainRestController  - 1736437763951000_0000_0bfd6dbcb2a648f3972ceb8d0162c081##END
+09-01-2025 22:49:24.973 INFO  --- com.kaiasia.app.core.MainRestController  - 1736437763951000_0000_0bfd6dbcb2a648f3972ceb8d0162c081#MsgFromClient_Response:ApiResponse(header=ApiHeader(reqType=RESPONSE, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=-16531, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=333, desc=Invalid authenType))#Total time: 1024
+09-01-2025 22:49:56.911 INFO  --- com.kaiasia.app.core.MainRestController  - MsgFromClient_Receive:ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=takeSession, sessionId=281692_1736430345597_}, status=OK}, _reqId=null, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+09-01-2025 22:49:56.912 DEBUG --- com.kaiasia.app.register.ServiceRegister - Execute method validate for AuthenType: VALIDATE_takeSession
+09-01-2025 22:49:56.912 INFO  --- com.kaiasia.app.ValidateImpl             - 000 OK
+09-01-2025 22:49:56.912 INFO  --- com.kaiasia.app.core.MainRestController  - 1736437796912000_0000_957a1e85149340e8b9edf9ac85625c31#[API-BEGIN]
+09-01-2025 22:49:56.940 INFO  --- com.kaiasia.app.core.dao.APIDaoManager   - InsertAPIReqs()1736437796912000_0000_957a1e85149340e8b9edf9ac85625c31#BEGIN
+09-01-2025 22:49:57.172 INFO  --- com.kaiasia.app.core.dao.APIDaoManager   - InsertAPIReqs()1736437796912000_0000_957a1e85149340e8b9edf9ac85625c31#END
+09-01-2025 22:49:57.198 INFO  --- com.kaiasia.app.core.ProcessService      - 1736437796912000_0000_957a1e85149340e8b9edf9ac85625c31##pushApiReqToQueue#Duration:286
+09-01-2025 22:49:57.774 INFO  --- com.kaiasia.app.core.ProcessThread       - checkTimeInQueue: 0
+09-01-2025 22:49:57.775 DEBUG --- com.kaiasia.app.ProcessImpl              - received msg: ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=takeSession, sessionId=281692_1736430345597_}, status=OK}, _reqId=1736437796912000_0000_957a1e85149340e8b9edf9ac85625c31, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+09-01-2025 22:49:57.775 INFO  --- com.kaiasia.app.ProcessImpl              - received msg: ApiRequest(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={command=GET_ENQUIRY, enquiry={authenType=takeSession, sessionId=281692_1736430345597_}, status=OK}, _reqId=1736437796912000_0000_957a1e85149340e8b9edf9ac85625c31, _rejectCounter=null, _sendTime=null, _command=null, _authenType=null, _timeOut=null)
+09-01-2025 22:49:57.775 DEBUG --- com.kaiasia.app.register.ServiceRegister - Execute method AuthenType: takeSession
+09-01-2025 22:49:57.807 INFO  --- com.kaiasia.app.service.Auth_api.api.takesession.TakeSessionService - API-Unknown-null#END#Duration:32
+09-01-2025 22:49:57.807 INFO  --- com.kaiasia.app.core.ProcessThread       - RESPONSE :ApiResponse(header=ApiHeader(reqType=REQUEST, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=null, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=801, desc=Session 281692_1736430345597_ not exist))
+09-01-2025 22:49:57.808 INFO  --- com.kaiasia.app.core.ProcessThread       - RESPONSE :ApiResponse(header=ApiHeader(reqType=RESPONSE, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=895, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=801, desc=Session 281692_1736430345597_ not exist))
+09-01-2025 22:49:57.864 INFO  --- com.kaiasia.app.core.ProcessThread       - 1736437796912000_0000_957a1e85149340e8b9edf9ac85625c31#saveResponse#Duration: 56
+09-01-2025 22:49:57.924 INFO  --- com.kaiasia.app.core.MainRestController  - 1736437796912000_0000_957a1e85149340e8b9edf9ac85625c31##END
+09-01-2025 22:49:57.925 INFO  --- com.kaiasia.app.core.MainRestController  - 1736437796912000_0000_957a1e85149340e8b9edf9ac85625c31#MsgFromClient_Response:ApiResponse(header=ApiHeader(reqType=RESPONSE, api=Auth_API, apiKey=authq51klfoni1ezxl5f2ckpfx248, channel=API, location=PC/IOS, requestAPI=FE API, requestNode=node 01, duration=895, priority=1, context=null, synasyn=false), body={status=FAILE}, error=ApiError(code=801, desc=Session 281692_1736430345597_ not exist))#Total time: 1014
+09-01-2025 22:50:00.062 INFO  --- com.kaiasia.app.service.Auth_api.schedule.SessionCleanupService - No expired sessions found.
+09-01-2025 22:51:30.940 ERROR --- com.kaiasia.app.core.job.ApiFetchReqTask - EXCEPTION FETCH DB: {}
+org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction; nested exception is java.lang.IllegalStateException: EntityManagerFactory is closed
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:467)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.startTransaction(AbstractPlatformTransactionManager.java:400)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:373)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.createTransactionIfNecessary(TransactionAspectSupport.java:595)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:382)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708)
+	at com.kaiasia.app.core.dao.APIDaoManager$$EnhancerBySpringCGLIB$$726d4dc9.fetchAPIReqs(<generated>)
+	at com.kaiasia.app.core.job.ApiFetchReqTask.run(ApiFetchReqTask.java:40)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: java.lang.IllegalStateException: EntityManagerFactory is closed
+	at org.hibernate.internal.SessionFactoryImpl.validateNotClosed(SessionFactoryImpl.java:547)
+	at org.hibernate.internal.SessionFactoryImpl.createEntityManager(SessionFactoryImpl.java:636)
+	at org.hibernate.internal.SessionFactoryImpl.createEntityManager(SessionFactoryImpl.java:158)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.createNativeEntityManager(AbstractEntityManagerFactoryBean.java:585)
+	at sun.reflect.GeneratedMethodAccessor43.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.invokeProxyMethod(AbstractEntityManagerFactoryBean.java:487)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean$ManagedEntityManagerFactoryInvocationHandler.invoke(AbstractEntityManagerFactoryBean.java:734)
+	at com.sun.proxy.$Proxy83.createNativeEntityManager(Unknown Source)
+	at org.springframework.orm.jpa.JpaTransactionManager.createEntityManagerForTransaction(JpaTransactionManager.java:485)
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:410)
+	... 11 common frames omitted
