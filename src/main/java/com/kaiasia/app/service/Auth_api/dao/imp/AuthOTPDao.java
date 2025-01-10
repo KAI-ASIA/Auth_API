@@ -24,6 +24,8 @@ public class AuthOTPDao implements IAuthOTPDao {
     @Autowired
     PosgrestDAOHelper posgrestDAOHelper;
 
+//    @Autowired
+//    private KafkaTemplate<String, String> kafkaTemplate;
 
     @Override
     public OTP getOTP(HashMap<String, String> body) throws Exception {
@@ -53,8 +55,8 @@ public class AuthOTPDao implements IAuthOTPDao {
 
     @Override
     public boolean compareOTPAndCheckExpiration(HashMap<String, String> body) throws Exception {
-        String sql = "SELECT * FROM OTP  " +
-                "WHERE session_id = :session_id AND channel = :channel AND username = :username  ORDER BY trans_id DESC";
+        String sql = "SELECT * FROM auth_api.otp  " +
+                "WHERE auth_api.otp.session_id = :session_id AND auth_api.otp.channel = :channel AND auth_api.otp.username = :username  ORDER BY auth_api.otp.trans_id DESC";
         Map<String, String> params = new HashMap<>();
         params.put("session_id", body.get("session_id"));
         params.put("channel", body.get("channel"));
@@ -70,7 +72,7 @@ public class AuthOTPDao implements IAuthOTPDao {
     }
 
     @Override
-    public String generateAndSaveOTP(HashMap<String, String> body) {
+    public String generateAndSaveOTP(HashMap<String, String> body) throws Exception{
         String otp = generateOTP();
         OTP newOTP = new OTP();
         newOTP.setSession_id(body.get("session_id"));
@@ -79,8 +81,30 @@ public class AuthOTPDao implements IAuthOTPDao {
         newOTP.setValidate_code(otp);
         newOTP.setEnd_time(Timestamp.valueOf(LocalDateTime.now().plusMinutes(2)));
 
-//        kafkaTemplate.send("otp-topic", otp);
-        return otp;
+        String sql = "INSERT INTO auth_api.otp\n" +
+                "(validate_code, trans_id, username, channel, start_time, \"location\", end_time, status, session_id, confirm_time, trans_info, trans_time)\n" +
+                "VALUES(:validate_code, :trans_id, :username,:channel, :start_time, :location,:end_time, :status, :session_id, :confirm_time, :trans_info, :trans_time);";
+        HashMap<String, Object> param = new HashMap();
+        param.put("validate_code", newOTP.getValidate_code());
+        param.put("trans_id", newOTP.getTrans_id());
+        param.put("username", newOTP.getUsername());
+        param.put("channel", newOTP.getChannel());
+        param.put("start_time", newOTP.getStart_time());
+        param.put("location", newOTP.getLocation());
+        param.put("end_time", newOTP.getEnd_time());
+        param.put("status", newOTP.getStatus());
+        param.put("session_id", newOTP.getSession_id());
+        param.put("confirm_time",newOTP.getConfirm_time());
+        param.put("trans_info", newOTP.getTrans_info());
+        param.put("trans_time",newOTP.getTrans_time());
+
+        int result = posgrestDAOHelper.update(sql, param);
+        if (result > 0){
+            //        kafkaTemplate.send("otp-topic", otp);
+            return otp;
+        }
+
+        return null;
     }
 
     private String generateOTP() {

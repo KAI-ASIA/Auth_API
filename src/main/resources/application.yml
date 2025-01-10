@@ -41,6 +41,13 @@ spring:
   jpa:
     show-sql: false
     open-in-view: false
+  kafka:
+    bootstrap-servers: 14.225.254.212:9092
+    consumer:
+      group-id: test-group
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      vale-serializer: org.apache.kafka.common.serialization.StringSerializer
 eureka:
   client:
     service-url:
@@ -53,10 +60,23 @@ dbinfo:
 dep-api:
   t24utilsApi:
     apiName: T24_UTIL_API
-#    url: http://14.225.254.212:8082/T24_UTIL_API/process #api
+    #    url: http://14.225.254.212:8082/T24_UTIL_API/process #api
     url: http://localhost:8082/T24_UTIL_API/process #api
     timeout: 60000 #milisecond
     apiKey: VDI0X1VUSUxfQVBJ
 
 sessionTime:
   valid-duration: 3600 # 3600se
+
+kafka:
+  bootsTrapServer: 14.225.254.212:9090
+  maximum-retry: 3
+  usernameACL:
+  pwACL:
+  pollSize: 1000
+  pollTime: 500
+  thread: 6
+  thread-error: 1
+  consumer-waiting: 500
+  authentication: false
+  clientId: node01-localhost
