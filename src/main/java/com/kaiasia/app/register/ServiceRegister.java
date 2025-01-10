@@ -60,6 +60,7 @@ public class ServiceRegister {
         try {
             if (processors.containsKey(validateAuthenType)) {
                 logger.debug("Execute method validate for AuthenType: {}", validateAuthenType);
+
                 return (ApiError) processors.get(validateAuthenType).execute(request);
             } else {
                 logger.debug("Dont have method validate for AuthenType: {}", validateAuthenType);
