@@ -15,13 +15,16 @@ kai:
     code804: "Request lacks valid information"
     code803: "RequestId not exist"
     code996: "Error insert request to DB#{0}"
-    code702: "API {0} not exist"
     code703: "Enquiry not exist"
     code704: "username {0} not exist"
     code705: "password {0} not exactly"
     code706: "MISSING FIELD{0}"
     code800: "Error create sessionId"
-    code605: "Input OTP is invalid"
+    code801: "Session {0} not exist"
+    code802: "Error retrieving sessionId: {0}"
+    code810: "Session {0} has expired"
+    code601: "Input OTP is invalid"
+    code503: "Failed to read from the database"
 spring:
   application:
     name: AUTH_API
@@ -29,18 +32,22 @@ spring:
     postgres: true
   postgredatasource:
     driver-class-name: org.postgresql.Driver
-#    url: jdbc:postgresql://14.225.254.212:5432/KAI_API?currentSchema=auth_api
-#    username: auth_api
-#    password: auth@kaiasia
-    url: jdbc:postgresql://localhost:5432/KAI?currentSchema=authen_api
-    username: postgres
-    password: Vietloc2909
+    url: jdbc:postgresql://14.225.254.212:5432/KAI_API?currentSchema=auth_api
+    username: auth_api
+    password: auth@kaiasia
     maximum-pool-size: 50
     idleTimeout: 120000
     minimumIdle: 10
   jpa:
     show-sql: false
     open-in-view: false
+  kafka:
+    bootstrap-servers: 14.225.254.212:9092
+    consumer:
+      group-id: test-group
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      vale-serializer: org.apache.kafka.common.serialization.StringSerializer
 eureka:
   client:
     service-url:
@@ -53,10 +60,23 @@ dbinfo:
 dep-api:
   t24utilsApi:
     apiName: T24_UTIL_API
-#    url: http://14.225.254.212:8082/T24_UTIL_API/process #api
+    #    url: http://14.225.254.212:8082/T24_UTIL_API/process #api
     url: http://localhost:8082/T24_UTIL_API/process #api
     timeout: 60000 #milisecond
     apiKey: VDI0X1VUSUxfQVBJ
 
 sessionTime:
   valid-duration: 3600 # 3600se
+
+kafka:
+  bootsTrapServer: 14.225.254.212:9090
+  maximum-retry: 3
+  usernameACL:
+  pwACL:
+  pollSize: 1000
+  pollTime: 500
+  thread: 6
+  thread-error: 1
+  consumer-waiting: 500
+  authentication: false
+  clientId: node01-localhost

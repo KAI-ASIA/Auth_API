@@ -1,5 +1,6 @@
 package com.kaiasia.app.service.Auth_api.api.login;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,10 +26,9 @@ import com.kaiasia.app.core.utils.GetErrorUtils;
 import com.kaiasia.app.register.KaiMethod;
 import com.kaiasia.app.register.KaiService;
 import com.kaiasia.app.register.Register;
-import com.kaiasia.app.service.Auth_api.config.ApiConfig;
+
 import com.kaiasia.app.service.Auth_api.dao.SessionIdDAO;
-import com.kaiasia.app.service.Auth_api.utils.ConvertApiHelper;
-import com.kaiasia.app.service.Auth_api.utils.LoginResult;
+
 import com.kaiasia.app.service.Auth_api.utils.SessionUtil;
 
 import lombok.extern.slf4j.Slf4j;
@@ -43,11 +43,6 @@ public class LoginService  extends BaseService{
     @Autowired
     private T24UtilClient t24UtilClient;
 
-    @Autowired
-    private ConvertApiHelper convertApiHelper;
-
-    @Autowired
-    private ApiConfig apiConfig;
 
     @Autowired
     private SessionUtil sessionUtil;
@@ -61,7 +56,6 @@ public class LoginService  extends BaseService{
 
     @KaiMethod(name = "login",type = Register.VALIDATE)
     public ApiError validate(ApiRequest req) throws Exception {
-        String LOCATION = "";
 
 
         Enquiry enquiry = objectMapper.convertValue(getEnquiry(req), Enquiry.class);
@@ -106,7 +100,10 @@ public class LoginService  extends BaseService{
            String customerId = loginResponse.getCustomerID();
            Date startTime = new Date();
            Date endTime = new Date(startTime.getTime() + SessionUtil.timeoutSession * 1000);
+
+
            String sessionID = sessionUtil.createCustomerSessionId(customerId);
+
            AuthSessionRequest sessionRequest = AuthSessionRequest.builder()
                    .sessionId(sessionID)
                    .startTime(startTime)

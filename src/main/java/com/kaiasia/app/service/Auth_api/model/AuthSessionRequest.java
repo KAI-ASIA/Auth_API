@@ -3,6 +3,7 @@ package com.kaiasia.app.service.Auth_api.model;
 
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Setter
