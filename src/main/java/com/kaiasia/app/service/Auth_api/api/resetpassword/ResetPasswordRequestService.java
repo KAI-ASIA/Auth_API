@@ -63,7 +63,7 @@ public class ResetPasswordRequestService {
         return new ApiError(ApiError.OK_CODE, ApiError.OK_DESC);
     }
 
-    @KaiMethod(name = "resetPassword")
+    @KaiMethod(name ="resetPassword")
     public ApiResponse process(ApiRequest req) throws Exception{
         ApiResponse apiResponse = new ApiResponse();
         ApiBody body = new ApiBody();
@@ -76,7 +76,7 @@ public class ResetPasswordRequestService {
         long time = System.currentTimeMillis();
         String location = time + "-" + chanel + "-" + auth5Request.getUsername();
 
-        log.info(location + "#BEGIN GET INFO");
+        log.info(location + "#BEGIN GET CUSTOMER INFO");
         T24CustomerInfoResponse infoResponse = t24UtilClient.getCustomerInfo(
                 location,
                 T24Request
@@ -86,8 +86,19 @@ public class ResetPasswordRequestService {
                 req.getHeader()
         );
 
+        if(infoResponse.getError() != null){
+            ApiError apiError = new ApiError(infoResponse.getError().getCode(),infoResponse.getError().getDesc());
+            apiResponse.setError(apiError);
+            log.info(location + "#END GET CUSTOMER INFO" + (System.currentTimeMillis() - time));
+            return apiResponse;
+        }
 
 
+        HashMap<String , Object> field = new HashMap<>();
+        field.put("customerID",infoResponse.getEmail());
+
+        header.setReqType("RESPONE");
+        body.put("enquiry",field);
         return  apiResponse;
     }
 }
