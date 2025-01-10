@@ -16,7 +16,6 @@ kai:
     code803: "RequestId not exist"
     code996: "Error insert request to DB#{0}"
     code702: "API {0} not exist"
-    code703: "Enquiry not exist"
     code704: "username {0} not exist"
     code705: "password {0} not exactly"
     code706: "MISSING FIELD{0}"
