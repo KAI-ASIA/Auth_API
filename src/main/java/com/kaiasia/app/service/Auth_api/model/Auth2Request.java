@@ -29,8 +29,6 @@ public class Auth2Request {
     @NotBlank(message = "transId type is required")
     private String transId;
 
-    @NotBlank(message = "tempId type is required")
-    private String tempId;
+    private SmsParams smsParams;
 
-    private String content;
 }

@@ -25,6 +25,7 @@ kai:
     code810: "Session {0} has expired"
     code601: "Input OTP is invalid"
     code503: "Failed to read from the database"
+  time2live: 30 #minutes
 spring:
   application:
     name: AUTH_API
@@ -35,12 +36,20 @@ spring:
     url: jdbc:postgresql://14.225.254.212:5432/KAI_API?currentSchema=auth_api
     username: auth_api
     password: auth@kaiasia
-    maximum-pool-size: 50
-    idleTimeout: 120000
-    minimumIdle: 10
+    maximum-pool-size: 10
+    idleTimeout: 60000
+    minimumIdle: 5
+    connectionTimeout: 15000
   jpa:
     show-sql: false
     open-in-view: false
+  #kafka:
+  #  bootstrap-servers: 14.225.254.212:9092
+  #  consumer:
+  #    group-id: test-group
+  #  producer:
+  #    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+  #    vale-serializer: org.apache.kafka.common.serialization.StringSerializer
 eureka:
   client:
     service-url:
@@ -49,6 +58,7 @@ eureka:
 dbinfo:
   apiRequest: request_in
   apiResponse: request_out
+  authSession: auth_session
 
 dep-api:
   t24utilsApi:
@@ -60,5 +70,17 @@ dep-api:
 
 sessionTime:
   valid-duration: 3600 # 3600se
-#kafka:
-#  bootsTrapServer: 14.225.254.212:9092
+
+kafka:
+  bootsTrapServer: 14.225.254.212:9092
+  maximum-retry: 3
+  usernameACL:
+  pwACL:
+  pollSize: 1000
+  pollTime: 500
+  thread: 6
+  thread-error: 1
+  consumer-waiting: 500
+  authentication: false
+  clientId: node01-localhost
+
