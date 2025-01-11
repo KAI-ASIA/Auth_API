@@ -2,11 +2,11 @@ package com.kaiasia.app.core.job;
 
 import java.util.Map;
 
-import com.kaiasia.app.core.model.ApiBody;
-import com.kaiasia.app.core.model.ApiHeader;
-import com.kaiasia.app.core.model.ApiRequest;
-import com.kaiasia.app.core.model.ApiResponse;
 import com.kaiasia.app.core.utils.ApiConstant;
+import ms.apiclient.model.ApiBody;
+import ms.apiclient.model.ApiHeader;
+import ms.apiclient.model.ApiRequest;
+import ms.apiclient.model.ApiResponse;
 
 public class BaseService {
     public Map<String, Object> getEnquiry(ApiRequest request){

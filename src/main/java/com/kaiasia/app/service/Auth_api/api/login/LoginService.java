@@ -3,6 +3,18 @@ package com.kaiasia.app.service.Auth_api.api.login;
 import java.util.Calendar;
 import java.util.Date;
 
+import com.kaiasia.app.core.utils.ApiConstant;
+import com.kaiasia.app.service.Auth_api.dto.LoginResponse;
+import com.kaiasia.app.service.Auth_api.model.AuthSessionRequest;
+import com.kaiasia.app.service.Auth_api.utils.ApiUtils;
+import ms.apiclient.model.ApiBody;
+import ms.apiclient.model.ApiError;
+import ms.apiclient.model.ApiRequest;
+import ms.apiclient.model.ApiResponse;
+import ms.apiclient.t24util.T24LoginResponse;
+import ms.apiclient.t24util.T24Request;
+import ms.apiclient.t24util.T24UtilClient;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,19 +22,12 @@ import org.springframework.beans.factory.annotation.Value;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kaiasia.app.core.job.BaseService;
 import com.kaiasia.app.core.job.Enquiry;
-import com.kaiasia.app.core.model.ApiBody;
-import com.kaiasia.app.core.model.ApiError;
-import com.kaiasia.app.core.model.ApiRequest;
-import com.kaiasia.app.core.model.ApiResponse;
-import com.kaiasia.app.core.utils.ApiConstant;
+
 import com.kaiasia.app.core.utils.GetErrorUtils;
 import com.kaiasia.app.register.KaiMethod;
 import com.kaiasia.app.register.KaiService;
 import com.kaiasia.app.register.Register;
 import com.kaiasia.app.service.Auth_api.dao.SessionIdDAO;
-import com.kaiasia.app.service.Auth_api.dto.LoginResponse;
-import com.kaiasia.app.service.Auth_api.model.AuthSessionRequest;
-import com.kaiasia.app.service.Auth_api.utils.ApiUtils;
 import com.kaiasia.app.service.Auth_api.utils.SessionUtil;
 
 import lombok.extern.slf4j.Slf4j;

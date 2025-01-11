@@ -63,7 +63,6 @@
             <artifactId>reflections</artifactId>
             <version>0.9.10</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -92,7 +91,7 @@
         <dependency>
             <groupId>ms.kaiasia.client</groupId>
             <artifactId>kai-client</artifactId>
-            <version>20250110</version>
+            <version>20250105</version>
 
         </dependency>
 

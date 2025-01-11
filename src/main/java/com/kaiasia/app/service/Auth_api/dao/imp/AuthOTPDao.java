@@ -2,11 +2,7 @@ package com.kaiasia.app.service.Auth_api.dao.imp;
 
 
 import com.kaiasia.app.core.dao.PosgrestDAOHelper;
-import com.kaiasia.app.core.model.ApiBody;
-import com.kaiasia.app.core.model.ApiError;
-import com.kaiasia.app.core.model.ApiResponse;
 import com.kaiasia.app.service.Auth_api.dao.IAuthOTPDao;
-import com.kaiasia.app.service.Auth_api.model.Auth3Response;
 import com.kaiasia.app.service.Auth_api.model.OTP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
