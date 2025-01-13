@@ -1,37 +1,39 @@
 package com.kaiasia.app.service.Auth_api.api.login;
 
-import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
-import com.kaiasia.app.core.model.ApiBody;
 import com.kaiasia.app.core.utils.ApiConstant;
 import com.kaiasia.app.service.Auth_api.dto.LoginResponse;
 import com.kaiasia.app.service.Auth_api.model.AuthSessionRequest;
 import com.kaiasia.app.service.Auth_api.utils.ApiUtils;
+import ms.apiclient.model.ApiBody;
+import ms.apiclient.model.ApiError;
+import ms.apiclient.model.ApiRequest;
+import ms.apiclient.model.ApiResponse;
 import ms.apiclient.t24util.T24LoginResponse;
 import ms.apiclient.t24util.T24Request;
 import ms.apiclient.t24util.T24UtilClient;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kaiasia.app.core.job.BaseService;
 import com.kaiasia.app.core.job.Enquiry;
-import com.kaiasia.app.core.model.ApiError;
-import com.kaiasia.app.core.model.ApiRequest;
-import com.kaiasia.app.core.model.ApiResponse;
+
 import com.kaiasia.app.core.utils.GetErrorUtils;
 import com.kaiasia.app.register.KaiMethod;
 import com.kaiasia.app.register.KaiService;
 import com.kaiasia.app.register.Register;
-
 import com.kaiasia.app.service.Auth_api.dao.SessionIdDAO;
-
 import com.kaiasia.app.service.Auth_api.utils.SessionUtil;
 
 import lombok.extern.slf4j.Slf4j;
+import ms.apiclient.t24util.T24LoginResponse;
+import ms.apiclient.t24util.T24Request;
+import ms.apiclient.t24util.T24UtilClient;
 
 @KaiService
 @Slf4j
@@ -53,6 +55,9 @@ public class LoginService  extends BaseService{
     
     @Autowired
     private ObjectMapper objectMapper;
+    
+    @Value("${kai.time2live}")
+    private int time2livee;
 
     @KaiMethod(name = "login",type = Register.VALIDATE)
     public ApiError validate(ApiRequest req) throws Exception {
@@ -99,7 +104,12 @@ public class LoginService  extends BaseService{
        try {
            String customerId = loginResponse.getCustomerID();
            Date startTime = new Date();
-           Date endTime = new Date(startTime.getTime() + SessionUtil.timeoutSession * 1000);
+           
+           //TODO check them time2live 30 minute
+           Calendar cal = Calendar.getInstance();
+           cal.setTime(startTime);
+           cal.add(Calendar.MINUTE, time2livee);
+           Date endTime = cal.getTime();
 
 
            String sessionID = sessionUtil.createCustomerSessionId(customerId);
@@ -115,10 +125,8 @@ public class LoginService  extends BaseService{
                    .location(req.getHeader().getLocation())
                    .username(loginResponse.getUsername())
                    .build();
-
+           //TODO: Delete from auth_session where username=?
            int result = sessionIdDAO.insertSessionId(sessionRequest);
-//           int result = 1;
-
            if(result == 0){
                ApiError apiError = apiErrorUtils.getError("800");
                apiResponse.setError(apiError);

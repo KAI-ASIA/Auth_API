@@ -3,7 +3,7 @@ server:
     contextPath: /AUTH_API
   port: 8087
 kai:
-  name: Auth_API
+  name: AUTH_API
   key: authq51klfoni1ezxl5f2ckpfx248
   threadName: AUTH_API_NAME
   pollSize: 100
@@ -25,6 +25,7 @@ kai:
     code810: "Session {0} has expired"
     code601: "Input OTP is invalid"
     code503: "Failed to read from the database"
+  time2live: 30 #minutes
 spring:
   application:
     name: AUTH_API
@@ -35,19 +36,27 @@ spring:
     url: jdbc:postgresql://14.225.254.212:5432/KAI_API?currentSchema=auth_api
     username: auth_api
     password: auth@kaiasia
-    maximum-pool-size: 50
-    idleTimeout: 120000
-    minimumIdle: 10
+    maximum-pool-size: 10
+    idleTimeout: 60000
+    minimumIdle: 5
+    connectionTimeout: 15000
   jpa:
     show-sql: false
     open-in-view: false
   kafka:
-    bootstrap-servers: 14.225.254.212:9092
-    consumer:
-      group-id: test-group
     producer:
+      bootstrap-servers: 14.225.254.212:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      vale-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+
+  #kafka:
+  #  bootstrap-servers: 14.225.254.212:9092
+  #  consumer:
+  #    group-id: test-group
+  #  producer:
+  #    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+  #    vale-serializer: org.apache.kafka.common.serialization.StringSerializer
 eureka:
   client:
     service-url:
@@ -56,20 +65,22 @@ eureka:
 dbinfo:
   apiRequest: request_in
   apiResponse: request_out
+  authSession: auth_session
 
 dep-api:
   t24utilsApi:
     apiName: T24_UTIL_API
-    url: http://14.225.254.212:8082/T24_UTIL_API/process #api
+    url: http://14.225.254.212:8080/T24_UTIL_API/process #api
 #    url: http://localhost:8082/T24_UTIL_API/process #api
     timeout: 60000 #milisecond
     apiKey: VDI0X1VUSUxfQVBJ
+
 
 sessionTime:
   valid-duration: 3600 # 3600se
 
 kafka:
-  bootsTrapServer: 14.225.254.212:8082
+  bootsTrapServer: 14.225.254.212:9092
   maximum-retry: 3
   usernameACL:
   pwACL:
@@ -80,3 +91,11 @@ kafka:
   consumer-waiting: 500
   authentication: false
   clientId: node01-localhost
+
+kafka_resetpwd:
+  email:
+    subject: "Thay đổi mật khẩu"
+    content: "Mã thay đổi mật khẩu của bạn là :{0}"
+  topic:
+    name : "resetpwd"
+

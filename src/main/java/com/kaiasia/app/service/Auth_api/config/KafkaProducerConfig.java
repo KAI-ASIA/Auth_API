@@ -23,15 +23,15 @@
 //        configProps.put(ProducerConfig.CLIENT_ID_CONFIG, "TEST_API");
 //        configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 //        configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-//        configProps.put(ProducerConfig.DELIVERY_TIMEOUT_MS_CONFIG, Integer.MAX_VALUE);
-//        if (kafkaConfig.isAuthentication()) {
-//            String username = kafkaConfig.getUsernameACL();
-//            String pw = kafkaConfig.getPwACL();
-//            configProps.put("acks", "all");
-//            configProps.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_PLAINTEXT");
-//            configProps.put("sasl.mechanism", "PLAIN");
-//            configProps.put("sasl.jaas.config", "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"" + username + "\" password=\"" + pw + "\";");
-//        }
+////        configProps.put(ProducerConfig.DELIVERY_TIMEOUT_MS_CONFIG, Integer.MAX_VALUE);
+////        if (kafkaConfig.isAuthentication()) {
+////            String username = kafkaConfig.getUsernameACL();
+////            String pw = kafkaConfig.getPwACL();
+////            configProps.put("acks", "all");
+////            configProps.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_PLAINTEXT");
+////            configProps.put("sasl.mechanism", "PLAIN");
+////            configProps.put("sasl.jaas.config", "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"" + username + "\" password=\"" + pw + "\";");
+////        }
 //        configProps.put("acks", "all");
 //        return new KafkaProducer<>(configProps);
 //    }

@@ -1,5 +1,6 @@
 package com.kaiasia.app.service.Auth_api.dao;
 
+import com.kaiasia.app.core.dao.CommonDAO;
 import com.kaiasia.app.core.dao.PosgrestDAOHelper;
 import com.kaiasia.app.service.Auth_api.model.AuthSessionRequest;
 import com.kaiasia.app.service.Auth_api.model.AuthSessionResponse;
@@ -11,11 +12,13 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 import java.util.HashMap;
 
-@Component
-public class SessionIdDAO implements IAuthSessionDao{
+import javax.transaction.Transactional;
+
+//@Component
+public class SessionIdDAO extends CommonDAO implements IAuthSessionDao{
     private static final Logger log = Logger.getLogger(SessionIdDAO.class);
     @Autowired
-    PosgrestDAOHelper posgrestDAOHelper;
+    private PosgrestDAOHelper posgrestDAOHelper;
 
     @Override
     public int insertSessionId(AuthSessionRequest authSessionRequest) throws Exception{
@@ -52,14 +55,16 @@ public class SessionIdDAO implements IAuthSessionDao{
         }
     }
 
+    
+//    @Transactional
     @Override
     public AuthSessionResponse getAuthSessionId(String sessionId) throws Exception {
         String sql = "SELECT username, start_time, end_time, session_id, channel, \"location\", phone, email, company_code, customer_id " +
-                "FROM auth_api.auth_session WHERE session_id = :SESSION_ID";
+                "FROM " + this.getTableName() + " WHERE session_id = :SESSION_ID";
         HashMap<String, Object> param = new HashMap<>();
         param.put("SESSION_ID", sessionId);
 
-        try {
+//        Thread.sleep(62*1000); 
 
             AuthSessionResponse authSessionResponse = posgrestDAOHelper.querySingle(
                     sql,
@@ -67,10 +72,7 @@ public class SessionIdDAO implements IAuthSessionDao{
                     new BeanPropertyRowMapper<>(AuthSessionResponse.class)
             );
             return authSessionResponse; // Trả về thông tin session
-        } catch (Exception e) {
-            log.error("Error retrieving sessionId: " + sessionId, e);
-            return null;
-        }
+ 
     }
 
     @Override
@@ -78,7 +80,7 @@ public class SessionIdDAO implements IAuthSessionDao{
         String sql = "UPDATE auth_api.auth_session SET end_time = :END_TIME WHERE session_id = :SESSION_ID";
         HashMap<String, Object> param = new HashMap<>();
         param.put("SESSION_ID", sessionId);
-        param.put("END_TIME", new Date()); // Đặt thời gian hết hạn thành thời điểm hiện tại
+        param.put("END_TIME", new Date()); // thời điểm hiện tại + 30 minutes
 
 
         int result = posgrestDAOHelper.update(sql, param);
