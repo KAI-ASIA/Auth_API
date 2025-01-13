@@ -92,7 +92,7 @@
         <dependency>
             <groupId>ms.kaiasia.client</groupId>
             <artifactId>kai-client</artifactId>
-            <version>20250107</version>
+            <version>20250105</version>
 
         </dependency>
 
