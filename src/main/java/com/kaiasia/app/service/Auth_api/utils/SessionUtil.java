@@ -11,8 +11,6 @@ import java.util.UUID;
 
 @Component
 public class SessionUtil {
-//    @Value("${sessionTime.valid-duration}")
-//    public static long timeoutSession = 36000;
 
 
     public String createCustomerSessionId(String customerId) {
@@ -21,10 +19,7 @@ public class SessionUtil {
         return customerId + "_" + timestamp + "_" + uuid;
     }
 
-
-    public int validateSessionId(String sessionId){
-        return 1;
-    }
-
-
+//    public int checkSessionAvailable(String cuss){
+//
+//    }
 }

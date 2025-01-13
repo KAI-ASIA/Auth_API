@@ -88,21 +88,22 @@ public class LoginService  extends BaseService{
         ApiResponse apiResponse = new ApiResponse();
 
         T24Request t24Req = new T24Request();
-        t24Req.setAuthenType("KAI.API.AUTHEN.GET.LOGIN");
         t24Req.setUsername(enquiry.getUsername());
         t24Req.setPassword(enquiry.getPassword());
 
         T24LoginResponse loginResponse =  t24UtilClient.login(LOCATION, t24Req, ApiUtils.buildApiHeader(req.getHeader()));
 
-        if(!ApiError.OK_CODE.equals(loginResponse.getError().getCode())){
-            ApiError apiError = new ApiError(loginResponse.getError().getCode(), loginResponse.getError().getDesc());
-            apiResponse.setError(apiError);
-            log.info(LOCATION + "#END#Duration:" + (System.currentTimeMillis() - a));
-            return apiResponse;
-        }
+
         // tạo sessionId
+
        try {
+
            String customerId = loginResponse.getCustomerID();
+           if(sessionIdDAO.deleteSessionByCustomerId(customerId) > 0 ){  // kiểm trả customerId co exist
+
+               log.info("Deleted  session for customer ID " + customerId);
+
+           }
            Date startTime = new Date();
            
            //TODO check them time2live 30 minute
