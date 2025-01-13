@@ -43,6 +43,13 @@ spring:
   jpa:
     show-sql: false
     open-in-view: false
+  kafka:
+    producer:
+      bootstrap-servers: 14.225.254.212:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+
   #kafka:
   #  bootstrap-servers: 14.225.254.212:9092
   #  consumer:
@@ -68,6 +75,7 @@ dep-api:
     timeout: 60000 #milisecond
     apiKey: VDI0X1VUSUxfQVBJ
 
+
 sessionTime:
   valid-duration: 3600 # 3600se
 
@@ -83,4 +91,11 @@ kafka:
   consumer-waiting: 500
   authentication: false
   clientId: node01-localhost
+
+kafka_resetpwd:
+  email:
+    subject: "Thay đổi mật khẩu"
+    content: "Mã thay đổi mật khẩu của bạn là :{0}"
+  topic:
+    name : "resetpwd"
 
