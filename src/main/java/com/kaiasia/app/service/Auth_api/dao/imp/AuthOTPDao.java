@@ -72,8 +72,8 @@ public class AuthOTPDao extends CommonDAO implements IAuthOTPDao {
     @Override
     public int insertOTP(Auth2InsertDb auth2InsertDb) throws Exception{
         String sql = "INSERT INTO auth_api.otp\n" +
-                "(validate_code, trans_id, username, channel, start_time, location, end_time, session_id, confirm_time, trans_info, trans_time)\n" +
-                "VALUES(:validate_code, :trans_id, :username,:channel, :start_time, :location,:end_time, :session_id, :confirm_time, :trans_info, :trans_time);";
+                "(validate_code, trans_id, username, channel, start_time, location, end_time, status, session_id, confirm_time, trans_info, trans_time)\n" +
+                "VALUES(:validate_code, :trans_id, :username,:channel, :start_time, :location,:end_time, :status, :session_id, :confirm_time, :trans_info, :trans_time);";
         HashMap<String, Object> param = new HashMap();
         param.put("validate_code", auth2InsertDb.getValidateCode());
         param.put("trans_id", auth2InsertDb.getTransId());
@@ -82,6 +82,7 @@ public class AuthOTPDao extends CommonDAO implements IAuthOTPDao {
         param.put("start_time", auth2InsertDb.getStartTime());
         param.put("location", auth2InsertDb.getLocation());
         param.put("end_time", auth2InsertDb.getEndTime());
+        param.put("status", auth2InsertDb.getStatus());
         param.put("session_id", auth2InsertDb.getSessionId());
         param.put("confirm_time", auth2InsertDb.getConfirmTime());
         param.put("trans_info",auth2InsertDb.getTransInfo());

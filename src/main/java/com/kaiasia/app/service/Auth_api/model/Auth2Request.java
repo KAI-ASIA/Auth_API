@@ -16,5 +16,5 @@ public class Auth2Request {
     private String transTime;
     private String transId;
     private String transInfo;
-
+    private SmsParams smsParams;
 }

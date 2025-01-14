@@ -43,10 +43,10 @@ spring:
     show-sql: false
     open-in-view: false
   kafka:
-    bootstrap-servers: 14.225.254.212:9092
     producer:
+      bootstrap-servers: 14.225.254.212:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      vale-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 eureka:
   client:
     service-url:

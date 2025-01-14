@@ -10,7 +10,7 @@ import com.kaiasia.app.register.KaiService;
 import com.kaiasia.app.register.Register;
 import com.kaiasia.app.service.Auth_api.dao.IAuthOTPDao;
 import com.kaiasia.app.service.Auth_api.dto.GetOTPResponse;
-import com.kaiasia.app.service.Auth_api.kafka.KafkaOTPProducer;
+import com.kaiasia.app.service.Auth_api.kafka.resetpwd.KafkaUtils;
 import com.kaiasia.app.service.Auth_api.model.Auth2InsertDb;
 import com.kaiasia.app.service.Auth_api.model.Auth2Request;
 import com.kaiasia.app.service.Auth_api.utils.GenerateOTPUtils;
@@ -45,7 +45,7 @@ public class GetOTPService {
     private GenerateOTPUtils generateOTPUtils;
 
     @Autowired
-    private KafkaOTPProducer kafkaOTPProducer;
+    private KafkaUtils kafkaUtils;
 
     @KaiMethod(name = "getOTP", type = Register.VALIDATE)
     public ApiError validate(ApiRequest req) {
@@ -61,7 +61,6 @@ public class GetOTPService {
         String gmail = (String) enquiry.get("gmail");
         String transTime = (String) enquiry.get("transTime");
         String transId = (String) enquiry.get("transId");
-        String tempId = (String) enquiry.get("tempId");
 
         if (sessionId == null || sessionId.trim().isEmpty()) {
             return apiErrorUtils.getError("706", new String[]{"sessionId"});
@@ -113,8 +112,10 @@ public class GetOTPService {
                     .location(req.getHeader().getLocation())
                     .startTime(Timestamp.valueOf(LocalDateTime.now()))
                     .endTime(Timestamp.valueOf(LocalDateTime.now().plusMinutes(2)))
+                    .status(auth2Request.getSmsParams().getTempId() + "_CONFIRM")
                     .transTime("20161108122000")
                     .transInfo(auth2Request.getTransInfo())
+                    .confirmTime(Timestamp.valueOf(LocalDateTime.now()))
                     .build();
 
             int result = authOTPService.insertOTP(auth2InsertDb);
