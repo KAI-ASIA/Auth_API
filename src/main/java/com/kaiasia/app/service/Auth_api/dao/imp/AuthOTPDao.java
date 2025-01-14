@@ -8,6 +8,7 @@ import com.kaiasia.app.service.Auth_api.model.Auth2InsertDb;
 import com.kaiasia.app.service.Auth_api.model.Auth2Request;
 import com.kaiasia.app.service.Auth_api.model.Auth3Response;
 import com.kaiasia.app.service.Auth_api.model.OTP;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -19,6 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+@Slf4j
 @Service
 public class AuthOTPDao extends CommonDAO implements IAuthOTPDao {
 
@@ -26,23 +28,24 @@ public class AuthOTPDao extends CommonDAO implements IAuthOTPDao {
     PosgrestDAOHelper posgrestDAOHelper;
 
     @Override
-    public OTP getOTP(HashMap<String, String> body) throws Exception {
+    public OTP getOTP(String sessionId, String username, String transId ) throws Exception {
         String sql = "SELECT * FROM auth_api.otp " +
                 "where auth_api.otp.username = :username and auth_api.otp.session_id = :session_id " +
                 "and auth_api.otp.trans_id = :trans_id;";
         Map<String, String> params = new HashMap<>();
-        params.put("username", body.get("username"));
-        params.put("session_id", body.get("session_id"));
-        params.put("trans_id", body.get("trans_id"));
+        log.info("Info : {}: {} : {}", sessionId, username, transId);
+        params.put("username", username);
+        params.put("session_id", sessionId);
+        params.put("trans_id", transId);
         OTP otp = posgrestDAOHelper.querySingle(sql, params, new BeanPropertyRowMapper<>(OTP.class));
         return otp;
     }
 
     @Override
     public void setConfirmTime( Timestamp now, OTP otp) throws Exception {
-        String sql = "UPDATE auth_api.otp SET confirm_time=:confirm_time " +
-                "WHERE auth_api.otp.username = :username and auth_api.otp.session_id =:session_id " +
-                "and auth_api.otp.trans_id =:trans_id;";
+        String sql = "UPDATE auth_api.otp SET status='DONE', confirm_time= :confirm_time " +
+                "WHERE auth_api.otp.username = :username and auth_api.otp.session_id = :session_id " +
+                "and auth_api.otp.trans_id = :trans_id ;";
         Map<String, String> params = new HashMap<>();
         params.put("username", otp.getUsername());
         params.put("session_id", otp.getSession_id());
