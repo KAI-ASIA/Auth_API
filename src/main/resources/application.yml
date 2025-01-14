@@ -12,7 +12,7 @@ kai:
     code998: "Timeout {0}"
     code701: "API not exist"
     code700: "API key not exists"
-    code804: "Request lacks valid information"
+    code804: "Request lacks valid information: {0}"
     code803: "RequestId not exist"
     code996: "Error insert request to DB#{0}"
     code703: "Enquiry not exist"
@@ -25,6 +25,7 @@ kai:
     code810: "Session {0} has expired"
     code601: "Input OTP is invalid"
     code503: "Failed to read from the database"
+    code504: "reset code not match"
   time2live: 30 #minutes
 spring:
   application:
