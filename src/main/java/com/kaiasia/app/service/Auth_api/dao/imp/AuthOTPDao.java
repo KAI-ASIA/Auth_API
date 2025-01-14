@@ -48,11 +48,11 @@ public class AuthOTPDao implements IAuthOTPDao {
         String sql = "UPDATE auth_api.otp SET status='DONE', confirm_time= :confirm_time " +
                 "WHERE auth_api.otp.username = :username and auth_api.otp.session_id = :session_id " +
                 "and auth_api.otp.trans_id = :trans_id ;";
-        Map<String, String> params = new HashMap<>();
+        Map<String, Object> params = new HashMap<>();
         params.put("username", otp.getUsername());
         params.put("session_id", otp.getSession_id());
         params.put("trans_id", otp.getTrans_id());
-        params.put("confirm_time", now.toString());
+        params.put("confirm_time", now);
         posgrestDAOHelper.update(sql,params);
     }
 
