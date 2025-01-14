@@ -13,7 +13,6 @@ import com.kaiasia.app.service.Auth_api.dto.GetOTPResponse;
 import com.kaiasia.app.service.Auth_api.kafka.resetpwd.KafkaUtils;
 import com.kaiasia.app.service.Auth_api.model.Auth2InsertDb;
 import com.kaiasia.app.service.Auth_api.model.Auth2Request;
-import com.kaiasia.app.service.Auth_api.utils.GenerateOTPUtils;
 import com.kaiasia.app.service.Auth_api.utils.ResetPwdUtils;
 import lombok.extern.slf4j.Slf4j;
 import ms.apiclient.model.ApiBody;
