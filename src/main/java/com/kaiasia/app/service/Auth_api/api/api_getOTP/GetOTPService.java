@@ -14,6 +14,7 @@ import com.kaiasia.app.service.Auth_api.kafka.resetpwd.KafkaUtils;
 import com.kaiasia.app.service.Auth_api.model.Auth2InsertDb;
 import com.kaiasia.app.service.Auth_api.model.Auth2Request;
 import com.kaiasia.app.service.Auth_api.utils.GenerateOTPUtils;
+import com.kaiasia.app.service.Auth_api.utils.ResetPwdUtils;
 import lombok.extern.slf4j.Slf4j;
 import ms.apiclient.model.ApiBody;
 import ms.apiclient.model.ApiError;
@@ -42,7 +43,7 @@ public class GetOTPService {
     private ObjectMapper objectMapper;
 
     @Autowired
-    private GenerateOTPUtils generateOTPUtils;
+    private ResetPwdUtils resetPwdUtils;
 
     @Autowired
     private KafkaUtils kafkaUtils;
@@ -101,7 +102,7 @@ public class GetOTPService {
         try {
 
 
-            String generateOTP = generateOTPUtils.generateOTP();
+            String generateOTP = resetPwdUtils.generateValidateCode();
 
             Auth2InsertDb auth2InsertDb = Auth2InsertDb.builder()
                     .transId(auth2Request.getTransId())
