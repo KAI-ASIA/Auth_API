@@ -137,7 +137,7 @@ public class GetOTPService {
             }
 
             log.info("SEND TO KAFKA");
-            //kafkaOTPProducer.sendMessage(email,generateOTP);
+            kafkaUtils.sendMessage("hoang@gmail.com",generateOTP);
 
             GetOTPResponse response = new GetOTPResponse();
             response.setResponseCode("00");
