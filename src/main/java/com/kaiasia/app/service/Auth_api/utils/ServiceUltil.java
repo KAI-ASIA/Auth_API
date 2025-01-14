@@ -1,13 +1,9 @@
 package com.kaiasia.app.service.Auth_api.utils;
 
-import com.kaiasia.app.core.model.ApiBody;
-import com.kaiasia.app.core.model.ApiError;
-import com.kaiasia.app.core.model.ApiResponse;
-import com.kaiasia.app.service.Auth_api.model.Auth3Response;
-import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
-
+import ms.apiclient.model.ApiBody;
+import ms.apiclient.model.ApiError;
+import ms.apiclient.model.ApiResponse;
 
 public class ServiceUltil {
 
@@ -18,7 +14,7 @@ public class ServiceUltil {
      * @return Trả về 1 ApiResponse bao gồm 1 apiBody có kiểu giữ liệu trả về và 1 ApiError
      * @param <T> Kiểu giữ liệu được chuyền vào để cho vào apiBody
      */
-    public static <T> ApiResponse takeRespose( T response, ApiError error) {
+    public static <T> ApiResponse takeRespose(T response, ApiError error) {
         ApiResponse apiResponse = new ApiResponse();
         apiResponse.setError(error);
         ApiBody apiBody = new ApiBody();

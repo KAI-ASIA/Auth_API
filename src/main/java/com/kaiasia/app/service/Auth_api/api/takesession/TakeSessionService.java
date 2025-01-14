@@ -4,10 +4,6 @@ package com.kaiasia.app.service.Auth_api.api.takesession;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kaiasia.app.core.job.BaseService;
 import com.kaiasia.app.core.job.Enquiry;
-import com.kaiasia.app.core.model.ApiBody;
-import com.kaiasia.app.core.model.ApiError;
-import com.kaiasia.app.core.model.ApiRequest;
-import com.kaiasia.app.core.model.ApiResponse;
 import com.kaiasia.app.core.utils.ApiConstant;
 import com.kaiasia.app.core.utils.GetErrorUtils;
 import com.kaiasia.app.register.KaiMethod;
@@ -16,12 +12,19 @@ import com.kaiasia.app.register.Register;
 import com.kaiasia.app.service.Auth_api.dao.SessionIdDAO;
 import com.kaiasia.app.service.Auth_api.dto.SessionResponse;
 import com.kaiasia.app.service.Auth_api.model.AuthSessionResponse;
+import ms.apiclient.model.ApiBody;
+import ms.apiclient.model.ApiError;
+import ms.apiclient.model.ApiRequest;
+import ms.apiclient.model.ApiResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+//import org.springframework.boot.autoconfigure.couchbase.CouchbaseProperties.Env;
+import org.springframework.core.env.Environment;
 
-import java.util.Date;
+//import java.util.Date;
 
 @KaiService
 public class TakeSessionService extends BaseService {
@@ -35,9 +38,17 @@ public class TakeSessionService extends BaseService {
 
     @Autowired
     private ObjectMapper objectMapper;
+    
+ 
 
+    
+    @Value("${kai.time2live}")
+    private int time2livee;
+    
     @KaiMethod(name = "takeSession",type = Register.VALIDATE)
     public ApiError validate(ApiRequest apiRequest) throws  Exception{
+//    	   String time2 = evn.getProperty("time2live");
+//           int time2Live = Integer.valueOf(time2);
         Enquiry enquiry = objectMapper.convertValue(getEnquiry(apiRequest), Enquiry.class);
 
 
@@ -56,22 +67,23 @@ public class TakeSessionService extends BaseService {
 
         // Lấy thông tin session từ DB
         AuthSessionResponse authSessionResponse = sessionIdDAO.getAuthSessionId(enquiry.getSessionId());
-        String LOCATION = apiRequest.getHeader().getChannel() + "-" +
-                (authSessionResponse != null ? authSessionResponse.getUsername() : "Unknown") +
-                "-" + enquiry.getLoginTime();
-
+//        String LOCATION = apiRequest.getHeader().getChannel() + "-" +
+//                (authSessionResponse != null ? authSessionResponse.getUsername() : "Unknown") +
+//                "-" + enquiry.getLoginTime();
+        String LOCATION = enquiry.getSessionId();
         // Kiểm tra session có tồn tại không
         if (authSessionResponse == null) {
-
             ApiError apiError = apiErrorUtils.getError("801", new String[]{enquiry.getSessionId()});
             log.info(LOCATION + "#END#Duration:" + (System.currentTimeMillis() - a));
             apiResponse.setError(apiError);
             return apiResponse;
         }
 
-//        check expire time of sessionId
+
+        
+        //TODO check them: expireTime
         long expireTime = authSessionResponse.getEndTime().getTime() - authSessionResponse.getStartTime().getTime();
-        if(expireTime < 0){
+        if(expireTime > time2livee*60*1000){
             ApiError apiError  = apiErrorUtils.getError("810", new String[]{enquiry.getSessionId()});
             log.info(LOCATION + "#END#Duration:" + (System.currentTimeMillis() - a));
             apiResponse.setError(apiError);

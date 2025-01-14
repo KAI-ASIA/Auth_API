@@ -3,7 +3,7 @@ server:
     contextPath: /AUTH_API
   port: 8087
 kai:
-  name: Auth_API
+  name: AUTH_API
   key: authq51klfoni1ezxl5f2ckpfx248
   threadName: AUTH_API_NAME
   pollSize: 100
@@ -25,6 +25,7 @@ kai:
     code810: "Session {0} has expired"
     code601: "Input OTP is invalid"
     code503: "Failed to read from the database"
+  time2live: 30 #minutes
 spring:
   application:
     name: AUTH_API
@@ -54,14 +55,16 @@ eureka:
 dbinfo:
   apiRequest: request_in
   apiResponse: request_out
+  authSession: auth_session
 
 dep-api:
   t24utilsApi:
     apiName: T24_UTIL_API
-    #    url: http://14.225.254.212:8082/T24_UTIL_API/process #api
-    url: http://localhost:8082/T24_UTIL_API/process #api
+    url: http://14.225.254.212:8080/T24_UTIL_API/process #api
+#    url: http://localhost:8082/T24_UTIL_API/process #api
     timeout: 60000 #milisecond
     apiKey: VDI0X1VUSUxfQVBJ
+
 
 sessionTime:
   valid-duration: 3600 # 3600se
@@ -78,6 +81,14 @@ kafka:
   consumer-waiting: 500
   authentication: false
   clientId: node01-localhost
+
+kafka_resetpwd:
+  email:
+    subject: "Thay đổi mật khẩu"
+    content: "Mã thay đổi mật khẩu của bạn là :{0}"
+  topic:
+    name : "resetpwd"
+
 
 kafka_getOTP:
   email:

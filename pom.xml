@@ -93,6 +93,7 @@
             <groupId>ms.kaiasia.client</groupId>
             <artifactId>kai-client</artifactId>
             <version>20250105</version>
+
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.kafka/spring-kafka -->
@@ -100,7 +101,6 @@
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
         </dependency>
-
 
     </dependencies>
     <build>

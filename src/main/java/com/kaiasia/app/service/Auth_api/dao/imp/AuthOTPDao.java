@@ -3,9 +3,6 @@ package com.kaiasia.app.service.Auth_api.dao.imp;
 
 import com.kaiasia.app.core.dao.CommonDAO;
 import com.kaiasia.app.core.dao.PosgrestDAOHelper;
-import com.kaiasia.app.core.model.ApiBody;
-import com.kaiasia.app.core.model.ApiError;
-import com.kaiasia.app.core.model.ApiResponse;
 import com.kaiasia.app.service.Auth_api.dao.IAuthOTPDao;
 import com.kaiasia.app.service.Auth_api.model.Auth2InsertDb;
 import com.kaiasia.app.service.Auth_api.model.Auth2Request;
@@ -27,9 +24,6 @@ public class AuthOTPDao extends CommonDAO implements IAuthOTPDao {
 
     @Autowired
     PosgrestDAOHelper posgrestDAOHelper;
-
-    @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
 
     @Override
     public OTP getOTP(HashMap<String, String> body) throws Exception {
