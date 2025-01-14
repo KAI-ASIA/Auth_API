@@ -136,9 +136,7 @@ public class GetOTPService {
             }
 
             log.info("SEND TO KAFKA");
-            String email = auth2Request.getGmail();
-            System.out.println(email);
-            kafkaOTPProducer.sendMessage(email,generateOTP);
+            //kafkaOTPProducer.sendMessage(email,generateOTP);
 
             GetOTPResponse response = new GetOTPResponse();
             response.setResponseCode("00");
