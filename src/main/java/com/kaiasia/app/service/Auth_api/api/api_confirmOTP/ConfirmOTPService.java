@@ -100,6 +100,8 @@ public class ConfirmOTPService {
                 authOTPService.setConfirmTime(now, otp);
             } catch (Exception e) {
                 log.error(e.getMessage(), e);
+                ApiError apiError = apiErrorUtils.getError("505", new String[]{""});
+                return takeRespose(auth3Response, apiError);
             }
             return takeRespose(auth3Response);
         }
