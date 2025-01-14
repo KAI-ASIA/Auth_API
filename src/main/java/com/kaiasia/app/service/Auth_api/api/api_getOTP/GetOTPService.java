@@ -1,5 +1,6 @@
 package com.kaiasia.app.service.Auth_api.api.api_getOTP;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kaiasia.app.core.model.ApiBody;
 import com.kaiasia.app.core.model.ApiError;
 import com.kaiasia.app.core.model.ApiRequest;
@@ -11,9 +12,16 @@ import com.kaiasia.app.register.KaiService;
 import com.kaiasia.app.register.Register;
 import com.kaiasia.app.service.Auth_api.dao.IAuthOTPDao;
 import com.kaiasia.app.service.Auth_api.dto.GetOTPResponse;
+import com.kaiasia.app.service.Auth_api.kafka.KafkaOTPProducer;
+import com.kaiasia.app.service.Auth_api.model.Auth2InsertDb;
+import com.kaiasia.app.service.Auth_api.model.Auth2Request;
+import com.kaiasia.app.service.Auth_api.model.OTP;
+import com.kaiasia.app.service.Auth_api.utils.GenerateOTPUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 
 import static com.kaiasia.app.service.Auth_api.utils.ServiceUltil.takeRespose;
@@ -27,7 +35,17 @@ public class GetOTPService {
 
     @Autowired
     private IAuthOTPDao authOTPService;
+
     private ApiError apiError;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @Autowired
+    private GenerateOTPUtils generateOTPUtils;
+
+    @Autowired
+    private KafkaOTPProducer kafkaOTPProducer;
 
     @KaiMethod(name = "getOTP", type = Register.VALIDATE)
     public ApiError validate(ApiRequest req) {
@@ -65,9 +83,6 @@ public class GetOTPService {
             return apiErrorUtils.getError("706", new String[]{"transId"});
         }
 
-        if (tempId == null || tempId.trim().isEmpty()) {
-            return apiErrorUtils.getError("706", new String[]{"tempId"});
-        }
 
         return new ApiError(ApiError.OK_CODE, ApiError.OK_DESC);
     }
@@ -82,10 +97,34 @@ public class GetOTPService {
 
         ApiResponse apiResponse = new ApiResponse();
 
-
+        Auth2Request auth2Request = objectMapper.convertValue(enquiry,Auth2Request.class);
 
         try {
-            String generateOTP = authOTPService.generateAndSaveOTP(enquiry);
+
+
+            String generateOTP = generateOTPUtils.generateOTP();
+
+            Auth2InsertDb auth2InsertDb = Auth2InsertDb.builder()
+                    .transId(auth2Request.getTransId())
+                    .validateCode(generateOTP)
+                    .username(auth2Request.getUsername())
+                    .sessionId("158963500-20161118132811-1479450491947")
+                    .channel(req.getHeader().getChannel())
+                    .location(req.getHeader().getLocation())
+                    .startTime(Timestamp.valueOf(LocalDateTime.now()))
+                    .endTime(Timestamp.valueOf(LocalDateTime.now().plusMinutes(2)))
+                    .transTime("20161108122000")
+                    .transInfo(auth2Request.getTransInfo())
+                    .build();
+
+            int result = authOTPService.insertOTP(auth2InsertDb);
+
+            if(result == 0){
+                ApiError apiError = apiErrorUtils.getError("800");
+                apiResponse.setError(apiError);
+                log.info(LOCATION + "#END#Duration:" + (System.currentTimeMillis() - a));
+                return apiResponse;
+            }
 
             boolean isOTPValid = authOTPService.compareOTPAndCheckExpiration(enquiry);
 
@@ -95,6 +134,12 @@ public class GetOTPService {
                 log.info(LOCATION + "#END#Duration:" + (System.currentTimeMillis() - a));
                 return apiResponse;
             }
+
+            log.info("SEND TO KAFKA");
+            String email = auth2Request.getGmail();
+            System.out.println(email);
+            kafkaOTPProducer.sendMessage(email,generateOTP);
+
             GetOTPResponse response = new GetOTPResponse();
             response.setResponseCode("00");
             response.setTransId(enquiry.get("transId").toString());

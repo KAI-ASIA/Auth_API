@@ -43,8 +43,6 @@ spring:
     open-in-view: false
   kafka:
     bootstrap-servers: 14.225.254.212:9092
-    consumer:
-      group-id: test-group
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       vale-serializer: org.apache.kafka.common.serialization.StringSerializer
@@ -69,7 +67,7 @@ sessionTime:
   valid-duration: 3600 # 3600se
 
 kafka:
-  bootsTrapServer: 14.225.254.212:9090
+  bootsTrapServer: 14.225.254.212:9092
   maximum-retry: 3
   usernameACL:
   pwACL:
@@ -80,3 +78,10 @@ kafka:
   consumer-waiting: 500
   authentication: false
   clientId: node01-localhost
+
+kafka_getOTP:
+  email:
+    subject: "Giao dich chuyen tien"
+    content: "Ma OTP cua ban la {0}. Co thoi gian 2 phut"
+  topic:
+    name : "getOTP"
