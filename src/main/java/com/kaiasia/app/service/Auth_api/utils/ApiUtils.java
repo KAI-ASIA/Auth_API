@@ -5,7 +5,7 @@ import ms.apiclient.model.ApiHeader;
 
 public class ApiUtils {
 
-    public static ApiHeader buildApiHeader(com.kaiasia.app.core.model.ApiHeader header) {
+    public static ApiHeader buildApiHeader(ApiHeader header) {
         ApiHeader h = new ApiHeader();
         h.setReqType("REQUEST");
         h.setApi(header.getApi());

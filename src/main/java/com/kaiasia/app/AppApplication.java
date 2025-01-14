@@ -9,7 +9,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @ImportResource({"classpath:spring-beans-dao.xml"})
-@ComponentScan(basePackages = {"com.kaiasia.app", "ms.apiclient.client"})
+@ComponentScan(basePackages = {"com.kaiasia.app", "ms.apiclient.client","ms.apiclient.authen"})
 @EnableScheduling
 public class AppApplication {
 

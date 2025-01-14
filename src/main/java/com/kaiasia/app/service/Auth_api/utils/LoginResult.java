@@ -2,13 +2,13 @@ package com.kaiasia.app.service.Auth_api.utils;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.kaiasia.app.core.model.ApiBody;
-import com.kaiasia.app.core.model.ApiError;
-import com.kaiasia.app.core.model.ApiHeader;
-import lombok.*;
 
-import java.util.TreeMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.*;
+import ms.apiclient.model.ApiBody;
+import ms.apiclient.model.ApiError;
+import ms.apiclient.model.ApiHeader;
+
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Getter

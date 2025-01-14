@@ -19,9 +19,14 @@
 		<property name="apiRequestDao" ref="apiRequestDAO" />
 		<property name="apiResponseDAO" ref="apiResponseDAO" />
 	</bean>
+	
 
+	<bean id="sessionIdDAO" class="com.kaiasia.app.service.Auth_api.dao.SessionIdDAO">
+		<property name="tableName" value="${dbinfo.authSession}" />
+	</bean>
 
-<!--	<bean id="t24UtilClient" class="com.kaiasia.app.service.Auth_api.utils.T24UtilClient">-->
+	<!--	
+<bean id="t24UtilClient" class="com.kaiasia.app.service.Auth_api.utils.T24UtilClient">-->
 <!--		<property name="url" value="${api.t24Api.url}" />-->
 <!--		<property name="apiName" value="${api.t24Api.apiName}" />-->
 <!--		<property name="apiKey" value="${api.t24Api.apiKey}" />-->
