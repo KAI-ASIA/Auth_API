@@ -3,7 +3,7 @@ server:
     contextPath: /AUTH_API
   port: 8087
 kai:
-  name: Auth_API
+  name: AUTH_API
   key: authq51klfoni1ezxl5f2ckpfx248
   threadName: AUTH_API_NAME
   pollSize: 100
@@ -12,7 +12,7 @@ kai:
     code998: "Timeout {0}"
     code701: "API not exist"
     code700: "API key not exists"
-    code804: "Request lacks valid information"
+    code804: "Request lacks valid information: {0}"
     code803: "RequestId not exist"
     code996: "Error insert request to DB#{0}"
     code703: "Enquiry not exist"
@@ -25,6 +25,8 @@ kai:
     code810: "Session {0} has expired"
     code601: "Input OTP is invalid"
     code503: "Failed to read from the database"
+    code504: "reset code not match"
+  time2live: 30 #minutes
 spring:
   application:
     name: AUTH_API
@@ -42,12 +44,10 @@ spring:
     show-sql: false
     open-in-view: false
   kafka:
-    bootstrap-servers: 14.225.254.212:9092
-    consumer:
-      group-id: test-group
     producer:
+      bootstrap-servers: 14.225.254.212:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      vale-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 eureka:
   client:
     service-url:
@@ -56,20 +56,22 @@ eureka:
 dbinfo:
   apiRequest: request_in
   apiResponse: request_out
+  authSession: auth_session
 
 dep-api:
   t24utilsApi:
     apiName: T24_UTIL_API
-    #    url: http://14.225.254.212:8082/T24_UTIL_API/process #api
-    url: http://localhost:8082/T24_UTIL_API/process #api
+    url: http://14.225.254.212:8080/T24_UTIL_API/process #api
+#    url: http://localhost:8082/T24_UTIL_API/process #api
     timeout: 60000 #milisecond
     apiKey: VDI0X1VUSUxfQVBJ
+
 
 sessionTime:
   valid-duration: 3600 # 3600se
 
 kafka:
-  bootsTrapServer: 14.225.254.212:9090
+  bootsTrapServer: 14.225.254.212:9092
   maximum-retry: 3
   usernameACL:
   pwACL:
@@ -80,3 +82,18 @@ kafka:
   consumer-waiting: 500
   authentication: false
   clientId: node01-localhost
+
+kafka_resetpwd:
+  email:
+    subject: "Thay đổi mật khẩu"
+    content: "Mã thay đổi mật khẩu của bạn là :{0}"
+  topic:
+    name : "resetpwd"
+
+
+kafka_getOTP:
+  email:
+    subject: "Giao dich chuyen tien"
+    content: "Ma OTP cua ban la {0}. Co thoi gian 2 phut"
+  topic:
+    name : "getOTP"

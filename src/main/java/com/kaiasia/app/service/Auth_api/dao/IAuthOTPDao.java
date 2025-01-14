@@ -1,8 +1,6 @@
 package com.kaiasia.app.service.Auth_api.dao;
 
-import com.kaiasia.app.core.model.ApiError;
-import com.kaiasia.app.core.model.ApiResponse;
-import com.kaiasia.app.service.Auth_api.model.Auth3Response;
+import com.kaiasia.app.service.Auth_api.model.Auth2InsertDb;
 import com.kaiasia.app.service.Auth_api.model.OTP;
 
 import java.sql.Timestamp;
@@ -13,5 +11,5 @@ public interface IAuthOTPDao {
 
     boolean compareOTPAndCheckExpiration(HashMap<String, String> body) throws Exception;
 
-    String generateAndSaveOTP(HashMap<String, String> body) throws Exception;
+    int insertOTP(Auth2InsertDb auth2InsertDb) throws Exception;
 }

@@ -1,16 +1,17 @@
 package com.kaiasia.app.service.Auth_api.dao.imp;
 
 
+import com.kaiasia.app.core.dao.CommonDAO;
 import com.kaiasia.app.core.dao.PosgrestDAOHelper;
-import com.kaiasia.app.core.model.ApiBody;
-import com.kaiasia.app.core.model.ApiError;
-import com.kaiasia.app.core.model.ApiResponse;
 import com.kaiasia.app.service.Auth_api.dao.IAuthOTPDao;
+import com.kaiasia.app.service.Auth_api.model.Auth2InsertDb;
+import com.kaiasia.app.service.Auth_api.model.Auth2Request;
 import com.kaiasia.app.service.Auth_api.model.Auth3Response;
 import com.kaiasia.app.service.Auth_api.model.OTP;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
@@ -21,13 +22,10 @@ import java.util.Random;
 
 @Slf4j
 @Service
-public class AuthOTPDao implements IAuthOTPDao {
+public class AuthOTPDao extends CommonDAO implements IAuthOTPDao {
 
     @Autowired
     PosgrestDAOHelper posgrestDAOHelper;
-
-//    @Autowired
-//    private KafkaTemplate<String, String> kafkaTemplate;
 
     @Override
     public OTP getOTP(String sessionId, String username, String transId ) throws Exception {
@@ -75,51 +73,28 @@ public class AuthOTPDao implements IAuthOTPDao {
     }
 
     @Override
-    public String generateAndSaveOTP(HashMap<String, String> body) throws Exception{
-        String otp = generateOTP();
-        OTP newOTP = new OTP();
-        newOTP.setSession_id(body.get("session_id"));
-        newOTP.setChannel(body.get("channel"));
-        newOTP.setUsername(body.get("username"));
-        newOTP.setValidate_code(otp);
-        newOTP.setEnd_time(Timestamp.valueOf(LocalDateTime.now().plusMinutes(2)));
-
+    public int insertOTP(Auth2InsertDb auth2InsertDb) throws Exception{
         String sql = "INSERT INTO auth_api.otp\n" +
-                "(validate_code, trans_id, username, channel, start_time, \"location\", end_time, status, session_id, confirm_time, trans_info, trans_time)\n" +
+                "(validate_code, trans_id, username, channel, start_time, location, end_time, status, session_id, confirm_time, trans_info, trans_time)\n" +
                 "VALUES(:validate_code, :trans_id, :username,:channel, :start_time, :location,:end_time, :status, :session_id, :confirm_time, :trans_info, :trans_time);";
         HashMap<String, Object> param = new HashMap();
-        param.put("validate_code", newOTP.getValidate_code());
-        param.put("trans_id", newOTP.getTrans_id());
-        param.put("username", newOTP.getUsername());
-        param.put("channel", newOTP.getChannel());
-        param.put("start_time", newOTP.getStart_time());
-        param.put("location", newOTP.getLocation());
-        param.put("end_time", newOTP.getEnd_time());
-        param.put("status", newOTP.getStatus());
-        param.put("session_id", newOTP.getSession_id());
-        param.put("confirm_time",newOTP.getConfirm_time());
-        param.put("trans_info", newOTP.getTrans_info());
-        param.put("trans_time",newOTP.getTrans_time());
+        param.put("validate_code", auth2InsertDb.getValidateCode());
+        param.put("trans_id", auth2InsertDb.getTransId());
+        param.put("username", auth2InsertDb.getUsername());
+        param.put("channel", auth2InsertDb.getChannel());
+        param.put("start_time", auth2InsertDb.getStartTime());
+        param.put("location", auth2InsertDb.getLocation());
+        param.put("end_time", auth2InsertDb.getEndTime());
+        param.put("status", auth2InsertDb.getStatus());
+        param.put("session_id", auth2InsertDb.getSessionId());
+        param.put("confirm_time", auth2InsertDb.getConfirmTime());
+        param.put("trans_info",auth2InsertDb.getTransInfo());
+        param.put("trans_time",auth2InsertDb.getTransTime());
 
         int result = posgrestDAOHelper.update(sql, param);
-        if (result > 0){
-            //        kafkaTemplate.send("otp-topic", otp);
-            return otp;
-        }
-
-        return null;
+        return result;
     }
 
-    private String generateOTP() {
-        Random random = new Random();
-        int otpLength = 6;
-        StringBuilder otp = new StringBuilder();
 
-        for (int i = 0; i < otpLength; i++) {
-            otp.append(random.nextInt(10));
-        }
-
-        return otp.toString();
-    }
 
 }
