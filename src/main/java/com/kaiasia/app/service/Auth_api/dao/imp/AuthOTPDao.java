@@ -42,7 +42,7 @@ public class AuthOTPDao extends CommonDAO implements IAuthOTPDao {
 
     @Override
     public void setConfirmTime( Timestamp now, OTP otp) throws Exception {
-        String sql = "UPDATE auth_api.otp SET status='DONE', confirm_time= :confirm_time " +
+        String sql = "UPDATE auth_api.otp SET status='CONFIRMED', confirm_time= :confirm_time " +
                 "WHERE auth_api.otp.username = :username and auth_api.otp.session_id = :session_id " +
                 "and auth_api.otp.trans_id = :trans_id ;";
         Map<String, Object> params = new HashMap<>();
