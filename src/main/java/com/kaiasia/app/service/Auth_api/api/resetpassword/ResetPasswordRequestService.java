@@ -116,7 +116,7 @@ public class ResetPasswordRequestService {
             return apiResponse;
         }
 
-        if(t24UserInfoResponse.getCustomerId() == null && t24UserInfoResponse.getCustomerId().isEmpty()){
+        if(StringUtils.isBlank(t24UserInfoResponse.getCustomerId()) && t24UserInfoResponse.getCustomerId().isEmpty()){
             ApiError apiError = new ApiError(t24UserInfoResponse.getError().getCode(),t24UserInfoResponse.getError().getDesc());
             apiResponse.setError(apiError);
             log.info(location + "#ID DOES NOT EXIST" + (System.currentTimeMillis() - time));
@@ -126,7 +126,7 @@ public class ResetPasswordRequestService {
         // thiếu check user có bị khóa không ?
 
         //check email
-        if(t24UserInfoResponse.getEmail() == null && t24UserInfoResponse.getEmail().isEmpty() ){
+        if(StringUtils.isBlank(t24UserInfoResponse.getEmail()) && t24UserInfoResponse.getEmail().isEmpty() ){
             ApiError apiError = new ApiError(t24UserInfoResponse.getError().getCode(),t24UserInfoResponse.getError().getDesc());
             apiResponse.setError(apiError);
             log.info(location + "#EMAIL DOES NOT EXIST");

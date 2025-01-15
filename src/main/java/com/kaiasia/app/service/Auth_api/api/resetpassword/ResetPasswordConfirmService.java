@@ -107,7 +107,10 @@ public class ResetPasswordConfirmService {
             return apiResponse;
         }
 
+
+
         // thiếu check user có bị khóa không ?
+
         Auth6ResFromDb auth6ResFromDb = null;
         try{
             auth6ResFromDb = resetPwdDao.getResetPwdRecord(t24UserInfoResponse.getCustomerId());
